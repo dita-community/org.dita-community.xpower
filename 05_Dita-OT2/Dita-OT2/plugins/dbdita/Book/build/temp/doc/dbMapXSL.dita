@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?><?workdir /F:\Dita-OT2\plugins\dbdita\Book\build\temp\doc?><?workdir-uri file:/F:/Dita-OT2/plugins/dbdita/Book/build/temp/doc/?><?path2project ..\?><?path2project-uri ../?><!--
+ | (C) Copyright IBM Corporation 2006. All Rights Reserved.
+ * hosted on
+ |          Sourceforge.net. See the accompanying license.txt file for
+ |          applicable licenses.
+ *--><!--
+ | (C) Copyright IBM Corporation 2006. All Rights Reserved.
+ *--><topic xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/" id="demoxsl" xml:lang="en-us" ditaarch:DITAArchVersion="1.2" domains="(topic hi-d)                             (topic ut-d)                             (topic indexing-d)                            (topic hazard-d)                            (topic abbrev-d)                            (topic pr-d)                             (topic sw-d)                            (topic ui-d)    " class="- topic/topic " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\dbMapXSL.dita" xtrc="topic:1;12:38">
+<title class="- topic/title " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\dbMapXSL.dita" xtrc="title:1;13:8">Demonstration transforms</title>
+<shortdesc class="- topic/shortdesc " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\dbMapXSL.dita" xtrc="shortdesc:1;14:12">The examples of DocBook and DITA interoperability can be processed
+with demonstration transforms.</shortdesc>
+<body class="- topic/body " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\dbMapXSL.dita" xtrc="body:1;16:7">
+<p class="- topic/p " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\dbMapXSL.dita" xtrc="p:1;17:4">The plugin contributes the following targets to the DITA Open Toolkit: </p>
+<dl class="- topic/dl " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\dbMapXSL.dita" xtrc="dl:1;18:5"><dlentry class="- topic/dlentry " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\dbMapXSL.dita" xtrc="dlentry:1;18:14">
+<dt class="- topic/dt " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\dbMapXSL.dita" xtrc="dt:1;19:5">docbook2dita</dt>
+<dd class="- topic/dd " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\dbMapXSL.dita" xtrc="dd:1;20:5">Convert DocBook divisions to DITA topics. The DITA topics can then be
+processed with the DITA Open Toolkit.<p class="- topic/p " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\dbMapXSL.dita" xtrc="p:2;21:41">Executed by the <keyword class="- topic/keyword " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\dbMapXSL.dita" xtrc="keyword:1;21:66">docbook2DITADemo</keyword> target
+in the run-ant demo build.</p></dd>
+</dlentry><dlentry class="- topic/dlentry " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\dbMapXSL.dita" xtrc="dlentry:2;23:20">
+<dt class="- topic/dt " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\dbMapXSL.dita" xtrc="dt:2;24:5">docbookRelatePush</dt>
+<dd class="- topic/dd " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\dbMapXSL.dita" xtrc="dd:2;25:5">Push relationships from a DITA map into DocBook articles. The DocBook
+articles can then be processed with the DocBook transform tools.<p class="- topic/p " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\dbMapXSL.dita" xtrc="p:3;26:68">Executed
+by the <keyword class="- topic/keyword " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\dbMapXSL.dita" xtrc="keyword:2;27:17">docbookRelateDemo</keyword> target in the run-ant demo build.</p></dd>
+</dlentry><dlentry class="- topic/dlentry " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\dbMapXSL.dita" xtrc="dlentry:3;28:20">
+<dt class="- topic/dt " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\dbMapXSL.dita" xtrc="dt:3;29:5">docbookMix2dita</dt>
+<dd class="- topic/dd " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\dbMapXSL.dita" xtrc="dd:3;30:5">Convert DocBook articles referenced from a DITA map to DITA. The DITA
+map can then be processed with the DITA Open Toolkit.<p class="- topic/p " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\dbMapXSL.dita" xtrc="p:4;31:57">Executed by the <keyword class="- topic/keyword " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\dbMapXSL.dita" xtrc="keyword:3;31:82">docbookMixDemo</keyword> target
+in the run-ant demo build.</p></dd>
+</dlentry><dlentry class="- topic/dlentry " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\dbMapXSL.dita" xtrc="dlentry:4;33:20">
+<dt class="- topic/dt " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\dbMapXSL.dita" xtrc="dt:4;34:5">docbookCompose2docbook</dt>
+<dd class="- topic/dd " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\dbMapXSL.dita" xtrc="dd:4;35:5">Assemble a DocBook book from DocBook divisions as specified by a DITA
+map. The DocBook book can then be processed with the DocBook transform tools.<p class="- topic/p " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\dbMapXSL.dita" xtrc="p:5;36:81">Executed
+by the <keyword class="- topic/keyword " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\dbMapXSL.dita" xtrc="keyword:4;37:17">docbookComposeDemo</keyword> target in the run-ant demo build.</p></dd>
+</dlentry><dlentry class="- topic/dlentry " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\dbMapXSL.dita" xtrc="dlentry:5;38:20">
+<dt class="- topic/dt " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\dbMapXSL.dita" xtrc="dt:5;39:5">docbookDitaref2docbook</dt>
+<dd class="- topic/dd " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\dbMapXSL.dita" xtrc="dd:5;40:5">Populate a DocBook book by reference to a DITA map. The DocBook book can
+then be processed with the DocBook transform tools.<p class="- topic/p " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\dbMapXSL.dita" xtrc="p:6;41:55">Executed by the <keyword class="- topic/keyword " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\dbMapXSL.dita" xtrc="keyword:5;41:80">docbookDitarefDemo</keyword> target
+in the run-ant demo build.</p></dd>
+</dlentry></dl>
+</body>
+</topic>

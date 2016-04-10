@@ -1,0 +1,1 @@
+call ue %DitaOutputDir%\topic.fo

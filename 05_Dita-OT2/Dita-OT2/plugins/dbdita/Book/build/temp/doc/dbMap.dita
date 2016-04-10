@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?><?workdir /F:\Dita-OT2\plugins\dbdita\Book\build\temp\doc?><?workdir-uri file:/F:/Dita-OT2/plugins/dbdita/Book/build/temp/doc/?><?path2project ..\?><?path2project-uri ../?><!--
+ | (C) Copyright IBM Corporation 2006. All Rights Reserved.
+ * hosted on
+ |          Sourceforge.net. See the accompanying license.txt file for
+ |          applicable licenses.
+ *--><!--
+ | (C) Copyright IBM Corporation 2006. All Rights Reserved.
+ *--><topic xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/" id="dbmap" xml:lang="en-us" ditaarch:DITAArchVersion="1.2" domains="(topic hi-d)                             (topic ut-d)                             (topic indexing-d)                            (topic hazard-d)                            (topic abbrev-d)                            (topic pr-d)                             (topic sw-d)                            (topic ui-d)    " class="- topic/topic " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\dbMap.dita" xtrc="topic:1;12:36">
+<title class="- topic/title " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\dbMap.dita" xtrc="title:1;13:8">DITA maps and DocBook</title>
+<shortdesc class="- topic/shortdesc " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\dbMap.dita" xtrc="shortdesc:1;14:12">A DITA map can assemble content or define relationships between
+content in processable formats.</shortdesc>
+<body class="- topic/body " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\dbMap.dita" xtrc="body:1;16:7">
+<p class="- topic/p " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\dbMap.dita" xtrc="p:1;17:4">A DITA map can nest content or define relationships between content. The
+content can, of course, be DITA topics to take advantage of granular design,
+strong typing, and extensible markup. Content can also, however, be provided
+in a processable format such as HTML or XML by setting the format attribute
+and (for more precision within the format) the type attribute. </p>
+<p class="- topic/p " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\dbMap.dita" xtrc="p:2;22:4">In particular, a DITA map can compose a DocBook book or establish relationships
+between DocBook articles. (These alternatives were summarized at a high level
+in <xref format="html" href="http://www.oasis-open.org/events/symposium_2006/slides/Hennum.ppt" scope="external" class="- topic/xref " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\dbMap.dita" xtrc="xref:1;25:18"><?ditaot usertext?>http://www.oasis-open.org/events/symposium_2006/slides/Hennum.ppt</xref>).</p>
+</body>
+<topic id="dbcompose" xml:lang="en-us" ditaarch:DITAArchVersion="1.2" domains="(topic hi-d)                             (topic ut-d)                             (topic indexing-d)                            (topic hazard-d)                            (topic abbrev-d)                            (topic pr-d)                             (topic sw-d)                            (topic ui-d)    " class="- topic/topic " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\dbMap.dita" xtrc="topic:2;27:40">
+<title class="- topic/title " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\dbMap.dita" xtrc="title:2;28:8">Book composition through a map</title>
+<shortdesc class="- topic/shortdesc " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\dbMap.dita" xtrc="shortdesc:2;29:12">A DITA map can define the nesting of the divisions that make up
+a DocBook book.</shortdesc>
+<body class="- topic/body " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\dbMap.dita" xtrc="body:2;31:7">
+<p class="- topic/p " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\dbMap.dita" xtrc="p:3;32:4">A DITA map can be specialized to introduce elements corresponding to the
+DocBook logical divisions such as book, chapter, section, and so on. The specialized
+elements can ensure that references to divisions are nested in the proper
+order, for example, so that a section reference doesn't nest a chapter reference.
+The DITA map can then be preprocessed to generate a DocBook book and then
+processed with DocBook tools.</p>
+</body>
+</topic>
+<topic id="ditaref" xml:lang="en-us" ditaarch:DITAArchVersion="1.2" domains="(topic hi-d)                             (topic ut-d)                             (topic indexing-d)                            (topic hazard-d)                            (topic abbrev-d)                            (topic pr-d)                             (topic sw-d)                            (topic ui-d)    " class="- topic/topic " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\dbMap.dita" xtrc="topic:3;40:38">
+<title class="- topic/title " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\dbMap.dita" xtrc="title:3;41:8">Book content by reference to a map</title>
+<shortdesc class="- topic/shortdesc " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\dbMap.dita" xtrc="shortdesc:3;42:12">A DocBook book can be populated with content from to a DITA map.</shortdesc>
+<body class="- topic/body " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\dbMap.dita" xtrc="body:3;43:7">
+<p class="- topic/p " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\dbMap.dita" xtrc="p:4;44:4">This solution requires customizing DocBook by adding a single element that
+refers to DITA maps or topics. A DocBook book can then be preprocessed to
+replace the references with the result of converting the referenced DITA content
+to DocBook using the DITA-to-DocBook transform of the DITA Open Toolkit. This
+approach is described in more detail in Robert Anderson's article, <q class="- topic/q " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\dbMap.dita" xtrc="q:1;48:71">Implement
+a DITA publishing solution without abandoning your current publishing system
+investments</q> (see <xref format="html" href="http://www-128.ibm.com/developerworks/xml/library/x-dita11/" scope="external" class="- topic/xref " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\dbMap.dita" xtrc="xref:2;51:18"><?ditaot gentext?>http://www-128.ibm.com/developerworks/xml/library/x-dita11/</xref>).</p>
+</body>
+</topic>
+<topic id="dbrelate" xml:lang="en-us" ditaarch:DITAArchVersion="1.2" domains="(topic hi-d)                             (topic ut-d)                             (topic indexing-d)                            (topic hazard-d)                            (topic abbrev-d)                            (topic pr-d)                             (topic sw-d)                            (topic ui-d)    " class="- topic/topic " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\dbMap.dita" xtrc="topic:4;54:39">
+<title class="- topic/title " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\dbMap.dita" xtrc="title:4;55:8">Article relationships through a map</title>
+<shortdesc class="- topic/shortdesc " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\dbMap.dita" xtrc="shortdesc:4;56:12">A DITA map can express relationships between DocBook articles.</shortdesc>
+<body class="- topic/body " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\dbMap.dita" xtrc="body:4;57:7">
+<p class="- topic/p " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\dbMap.dita" xtrc="p:5;58:4">A DITA map can be specialized for convenience to add an element to refer
+to a DocBook article. The specialized map can express navigation or cross-referencing
+relationships between a DocBook article and other DocBook articles or DITA
+topics. A preprocess can then push the relationships into the DocBook articles.
+A light extension on the DocBook processing can then format the links during
+processing to XHTML. </p>
+</body>
+</topic>
+</topic>

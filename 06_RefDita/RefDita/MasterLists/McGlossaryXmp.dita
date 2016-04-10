@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glossgroup PUBLIC "-//OASIS//DTD DITA Glossary Group//EN" "glossgroup.dtd">
+<glossgroup id="ml_glossary">
+    <title id="ml_Title">Masterlist Glossary</title>
+    <glossentry id="gle_2G">
+        <glossterm id="gls_2G">2G</glossterm>
+        <glossdef id="glc_2G">2nd Generation <p>Second generation of cellular mobile communications which corresponds to
+                a GSM network with a SIM card in the mobile. Also referred to as GSM.</p>
+        </glossdef>
+    </glossentry>
+    <glossentry id="gle_3DES">
+        <glossterm id="gls_3DES">3DES</glossterm>
+        <glossdef id="glc_3DES">Also known as: DES3, triple-DES or TDES <p>The triple-DES algorithm is an extended DES
+                encryption. It consists of calling the DES algorithm three times in succession, with alternating
+                encryption and decryption. If the same key is used for all three DES calls, triple-DES encryption
+                corresponds to a normal DES encryption. However, if two or three different keys are used, triple-DES
+                encryption is significantly stronger than a single DES encryption.</p>
+        </glossdef>
+    </glossentry>
+    <glossentry id="gle_GMT">
+        <glossterm id="gls_GMT">GMT</glossterm>
+        <glossdef id="glc_GMT">Greenwich Mean Time</glossdef>
+    </glossentry>
+    <glossentry id="gle_GSMA">
+        <glossterm id="gls_GSMA">GSMA</glossterm>
+        <glossdef id="glc_GSMA">The GSM Association (GSMA, or Groupe Speciale Mobile Association), formed in 1995, is an
+            association of mobile operators and related companies devoted to supporting the standardising, deployment
+            and promotion of the GSM mobile telephone system.<p>The GSMA represents the interests of mobile operators
+                worldwide, uniting nearly 800 operators with more than 250 companies in the broader mobile ecosystem,
+                including handset and device makers, software companies, equipment providers and Internet companies, as
+                well as organisations in adjacent industry sectors</p><p audience="link"><xref
+                    href="https://en.wikipedia.org/wiki/GSM_Association" format="html" scope="external"
+                    outputclass="see"/></p></glossdef>
+    </glossentry>
+    <glossentry id="gle_I2C">
+        <glossterm id="gls_I2C">I2C</glossterm>
+        <glossdef id="glc_I2C">I²C (Inter-Integrated Circuit), pronounced I-squared-C, is a multi-master, multi-slave,
+            single-ended, serial computer bus invented by Philips Semiconductor (now NXP Semiconductors). It is
+            typically used for attaching lower-speed peripheral ICs to processors and microcontrollers.<p>Alternatively
+                I²C is spelled I2C (pronounced I-two-C) or IIC (pronounced I-I-C). Since October 10, 2006, no licensing
+                fees are required to implement the I²C protocol. However, fees are still required to obtain I²C slave
+                addresses allocated by NXP → <xref href="https://en.wikipedia.org/wiki/I%C2%B2C" format="html"
+                    scope="external"/></p></glossdef>
+    </glossentry>
+    <glossentry id="gle_SVG">
+        <glossterm id="gls_SVG">SVG</glossterm>
+        <glossdef id="glc_SVG">Scalable Vector Graphic</glossdef>
+    </glossentry>
+    <glossentry id="gle_WIFI">
+        <glossterm id="gls_WIFI">WIFI</glossterm>
+        <glossdef id="glc_WIFI">Definition according to BMS MONEO - Functional specification Contactless Debit Part 1:
+            Moneo Purse Ref: DSI9WIFI Version: 1.1.1 for contact-less transaction.</glossdef>
+    </glossentry>
+    <glossentry id="gle_empty">
+        <glossterm id="gls_empty">empty</glossterm>
+        <glossdef id="glc_empty">entry</glossdef>
+    </glossentry>
+</glossgroup>

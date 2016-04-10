@@ -1,0 +1,30 @@
+<!-- check [DitaSpec#3.1.8] -->
+<!--HSX The target fields (e.g. 'product' or 'audience' take blank delimited multiple values
+        To evaluate multiple values, you need to have separate statement for each of those values
+        
+    <p audience="expert novice"/>
+    ...
+    <prop action="include" att="audience" val="expert"/>
+    <prop action="include" att="audience" val="novice"/>
+-->
+
+<val>
+    <style-conflict backcolor="red"/>
+    <prop action="include" att="audience" val="everybody"/>
+    <prop action="exclude" att="audience" val="system"/>
+    <prop action="flag" att="product" val="ezread" backcolor="#E0E0FF"/>
+    <prop action="flag" 
+          att="product" 
+          backcolor="blue"
+          color="yellow" 
+          style="underline" 
+          val="MyProd">
+        <startflag imageref="startflag.jpg">
+            <alt-text>This is the start of my product info</alt-text>
+        </startflag>
+        <endflag imageref="endflag.jpg">
+            <alt-text>This is the end of my product info</alt-text>
+        </endflag>
+    </prop>
+    <revprop action="flag" val="1.2"/>
+</val>

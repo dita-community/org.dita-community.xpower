@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glossgroup PUBLIC "-//OASIS//DTD DITA Glossary Group//EN" "glossgroup.dtd">
+<glossgroup id="glsgrp">
+  <title>Terms and Abbreviations</title>
+    <glossentry id="gle_DCI">
+        <glossterm id="gls_DCI">DCI</glossterm>
+        <glossdef id="glc_DCI">G&amp;D Development Center India</glossdef>
+    </glossentry>
+    <glossentry id="gle_ortler">
+        <glossterm id="gls_ortler">Ortler</glossterm>
+        <glossdef id="glc_ortler">Ortler</glossdef>
+    </glossentry>
+    <glossentry id="gle_KHS">
+        <glossterm id="gls_KHS">KHS</glossterm>
+        <glossdef id="glc_KHS">Key handling system</glossdef>
+    </glossentry>
+</glossgroup>

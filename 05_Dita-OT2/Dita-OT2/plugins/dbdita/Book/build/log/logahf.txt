@@ -1,0 +1,481 @@
+
+clean.book.pdf:
+
+book.pdf:
+
+init:
+
+dita2custpdf:
+     [echo] ProjDoc=..\..\..\..\Gnd\DocuDesign\XZ00_Process\Documentation
+     [echo] GfxPath=${gfxpath}
+     [echo] 03/07/2015 01:22:15 HSCT:dita2pdf.cust:in
+
+dita2pdf2.init:
+
+check-arg:
+     [echo] 03/07/2015 01:22:15 HSCT:check-arg:in
+    [mkdir] Created dir: F:\xxx\06_RefDita\RefDita\pdf
+    [mkdir] Created dir: F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238
+     [echo] 03/07/2015 01:22:16 HSCT:check-arg:out
+
+log-arg:
+     [echo] 03/07/2015 01:22:16 HSCT:log-arg:in
+     [echo] *****************************************************************
+     [echo] * basedir = F:\xxx\06_RefDita\RefDita\build
+     [echo] * dita.dir = F:\Dita-OT2
+     [echo] * transtype = custpdf
+     [echo] * tempdir = F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238
+     [echo] * outputdir = F:\xxx\06_RefDita\RefDita\pdf
+     [echo] * clean.temp = no
+     [echo] * DITA-OT version = 2.1.0-M1
+     [echo] * XML parser = Xerces
+     [echo] * XSLT processor = Saxon
+     [echo] * collator = ICU
+     [echo] * gfxpath = ${gfxpath}
+     [echo] *****************************************************************
+     [echo] #Ant properties
+     [echo] #Fri Jul 03 13:22:16 IST 2015
+     [echo] args.bookmap-order=retain
+     [echo] args.debug=yes
+     [echo] args.filter=../src/val.ditaval
+     [echo] args.gen.task.lbl=YES
+     [echo] args.grammar.cache=yes
+     [echo] args.input=F\:\\xxx\\06_RefDita\\RefDita\\src\\book.ditamap
+     [echo] args.logdir=F\:\\xxx\\06_RefDita\\RefDita\\pdf
+     [echo] args.rellinks=nofamily
+     [echo] args.xml.systemid.set=yes
+     [echo] dita.dir=F\:\\Dita-OT2
+     [echo] dita.input.valfile=../src/val.ditaval
+     [echo] dita.plugin.com.ref1.pdf.dir=F\:\\Dita-OT2\\plugins\\com.ref1.pdf
+     [echo] dita.plugin.com.sophos.tocjs.dir=F\:\\Dita-OT2\\plugins\\com.sophos.tocjs
+     [echo] dita.plugin.org.dita.base.dir=F\:\\Dita-OT2
+     [echo] dita.plugin.org.dita.docbook.dir=F\:\\Dita-OT2\\plugins\\org.dita.docbook
+     [echo] dita.plugin.org.dita.eclipsecontent.dir=F\:\\Dita-OT2\\plugins\\org.dita.eclipsecontent
+     [echo] dita.plugin.org.dita.eclipsehelp.dir=F\:\\Dita-OT2\\plugins\\org.dita.eclipsehelp
+     [echo] dita.plugin.org.dita.htmlhelp.dir=F\:\\Dita-OT2\\plugins\\org.dita.htmlhelp
+     [echo] dita.plugin.org.dita.javahelp.dir=F\:\\Dita-OT2\\plugins\\org.dita.javahelp
+     [echo] dita.plugin.org.dita.odt.dir=F\:\\Dita-OT2\\plugins\\org.dita.odt
+     [echo] dita.plugin.org.dita.pdf2.dir=F\:\\Dita-OT2\\plugins\\org.dita.pdf2
+     [echo] dita.plugin.org.dita.specialization.dita11.dir=F\:\\Dita-OT2\\plugins\\org.dita.specialization.dita11
+     [echo] dita.plugin.org.dita.specialization.dita132.dir=F\:\\Dita-OT2\\plugins\\org.dita.specialization.dita132
+     [echo] dita.plugin.org.dita.specialization.eclipsemap.dir=F\:\\Dita-OT2\\plugins\\org.dita.specialization.eclipsemap
+     [echo] dita.plugin.org.dita.troff.dir=F\:\\Dita-OT2\\plugins\\org.dita.troff
+     [echo] dita.plugin.org.dita.wordrtf.dir=F\:\\Dita-OT2\\plugins\\org.dita.wordrtf
+     [echo] dita.plugin.org.dita.xhtml.dir=F\:\\Dita-OT2\\plugins\\org.dita.xhtml
+     [echo] dita.plugin.org.oasis-open.dita.v1_2.dir=F\:\\Dita-OT2\\plugins\\org.oasis-open.dita.v1_2
+     [echo] dita.temp.dir=F\:\\xxx\\06_RefDita\\RefDita\\build\\temp\\temp20150703132215238
+     [echo] *****************************************************************
+     [echo] 03/07/2015 01:22:16 HSCT:log-arg:out
+
+build-init:
+
+preprocess.init:
+     [echo] *****************************************************************
+     [echo] * input = F:\xxx\06_RefDita\RefDita\src\book.ditamap
+     [echo] *****************************************************************
+     [echo] 03/07/2015 01:22:16 HSCT:preprocess.init:in
+
+gen-list:
+     [echo] 03/07/2015 01:22:16 HSCT:gen-list:in
+ [gen-list] Using Xerces grammar pool for DTD and schema caching.
+ [gen-list] Processing file:/F:/xxx/06_RefDita/RefDita/src/book.ditamap
+ [gen-list] Processing file:/F:/xxx/06_RefDita/RefDita/src/concept/Abstract.dita
+ [gen-list] Processing file:/F:/xxx/06_RefDita/RefDita/src/concept/Notices.dita
+ [gen-list] Processing file:/F:/xxx/06_RefDita/RefDita/src/concept/NoticesSub.dita
+ [gen-list] Processing file:/F:/xxx/06_RefDita/RefDita/src/concept/Preface.dita
+ [gen-list] Processing file:/F:/xxx/06_RefDita/RefDita/src/concept/FirstChapter.dita
+ [gen-list] Processing file:/F:/xxx/06_RefDita/RefDita/src/concept/concept1.dita
+ [gen-list] Processing file:/F:/xxx/06_RefDita/RefDita/src/concept/topic1.dita
+ [gen-list] Processing file:/F:/xxx/06_RefDita/RefDita/src/concept/task1.dita
+ [gen-list] Processing file:/F:/xxx/06_RefDita/RefDita/src/concept/reference1.dita
+ [gen-list] Processing file:/F:/xxx/06_RefDita/RefDita/src/concept/NextChapter.dita
+ [gen-list] Processing file:/F:/xxx/06_RefDita/RefDita/src/concept/concept2.dita
+ [gen-list] Processing file:/F:/xxx/06_RefDita/RefDita/src/concept/topic2.dita
+ [gen-list] Processing file:/F:/xxx/06_RefDita/RefDita/src/concept/task2.dita
+ [gen-list] Processing file:/F:/xxx/06_RefDita/RefDita/src/concept/reference2.dita
+ [gen-list] Processing file:/F:/xxx/06_RefDita/RefDita/src/concept/Appendix.dita
+ [gen-list] Processing file:/F:/xxx/06_RefDita/RefDita/src/concept/Annex1.dita
+ [gen-list] Processing file:/F:/xxx/06_RefDita/RefDita/src/concept/Annex2.dita
+ [gen-list] Processing file:/F:/xxx/06_RefDita/RefDita/src/reference/Glossary.dita
+ [gen-list] Serializing job specification
+     [echo] 03/07/2015 01:22:17 HSCT:gen-list:pipeline-done
+[job-helper] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\.job.xml to F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\outditafiles.list
+[job-helper] Loading stylesheet F:\Dita-OT2\xsl\job-helper.xsl
+[job-helper] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\.job.xml to F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\fullditamapandtopic.list
+[job-helper] Loading stylesheet F:\Dita-OT2\xsl\job-helper.xsl
+[job-helper] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\.job.xml to F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\fullditatopic.list
+[job-helper] Loading stylesheet F:\Dita-OT2\xsl\job-helper.xsl
+[job-helper] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\.job.xml to F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\fullditamap.list
+[job-helper] Loading stylesheet F:\Dita-OT2\xsl\job-helper.xsl
+[job-helper] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\.job.xml to F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\hrefditatopic.list
+[job-helper] Loading stylesheet F:\Dita-OT2\xsl\job-helper.xsl
+[job-helper] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\.job.xml to F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\conref.list
+[job-helper] Loading stylesheet F:\Dita-OT2\xsl\job-helper.xsl
+[job-helper] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\.job.xml to F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\image.list
+[job-helper] Loading stylesheet F:\Dita-OT2\xsl\job-helper.xsl
+[job-helper] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\.job.xml to F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\flagimage.list
+[job-helper] Loading stylesheet F:\Dita-OT2\xsl\job-helper.xsl
+[job-helper] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\.job.xml to F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\html.list
+[job-helper] Loading stylesheet F:\Dita-OT2\xsl\job-helper.xsl
+[job-helper] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\.job.xml to F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\hreftargets.list
+[job-helper] Loading stylesheet F:\Dita-OT2\xsl\job-helper.xsl
+[job-helper] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\.job.xml to F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\canditopics.list
+[job-helper] Loading stylesheet F:\Dita-OT2\xsl\job-helper.xsl
+[job-helper] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\.job.xml to F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\subjectscheme.list
+[job-helper] Loading stylesheet F:\Dita-OT2\xsl\job-helper.xsl
+[job-helper] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\.job.xml to F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\conreftargets.list
+[job-helper] Loading stylesheet F:\Dita-OT2\xsl\job-helper.xsl
+[job-helper] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\.job.xml to F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\copytosource.list
+[job-helper] Loading stylesheet F:\Dita-OT2\xsl\job-helper.xsl
+[job-helper] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\.job.xml to F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\subtargets.list
+[job-helper] Loading stylesheet F:\Dita-OT2\xsl\job-helper.xsl
+[job-helper] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\.job.xml to F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\resourceonly.list
+[job-helper] Loading stylesheet F:\Dita-OT2\xsl\job-helper.xsl
+     [echo] 03/07/2015 01:22:18 HSCT:gen-list:out
+
+debug-filter:
+   [filter] Using Xerces grammar pool for DTD and schema caching.
+   [filter] Processing file:/F:/xxx/06_RefDita/RefDita/src/concept/Notices.dita
+   [filter] Processing file:/F:/xxx/06_RefDita/RefDita/src/concept/Preface.dita
+   [filter] Processing file:/F:/xxx/06_RefDita/RefDita/src/concept/topic2.dita
+   [filter] Processing file:/F:/xxx/06_RefDita/RefDita/src/concept/task1.dita
+   [filter] Processing file:/F:/xxx/06_RefDita/RefDita/src/concept/FirstChapter.dita
+   [filter] Processing file:/F:/xxx/06_RefDita/RefDita/src/reference/Glossary.dita
+   [filter] Processing file:/F:/xxx/06_RefDita/RefDita/src/concept/concept1.dita
+   [filter] Processing file:/F:/xxx/06_RefDita/RefDita/src/concept/Annex1.dita
+   [filter] Processing file:/F:/xxx/06_RefDita/RefDita/src/book.ditamap
+   [filter] Processing file:/F:/xxx/06_RefDita/RefDita/src/concept/Appendix.dita
+   [filter] Processing file:/F:/xxx/06_RefDita/RefDita/src/concept/reference2.dita
+   [filter] Processing file:/F:/xxx/06_RefDita/RefDita/src/concept/concept2.dita
+   [filter] Processing file:/F:/xxx/06_RefDita/RefDita/src/concept/NextChapter.dita
+   [filter] Processing file:/F:/xxx/06_RefDita/RefDita/src/concept/NoticesSub.dita
+   [filter] Processing file:/F:/xxx/06_RefDita/RefDita/src/concept/topic1.dita
+   [filter] Processing file:/F:/xxx/06_RefDita/RefDita/src/concept/task2.dita
+   [filter] Processing file:/F:/xxx/06_RefDita/RefDita/src/concept/Abstract.dita
+   [filter] Processing file:/F:/xxx/06_RefDita/RefDita/src/concept/Annex2.dita
+   [filter] Processing file:/F:/xxx/06_RefDita/RefDita/src/concept/reference1.dita
+[job-helper] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\.job.xml to F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\user.input.file.list
+[job-helper] Loading stylesheet F:\Dita-OT2\xsl\job-helper.xsl
+[job-helper] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\.job.xml to F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\hreftargets.list
+[job-helper] Loading stylesheet F:\Dita-OT2\xsl\job-helper.xsl
+[job-helper] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\.job.xml to F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\conref.list
+[job-helper] Loading stylesheet F:\Dita-OT2\xsl\job-helper.xsl
+[job-helper] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\.job.xml to F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\hrefditatopic.list
+[job-helper] Loading stylesheet F:\Dita-OT2\xsl\job-helper.xsl
+[job-helper] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\.job.xml to F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\fullditatopic.list
+[job-helper] Loading stylesheet F:\Dita-OT2\xsl\job-helper.xsl
+[job-helper] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\.job.xml to F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\fullditamapandtopic.list
+[job-helper] Loading stylesheet F:\Dita-OT2\xsl\job-helper.xsl
+[job-helper] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\.job.xml to F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\conreftargets.list
+[job-helper] Loading stylesheet F:\Dita-OT2\xsl\job-helper.xsl
+[job-helper] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\.job.xml to F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\canditopics.list
+[job-helper] Loading stylesheet F:\Dita-OT2\xsl\job-helper.xsl
+[job-helper] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\.job.xml to F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\resourceonly.list
+[job-helper] Loading stylesheet F:\Dita-OT2\xsl\job-helper.xsl
+
+copy-image-check:
+
+copy-image:
+     [copy] Copying 1 file to F:\xxx\06_RefDita\RefDita\pdf
+
+copy-html-check:
+
+copy-html:
+
+copy-flag-check:
+
+copy-flag:
+
+copy-subsidiary-check:
+
+copy-subsidiary:
+
+copy-files:
+
+keyref:
+
+conrefpush:
+[job-helper] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\.job.xml to F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\conref.list
+[job-helper] Loading stylesheet F:\Dita-OT2\xsl\job-helper.xsl
+
+conref-check:
+
+conref:
+
+profile-check:
+
+profile:
+
+topic-fragment:
+[topic-fragment] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\concept\Notices.dita
+[topic-fragment] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\concept\Preface.dita
+[topic-fragment] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\concept\topic2.dita
+[topic-fragment] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\concept\task1.dita
+[topic-fragment] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\concept\FirstChapter.dita
+[topic-fragment] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\reference\Glossary.dita
+[topic-fragment] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\concept\concept1.dita
+[topic-fragment] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\concept\Annex1.dita
+[topic-fragment] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\concept\Appendix.dita
+[topic-fragment] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\concept\reference2.dita
+[topic-fragment] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\concept\concept2.dita
+[topic-fragment] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\concept\NextChapter.dita
+[topic-fragment] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\concept\NoticesSub.dita
+[topic-fragment] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\concept\topic1.dita
+[topic-fragment] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\concept\task2.dita
+[topic-fragment] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\concept\Abstract.dita
+[topic-fragment] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\concept\Annex2.dita
+[topic-fragment] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\concept\reference1.dita
+
+coderef:
+
+mapref-check:
+
+mapref:
+   [mapref] Transforming into F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238
+   [mapref] Loading stylesheet F:\Dita-OT2\xsl\preprocess\mapref.xsl
+   [mapref] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\book.ditamap
+
+move-meta-entries:
+[move-meta] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\book.ditamap
+[move-meta] Processing file:/F:/xxx/06_RefDita/RefDita/build/temp/temp20150703132215238/concept/concept2.dita
+[move-meta] Processing file:/F:/xxx/06_RefDita/RefDita/build/temp/temp20150703132215238/concept/Appendix.dita
+[move-meta] Processing file:/F:/xxx/06_RefDita/RefDita/build/temp/temp20150703132215238/concept/Abstract.dita
+[move-meta] Processing file:/F:/xxx/06_RefDita/RefDita/build/temp/temp20150703132215238/concept/topic1.dita
+[move-meta] Processing file:/F:/xxx/06_RefDita/RefDita/build/temp/temp20150703132215238/reference/Glossary.dita
+[move-meta] Processing file:/F:/xxx/06_RefDita/RefDita/build/temp/temp20150703132215238/concept/Preface.dita
+[move-meta] Processing file:/F:/xxx/06_RefDita/RefDita/build/temp/temp20150703132215238/concept/Notices.dita
+[move-meta] Processing file:/F:/xxx/06_RefDita/RefDita/build/temp/temp20150703132215238/concept/NextChapter.dita
+[move-meta] Processing file:/F:/xxx/06_RefDita/RefDita/build/temp/temp20150703132215238/concept/task1.dita
+[move-meta] Processing file:/F:/xxx/06_RefDita/RefDita/build/temp/temp20150703132215238/concept/topic2.dita
+[move-meta] Processing file:/F:/xxx/06_RefDita/RefDita/build/temp/temp20150703132215238/concept/reference2.dita
+[move-meta] Processing file:/F:/xxx/06_RefDita/RefDita/build/temp/temp20150703132215238/concept/concept1.dita
+[move-meta] Processing file:/F:/xxx/06_RefDita/RefDita/build/temp/temp20150703132215238/concept/reference1.dita
+[move-meta] Processing file:/F:/xxx/06_RefDita/RefDita/build/temp/temp20150703132215238/concept/Annex1.dita
+[move-meta] Processing file:/F:/xxx/06_RefDita/RefDita/build/temp/temp20150703132215238/concept/FirstChapter.dita
+[move-meta] Processing file:/F:/xxx/06_RefDita/RefDita/build/temp/temp20150703132215238/concept/NoticesSub.dita
+[move-meta] Processing file:/F:/xxx/06_RefDita/RefDita/build/temp/temp20150703132215238/concept/task2.dita
+[move-meta] Processing file:/F:/xxx/06_RefDita/RefDita/build/temp/temp20150703132215238/concept/Annex2.dita
+
+mappull-check:
+
+mappull:
+  [mappull] Transforming into F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238
+  [mappull] Loading stylesheet F:\Dita-OT2\xsl\preprocess\mappull.xsl
+  [mappull] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\book.ditamap
+
+chunk-check:
+
+chunk:
+[job-helper] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\.job.xml to F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\fullditatopic.list
+[job-helper] Loading stylesheet F:\Dita-OT2\xsl\job-helper.xsl
+[job-helper] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\.job.xml to F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\fullditamap.list
+[job-helper] Loading stylesheet F:\Dita-OT2\xsl\job-helper.xsl
+[job-helper] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\.job.xml to F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\fullditamapandtopic.list
+[job-helper] Loading stylesheet F:\Dita-OT2\xsl\job-helper.xsl
+[job-helper] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\.job.xml to F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\resourceonly.list
+[job-helper] Loading stylesheet F:\Dita-OT2\xsl\job-helper.xsl
+[job-helper] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\.job.xml to F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\copytosource.list
+[job-helper] Loading stylesheet F:\Dita-OT2\xsl\job-helper.xsl
+[job-helper] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\.job.xml to F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\copytotarget2sourcemap.list
+[job-helper] Loading stylesheet F:\Dita-OT2\xsl\job-helper.xsl
+
+maplink-check:
+
+maplink:
+
+topicpull-check:
+
+topicpull:
+[topicpull] Transforming into F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238
+[topicpull] Loading stylesheet F:\Dita-OT2\xsl\preprocess\topicpull.xsl
+[topicpull] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\concept\topic1.dita
+[topicpull] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\concept\Abstract.dita
+[topicpull] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\concept\concept2.dita
+[topicpull] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\concept\reference1.dita
+[topicpull] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\concept\topic2.dita
+[topicpull] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\concept\FirstChapter.dita
+[topicpull] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\concept\Notices.dita
+[topicpull] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\concept\Annex2.dita
+[topicpull] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\concept\task1.dita
+[topicpull] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\concept\Appendix.dita
+[topicpull] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\concept\NoticesSub.dita
+[topicpull] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\concept\reference2.dita
+[topicpull] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\concept\Annex1.dita
+[topicpull] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\reference\Glossary.dita
+[topicpull] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\concept\concept1.dita
+[topicpull] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\concept\NextChapter.dita
+[topicpull] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\concept\task2.dita
+[topicpull] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\concept\Preface.dita
+
+flag-module-check:
+
+flag-module:
+[preprocess_flag] Transforming into F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238
+[preprocess_flag] Loading stylesheet F:\Dita-OT2\xsl\preprocess\flag.xsl
+[preprocess_flag] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\concept\topic1.dita
+[preprocess_flag] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\concept\Abstract.dita
+[preprocess_flag] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\concept\concept2.dita
+[preprocess_flag] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\concept\reference1.dita
+[preprocess_flag] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\concept\topic2.dita
+[preprocess_flag] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\concept\FirstChapter.dita
+[preprocess_flag] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\concept\Notices.dita
+[preprocess_flag] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\concept\Annex2.dita
+[preprocess_flag] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\concept\task1.dita
+[preprocess_flag] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\concept\Appendix.dita
+[preprocess_flag] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\concept\NoticesSub.dita
+[preprocess_flag] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\concept\reference2.dita
+[preprocess_flag] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\concept\Annex1.dita
+[preprocess_flag] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\reference\Glossary.dita
+[preprocess_flag] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\concept\concept1.dita
+[preprocess_flag] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\concept\NextChapter.dita
+[preprocess_flag] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\concept\task2.dita
+[preprocess_flag] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\concept\Preface.dita
+
+clean-map-check:
+
+clean-map:
+   [mapref] Transforming into F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238
+   [mapref] Loading stylesheet F:\Dita-OT2\xsl\preprocess\clean-map.xsl
+   [mapref] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\book.ditamap
+
+preprocess:
+
+map2pdf2:
+     [echo] 03/07/2015 01:22:25 HSCT:map2pdf2:in
+[topic-merge] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\book.ditamap
+[topic-merge] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\concept\Abstract.dita
+[topic-merge] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\concept\Notices.dita
+[topic-merge] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\concept\NoticesSub.dita
+[topic-merge] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\concept\Preface.dita
+[topic-merge] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\concept\FirstChapter.dita
+[topic-merge] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\concept\concept1.dita
+[topic-merge] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\concept\topic1.dita
+[topic-merge] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\concept\task1.dita
+[topic-merge] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\concept\reference1.dita
+[topic-merge] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\concept\NextChapter.dita
+[topic-merge] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\concept\concept2.dita
+[topic-merge] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\concept\topic2.dita
+[topic-merge] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\concept\task2.dita
+[topic-merge] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\concept\reference2.dita
+[topic-merge] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\concept\Appendix.dita
+[topic-merge] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\concept\Annex1.dita
+[topic-merge] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\concept\Annex2.dita
+[topic-merge] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\reference\Glossary.dita
+
+transform.topic2pdf.init:
+
+publish.map.pdf.init:
+
+copyCoreArtwork:
+     [copy] Copying 3 files to F:\xxx\06_RefDita\RefDita\pdf\Configuration\OpenTopic
+     [copy] Copying 108 files to F:\xxx\06_RefDita\RefDita\pdf\Customization\OpenTopic
+
+transform.topic2fo.init:
+[detect-lang] Lang search finished
+     [echo] Using document.locale=en
+
+transform.topic2fo.index:
+
+transform.topic2fo.flagging.filter:
+     [xslt] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\stage1.xml to F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\stage1a.xml
+     [xslt] Loading stylesheet F:\Dita-OT2\plugins\org.dita.pdf2\xsl\fo\flagging-preprocess.xsl
+
+transform.topic2fo.flagging.no-filter:
+
+transform.topic2fo.flagging:
+
+transform.topic2fo.main:
+     [xslt] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\stage1a.xml to F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\stage2.fo
+     [xslt] Loading stylesheet F:\Dita-OT2\plugins\org.dita.pdf2\xsl\fo\topic2fo_shell_axf.xsl
+     [xslt] BULLSHIT:FixChapterTitle
+     [xslt] BULLSHIT:FixChapterTitle
+     [xslt] BULLSHIT:FixChapterTitle
+     [xslt] BULLSHIT:FixChapterTitle
+     [xslt] BULLSHIT:FixChapterTitle
+     [xslt] BULLSHIT:FixChapterTitle
+     [xslt] BULLSHIT:FixChapterTitle
+     [xslt] BULLSHIT:FixChapterTitle
+     [xslt] BULLSHIT:FixChapterTitle
+     [xslt] BULLSHIT:FixChapterTitle
+     [xslt] BULLSHIT:FixChapterTitle
+     [xslt] BULLSHIT:FixChapterTitle
+     [xslt] BULLSHIT:FixChapterTitle
+     [xslt] BULLSHIT:FixChapterTitle
+     [xslt] BULLSHIT:FixChapterTitle
+     [xslt] BULLSHIT:FixChapterTitle
+     [xslt] BULLSHIT:FixChapterTitle
+     [xslt] BULLSHIT:FixChapterTitle
+     [xslt] BULLSHIT:FixChapterTitle
+     [xslt] BULLSHIT:FixChapterTitle
+     [xslt] BULLSHIT:FixChapterTitle
+     [xslt] BULLSHIT:FixChapterTitle
+     [xslt] BULLSHIT:FixChapterTitle
+     [xslt] BULLSHIT:FixChapterTitle
+     [xslt] BULLSHIT:FixChapterTitle
+     [xslt] BULLSHIT:FixChapterTitle
+     [xslt] BULLSHIT:FixChapterTitle
+     [xslt] BULLSHIT:FixChapterTitle
+     [xslt] BULLSHIT:FixChapterTitle
+     [xslt] BULLSHIT:FixChapterTitle
+     [xslt] BULLSHIT:FixChapterTitle
+     [xslt] BULLSHIT:FixChapterTitle
+     [xslt] BULLSHIT:FixChapterTitle
+     [xslt] BULLSHIT:FixChapterTitle
+     [xslt] BULLSHIT:FixChapterTitle
+     [xslt] BULLSHIT:FixChapterTitle
+     [xslt] BULLSHIT:FixChapterTitle
+     [xslt] BULLSHIT:FixChapterTitle
+     [xslt] BULLSHIT:FixChapterTitle
+     [xslt] BULLSHIT:FixChapterTitle
+
+transform.topic2fo.i18n.filter:
+     [xslt] Processing F:\xxx\06_RefDita\RefDita\build\temp\temp20150703132215238\stage3.fo to F:\xxx\06_RefDita\RefDita\pdf\topic.fo
+     [xslt] Loading stylesheet F:\Dita-OT2\plugins\org.dita.pdf2\xsl\fo\i18n-postprocess.xsl
+
+transform.topic2fo.i18n.no-filter:
+
+transform.topic2fo.i18n:
+
+transform.topic2fo:
+
+transform.fo2pdf.xep.test-use:
+
+transform.fo2pdf.xep.init:
+
+transform.fo2pdf.xep:
+
+transform.fo2pdf.ah.test-use:
+
+transform.fo2pdf.ah.init:
+
+transform.fo2pdf.ah:
+
+transform.fo2pdf.ah.nooption:
+      [ahf] Processing F:\xxx\06_RefDita\RefDita\pdf/topic.fo to F:\xxx\06_RefDita\RefDita\pdf/book.pdf
+
+transform.fo2pdf.ah.hasoption:
+
+transform.fo2pdf.fop.test-use:
+
+transform.fo2pdf.fop.init:
+
+transform.fo2pdf.fop:
+
+transform.fo2pdf:
+
+delete.fo2pdf.topic.fo:
+
+transform.topic2pdf:
+
+publish.map.pdf:
+     [echo] 03/07/2015 01:22:36 HSCT:map2pdf2:out
+
+topic2pdf2:
+
+dita2pdf2:
+     [echo] 03/07/2015 01:22:36 HSCT:dita2pdf.cust:out
+
+clean-temp:
+
+BUILD SUCCESSFUL
+Total time: 22 seconds

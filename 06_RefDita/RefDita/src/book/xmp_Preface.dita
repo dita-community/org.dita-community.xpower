@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN"
+ "../../dtd/topic.dtd">
+<topic id="task_preface" xml:lang="en-us">
+<title>About this the Preface</title>
+<shortdesc>Explains the actions done to the preface processing</shortdesc>
+<body>
+<p>The preface can be written as any type e.g. a concept. The actual topic is made
+            <ph>preface</ph>by its location in the corresponding DITAMAP. The preface is described
+            in [DitaSpec#3.2.5.1.25].</p>
+</body>
+ <topic id="topic_f5p_nmd_yp">
+  <title>Creating subtopics in the Preface</title>
+        <body>
+            <p>Within a <keyword>topic</keyword>, another <keyword>topic</keyword> can be nested.
+                However, other types like <keyword>concept</keyword> are not possible.</p>
+        </body>
+ </topic>
+ <topic id="topic_jv3_4md_yp">
+  <title>The Preface numbering challenge</title>
+        <body>
+            <p>One of the harder problems to solve was the chapter numbering. For the
+                    <ph>preface</ph>, it was important to avoid that the <ph>preface</ph> is
+                    <cite>not</cite> counted as a chapter. Since the <ph>preface</ph> does not
+                advance chapter numbers, it shall be ignored in the count.</p>
+            <p>However, I had to tweak the template <apiname>commons.xsl</apiname>:
+                    <codeph>&lt;xsl:template name="getTitleNumber"></codeph> to avoid the
+                    <ph>preface</ph> to account as chapter.</p>
+            <p>Another patch had to be done in <apiname>commons.xsl</apiname>:
+                    <codeph>&lt;xsl:template match="*" mode="getNumTitle"></codeph>. There some
+                another tweak was necessary to avoid numbering from the <ph>preface, in particular
+                    the subtopics were numbered differently than the <ph>Head1</ph> topics.</ph></p>
+        </body>
+ </topic>
+</topic>

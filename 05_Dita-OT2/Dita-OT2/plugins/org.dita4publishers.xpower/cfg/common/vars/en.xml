@@ -1,0 +1,751 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 
+Copyright © 2004-2006 by Idiom Technologies, Inc. All rights reserved. 
+IDIOM is a registered trademark of Idiom Technologies, Inc. and WORLDSERVER
+and WORLDSTART are trademarks of Idiom Technologies, Inc. All other 
+trademarks are the property of their respective owners. 
+
+IDIOM TECHNOLOGIES, INC. IS DELIVERING THE SOFTWARE "AS IS," WITH 
+ABSOLUTELY NO WARRANTIES WHATSOEVER, WHETHER EXPRESS OR IMPLIED,  AND IDIOM
+TECHNOLOGIES, INC. DISCLAIMS ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING
+BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR 
+PURPOSE AND WARRANTY OF NON-INFRINGEMENT. IDIOM TECHNOLOGIES, INC. SHALL NOT
+BE LIABLE FOR INDIRECT, INCIDENTAL, SPECIAL, COVER, PUNITIVE, EXEMPLARY,
+RELIANCE, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO LOSS OF 
+ANTICIPATED PROFIT), ARISING FROM ANY CAUSE UNDER OR RELATED TO  OR ARISING 
+OUT OF THE USE OF OR INABILITY TO USE THE SOFTWARE, EVEN IF IDIOM
+TECHNOLOGIES, INC. HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES. 
+
+Idiom Technologies, Inc. and its licensors shall not be liable for any
+damages suffered by any person as a result of using and/or modifying the
+Software or its derivatives. In no event shall Idiom Technologies, Inc.'s
+liability for any damages hereunder exceed the amounts received by Idiom
+Technologies, Inc. as a result of this transaction.
+
+These terms and conditions supersede the terms and conditions in any
+licensing agreement to the extent that such terms and conditions conflict
+with those set forth herein.
+
+This file is part of the DITA Open Toolkit project hosted on Sourceforge.net. 
+See the accompanying license.txt file for applicable licenses.
+-->
+
+<vars xmlns="http://www.idiominc.com/opentopic/vars">
+
+    <!-- 
+     
+      This file controls strings that appear in the published output.  
+      There is one version of this file per language.  To add support 
+      for a new language, simply create a copy of this file and name 
+      it using the <locale ISO code>.xml format.
+      
+    -->
+
+    <!-- 
+       Strings used in the headers and footers of pages.
+    -->
+
+    <!-- Product name to be placed inside headers etc. -->
+    <!--HSC added output text to the variable acc. to [DtPrt#8.10.4.2] -->
+    <variable id="Product Name">Product Name acc. to [DtPrt#8.10.4.2]</variable>/>
+    <variable id="Copyright">Copyright &#169;</variable>
+
+
+    <!-- The footer that appears on odd-numbered pages. -->
+    <!--HSC changed body odd footer acc. to [DtPrt#8.11.1]
+    <variable id="Body odd footer"/>
+    -->
+    <!--HSC inserting the new footer information acc. to [DtPrt#8.11.1] 
+        &#169 is the copyright symbol -->
+    <variable id="Body odd footer">
+      <param ref-name="inner"/>
+      <param ref-name="center"/>
+      <param ref-name="outer"/>
+    </variable>
+
+    <variable id="TOC page prefix">TOC</variable>
+
+    <!-- The footer that appears on even-numbered pages. -->
+    <!--HSC changed body even footer acc. to [DtPrt#8.11.1]
+    <variable id="Body even footer"/>
+    -->
+    <!--HSC inserting the new footer information acc. to [DtPrt#8.11.1] 
+        &#169 is the copyright symbol -->
+    <variable id="Body even footer">
+      <param ref-name="outer"/>
+      <param ref-name="center"/>
+      <param ref-name="inner"/>
+    </variable>
+
+
+    <!-- The footer that appears on the first page of a chapter. -->
+    <!--HSC changed body odd footer acc. to [DtPrt#8.11.1]
+    <variable id="Body first footer"/>
+    -->
+    <!--HSC inserting the new footer information acc. to [DtPrt#8.11.1] 
+        &#169 is the copyright symbol -->
+    <!--HSX correcting odd/even page format on first -->
+    <variable id="Body first even footer">
+      <param ref-name="outer"/>
+      <param ref-name="center"/>
+      <param ref-name="inner"/>
+    </variable>
+    
+    <variable id="Body first odd footer">
+      <param ref-name="inner"/>
+      <param ref-name="center"/>
+      <param ref-name="outer"/>
+    </variable>
+
+    <!-- The header that appears on the first page of a chapter. -->
+    <variable id="Body first even header">
+      <param ref-name="outer"/>
+      <param ref-name="center"/>
+      <param ref-name="inner"/>
+    </variable>
+
+    <variable id="Body first odd header">
+      <param ref-name="inner"/>
+      <param ref-name="center"/>
+      <param ref-name="outer"/>
+    </variable>
+
+    <!-- The header that appears on odd-numbered pages. -->
+    <!-- modify the variables for the body odd header acc. to [DtPrt#8.10.3]
+    <variable id="Body odd header"><param ref-name="prodname"/>&#xA0;|&#xA0;<param ref-name="heading"/>&#xA0;|&#xA0;<param ref-name="pagenum"/></variable>
+    -->
+    <variable id="Body odd header">
+      <param ref-name="inner"/>
+      <param ref-name="center"/>
+      <param ref-name="outer"/>
+    </variable>
+
+    <!-- The header that appears on even-numbered pages. -->
+    <!--HSC modified body even header acc. to [DtPrt#8.10.4.3] 
+    <variable id="Body even header"><param ref-name="pagenum"/>&#xA0;|&#xA0;<param ref-name="heading"/>&#xA0;|&#xA0;<param ref-name="prodname"/></variable>
+    -->
+    <variable id="Body even header">
+      <param ref-name="outer"/>
+      <param ref-name="center"/>
+      <param ref-name="inner"/>
+    </variable>
+
+    <!-- The footer that appears on Preface odd-numbered pages. -->
+    <variable id="Preface odd footer">
+      <param ref-name="inner"/>
+      <param ref-name="center"/>
+      <param ref-name="outer"/>
+    </variable>
+
+    <!-- The footer that appears on Preface even-numbered pages. -->
+    <variable id="Preface even footer">
+      <param ref-name="outer"/>
+      <param ref-name="center"/>
+      <param ref-name="inner"/>
+    </variable>
+
+<!--    <variable id="Preface first footer"/> -->
+    
+    <!-- The footer that appears on the first page of a Preface -->
+    <variable id="Preface first odd footer">
+      <param ref-name="inner"/>
+      <param ref-name="center"/>
+      <param ref-name="outer"/>
+    </variable>
+    
+    <!-- The footer that appears on the first page of a Preface -->
+    <variable id="Preface first even footer">
+      <param ref-name="outer"/>
+      <param ref-name="center"/>
+      <param ref-name="inner"/>
+
+    </variable>
+
+    <!-- The footer that appears on the first page of a Preface -->
+    <variable id="Preface last odd footer">
+      <param ref-name="inner"/>
+      <param ref-name="center"/>
+      <param ref-name="outer"/>
+    </variable>
+    
+    <!-- The footer that appears on the first page of a Preface -->
+    <variable id="Preface last even footer">
+      <param ref-name="outer"/>
+      <param ref-name="center"/>
+      <param ref-name="inner"/>
+    </variable>
+
+    <!-- The header that appears on Preface odd-numbered pages. -->
+    <variable id="Preface odd header">
+      <param ref-name="inner"/>
+      <param ref-name="center"/>
+      <param ref-name="outer"/>
+    </variable>
+
+    <!-- The header that appears on Preface even-numbered pages. -->
+    <variable id="Preface even header">
+      <param ref-name="outer"/>
+      <param ref-name="center"/>
+      <param ref-name="inner"/>
+    </variable>
+
+    <!-- The header that appears on Preface first even page. -->
+    <variable id="Preface first even header">
+      <param ref-name="outer"/>
+      <param ref-name="center"/>
+      <param ref-name="inner"/>
+    </variable>
+
+    <!-- The header that appears on Preface first odd page. -->
+    <variable id="Preface first odd header">
+      <param ref-name="inner"/>
+      <param ref-name="center"/>
+      <param ref-name="outer"/>
+    </variable>
+    
+    <!-- The header that appears on Preface last even page. -->
+    <variable id="Preface last even header">
+      <param ref-name="outer"/>
+      <param ref-name="center"/>
+      <param ref-name="inner"/>
+    </variable>
+
+    <!-- The header that appears on Preface last odd page. -->
+    <variable id="Preface last odd header">
+      <param ref-name="inner"/>
+      <param ref-name="center"/>
+      <param ref-name="outer"/>
+    </variable>
+
+
+    <!--HSC Doing the general approach for the header -->
+    <variable id="Toc odd header">
+      <param ref-name="inner"/>
+      <param ref-name="center"/>
+      <param ref-name="outer"/>
+    </variable>
+
+    <variable id="Toc even header">
+      <param ref-name="outer"/>
+      <param ref-name="center"/>
+      <param ref-name="inner"/>
+    </variable>
+    
+    <variable id="Toc first odd header">
+      <param ref-name="inner"/>
+      <param ref-name="center"/>
+      <param ref-name="outer"/>
+    </variable>
+
+    <variable id="Toc first even header">
+      <param ref-name="outer"/>
+      <param ref-name="center"/>
+      <param ref-name="inner"/>
+    </variable>
+
+    <!-- The footer that appears on the odd-numbered table of contents
+         pages. --> 
+    <!--HSC changed Toc odd footer acc. to [DtPrt#8.11.1]
+    <variable id="Toc odd footer"/>
+    -->
+    <!--HSC inserting the new footer information acc. to [DtPrt#8.11.1] 
+        &#169 is the copyright symbol -->
+    <variable id="Toc odd footer">
+      <param ref-name="inner"/>
+      <param ref-name="center"/>
+      <param ref-name="outer"/>
+    </variable>
+
+    <!-- The footer that appears on the even-numbered table of contents
+         pages. --> 
+    <variable id="Toc even footer">
+      <param ref-name="outer"/>
+      <param ref-name="center"/>
+      <param ref-name="inner"/>
+    </variable>
+    
+    <variable id="Toc first odd footer">
+      <param ref-name="inner"/>
+      <param ref-name="center"/>
+      <param ref-name="outer"/>
+    </variable>
+
+    <!-- The footer that appears on the even-numbered table of contents
+         pages. --> 
+    <variable id="Toc first even footer">
+      <param ref-name="outer"/>
+      <param ref-name="center"/>
+      <param ref-name="inner"/>
+    </variable>
+
+    <!-- The header that appears on the odd-numbered table of contents pages. -->
+    <!--HSC &#xA0 creates a non-breaking space that connects the next word [DtPrt#8.10.2] Step 8 -->
+    <!--
+    <variable id="Toc odd header"><param ref-name="prodname"/>&#xA0;|&#xA0;<param ref-name="heading"/>&#xA0;|&#xA0;<param ref-name="pagenum"/></variable>
+    -->
+    <!--HSC set the new text for TOC [DtPrt#8.10.2] Step 9 -->
+    <variable id="Toc odd header">
+      <param ref-name="inner"/>
+      <param ref-name="center"/>
+      <param ref-name="outer"/>
+    </variable>
+
+    <!-- The header that appears on the odd-numbered table of contents
+         pages. --> 
+    <!--HSC modified body even header acc. to [DtPrt#8.10.4.4] 
+    <variable id="Toc even header"><param ref-name="pagenum"/> | <param ref-name="heading"/> | <param ref-name="prodname"/></variable>
+    -->
+    <variable id="Toc even header">
+      <param ref-name="outer"/>
+      <param ref-name="center"/>
+      <param ref-name="inner"/>
+    </variable>
+
+    <!-- The footer that appears on the odd-numbered index pages. -->
+    <!--HSC changed Index odd footer acc. to [DtPrt#8.11.1]
+    <variable id="Index odd footer"/>
+    -->
+    <!--HSC inserting the new footer information acc. to [DtPrt#8.11.1] 
+        &#169 is the copyright symbol -->
+    <variable id="Index odd footer">
+      <param ref-name="inner"/>
+      <param ref-name="center"/>
+      <param ref-name="outer"/>
+    </variable>
+
+    <!-- The footer that appears on the even-numbered index pages. -->
+    <variable id="Index even footer">
+      <param ref-name="outer"/>
+      <param ref-name="center"/>
+      <param ref-name="inner"/>
+    </variable>
+
+    <!-- The header that appears on the odd-numbered index pages. -->
+     <!--HSC &#xA0 creates a non-breaking space that connects the next word [DtPrt#8.10.2] Step 8
+    <variable id="Index odd header"><param ref-name="prodname"/>&#xA0;|&#xA0;<param ref-name="heading"/>&#xA0;|&#xA0;<param ref-name="pagenum"/></variable>
+    -->
+    <!--HSC set the new text for INDEX [DtPrt#8.10.2] Step 11 -->
+    <variable id="Index odd header">
+      <param ref-name="inner"/>
+      <param ref-name="center"/>
+      <param ref-name="outer"/>
+    </variable>
+
+    <!--HSC modified body even header acc. to [DtPrt#8.10.4.4] 
+    <variable id="Index even header"><param ref-name="pagenum"/> | <param ref-name="heading"/> | <param ref-name="prodname"/></variable>
+    -->
+    <variable id="Index even header">
+      <param ref-name="outer"/>
+      <param ref-name="center"/>
+      <param ref-name="inner"/>
+    </variable>
+      
+    <!-- The formatting used to display ordered lists (e.g., "1., 2." or 
+         "1), 2)" -->
+    <variable id="Ordered List Number"><param ref-name="number"/>. </variable>
+
+    <!-- The unordered list bullet   -->
+    <variable id="Unordered List bullet">&#x2022;</variable>
+    <!--HSC special bullet for next nested bullet explained in [DtPrt#11.4] -->
+    <variable id="Unordered List bullet nested">&#x2014;</variable>
+
+    <!-- The heading string to put at the top of the Table of Contents -->
+    <!--HSC can be changed acc. to [DtPrt#16.6]
+    -->
+    <variable id="Table of Contents">Table of Contents</variable>
+
+    <!-- The heading string to put at the top of the Index -->
+    <!--HSC can be configured acc. to [DtPrt#17.7] -->
+    <variable id="Index">Index</variable>
+
+    <variable id="Index Continued String">continued</variable>
+
+    <!--string before see element-->
+    <variable id="Index See String">, See </variable>
+
+    <!--string before see also element-->
+    <variable id="Index See Also String">See also </variable>
+
+    <!--string before see element-->
+    <variable id="See">see </variable>
+    <variable id="Chp">Chapter </variable>
+
+    <!-- The string used to label a chapter within the table of contents. -->
+    <!--HSC Removed the stupid "Chapter X: on Head 1 in the TOC &#xA0 is a hard space
+        also described in [DtPrt#16.16.1]
+    <variable id="Table of Contents Chapter">Chapter <param ref-name="number"/>: </variable>
+    -->
+    <variable id="Table of Contents Chapter"></variable>
+
+    <!-- The string used to label an appendix within the table of contents. -->
+    <variable id="Table of Contents Appendix">Appendix <param ref-name="number"/>&#xA0;-&#xA0;</variable>
+
+    <!-- The string used to label a part within the table of contents. -->
+    <variable id="Table of Contents Part">Part&#xA0;<param ref-name="number"/>&#xA0;-&#xA0;</variable>
+
+    <!-- The string used to label a preface within the table of contents.
+    <variable id="Table of Contents Preface">Preface:&#xA0;</variable>
+    
+    Currently left empty since our prefaces deliver their own chapter titles
+    -->
+    <variable id="Table of Contents Preface"/>
+
+    <!-- The string used to label an preface within the table of contents. -->
+    <variable id="Table of Contents Notices"></variable>
+
+    <!-- The string used to label an preface in body text. -->
+    <variable id="Preface title">Preface</variable>
+
+    <!-- The string used to label an abstract in body text. -->
+    <variable id="Abstract title">Abstract</variable>
+
+    <!-- The string used to label an abstract in body text. -->
+    <variable id="Glossary title">Glossary</variable>
+
+    <!-- The string used to label an notices in body text. -->
+    <variable id="Notices title">Notices</variable>
+
+    <!-- The heading to put at the top of a chapter when creating a
+         chapter-level "mini-TOC" -->
+    <!--HSC The variable can either be emptied or change acc. to [DtPrt#16.15.1] -->
+    <variable id="Mini Toc">Topics</variable>
+
+    <variable id="#note-separator">: </variable>
+
+    <!--HSC Text for the note label depends on the 'type' attribute and type can be 
+            "Note/Notice/Tip/Important/Remember/Attention/Caution/Danger/Warning/Restriction"
+            The actual produced text can be changed acc. to [DtPrt#10.5.2] -->
+    <variable id="Note">Note</variable>
+    <variable id="Notice">Notice</variable>
+    <variable id="Attention">Attention</variable>
+    <variable id="Caution">Caution</variable>
+    <variable id="Tip">Tip</variable>
+    <variable id="Danger">Danger</variable>
+    <variable id="Warning">Warning</variable>
+    <variable id="Fastpath">Fastpath</variable>
+    <variable id="Important">Important</variable>         
+    <variable id="Remember">Remember</variable>
+    <variable id="Restriction">Restriction</variable>
+    <variable id="Trouble">Trouble</variable>
+
+
+    <!-- Text to use for figure titles. Renders as part of <fig>/<title>
+          elements. -->
+    <variable id="Figure.title">Figure <param ref-name="number"/>: <param ref-name="title"/></variable>
+    <variable id="Figure Number">Figure <param ref-name="number"/></variable>
+
+    <!-- Text to use for table titles. Renders as part of <table>/<title> 
+         elements. -->
+    <variable id="Table.title">Table <param ref-name="number"/>: <param ref-name="title"/></variable>
+    <variable id="Table Number">Table <param ref-name="number"/></variable>
+
+
+    <!-- Text to use for figure titles. Renders as part of <fig>/<title>
+          elements. see also [DtPrt#14.2] -->
+          
+    <!-- For unknown reason, the variable with the id 'Figure' did not work
+         if there were figures in the preface. Some (currently undiscovered) 'Figure'
+         variable (not in org.dita.pdf2) was called which did not return the parameters
+         title and number. Still to be clarified.
+         
+         When I changed the template, however, from "Figure" to "InsertFigure" I could be
+         sure that such variable wouldn't exist anywhere else. Indeed that made the
+         system run for figures in prefaces. It all has to do with the call to the
+         'getVariable' template (vars.xsl) but that does use a call to GetVars
+         that I don't know where it exists. -->
+    <!--     
+    <variable id="Figure">Figure 
+        <param ref-name="number"/>: <param ref-name="title"/>
+    </variable>
+    -->
+    <!--HSX compares to Figure.title -->
+    <variable id="InsertFigure">Figure
+        <param ref-name="number"/>: <param ref-name="title"/>
+    </variable>
+    
+    <variable id="InsertEquation">(Eq.&#xA0; 
+        <param ref-name="number"/>)
+    </variable>
+    
+
+    <!-- Text to use for table titles. Renders as part of <table>/<title> 
+         elements. -->
+    <!--HSC [DtPrt#13.6] The actual title can be removed by leaving the "Table " empty -->
+    <!--HSX compares to Table.title -->
+    <variable id="Table">Table <param ref-name="number"/>: <param ref-name="title"/></variable>
+
+    <!-- Text to use for related links label.
+         Renders as part of <related-links> element.
+         [DtPrt#15.4.2] describes changing the text -->
+    <variable id="Related Links">Related Links</variable>
+
+    <!-- Default cross-reference text prefix. Used to generate reference 
+         text in case it's not specified in source. -->
+    <variable id="Cross-Reference">Cross-Reference to:</variable>
+
+    <!-- Default content-reference text prefix. Used to generate reference 
+         text in case target cannot be resolved. -->
+    <variable id="Content-Reference">Content-Reference to:</variable>
+
+    <!-- Default title text for referenced section title. Used to generate 
+         reference text in case reference has no explicit content and
+         referenced section has no title. -->
+    <variable id="Untitled section">Untitled section.</variable>
+
+    <!-- Default title text for referenced list item. Used to generate
+         reference text in case reference has no explicit content and 
+         reference target is a list item. -->
+    <variable id="List item">List item.</variable>
+
+    <!-- Default title text for referenced footnote. Used to generate 
+         reference text in case reference has no explicit content and 
+         reference target is a footnote. -->
+    <variable id="Foot note">Footnote.</variable>
+
+    <!-- Text to use for a generated label of navigation title. Renders
+         as part of <navtitle> element. -->
+    <variable id="Navigation title">Navigation title</variable>
+
+    <!-- Text to use for a generated label of search title. Renders 
+         as part of <searchtitle> element. -->
+    <variable id="Search title">Search title</variable>
+
+    <!-- Text to use for chapter titles.-->
+    <!--HSC relevant to change automatic chapter insertion acc.to [DtPrt#10.3.6]    
+    <variable id="Chapter with number">ChapterX <param ref-name="number"/></variable> -->
+    <variable id="Chapter with number"><param ref-name="number"/></variable>
+
+    <!-- Text to use for appendix titles.-->
+    <variable id="Appendix with number">Appendix
+      <param ref-name="number"/>
+    </variable>
+
+    <!-- Text to use for part titles.-->
+    <variable id="Part with number">Part <param ref-name="number"/> - <param ref-name="titletext"/></variable>
+
+    <!-- Text to use for a label generated from <required-cleanup> element. -->
+    <variable id="Required-Cleanup">[Required-Cleanup]</variable>
+
+    <!-- Template for generated page number of a reference 
+         in printed manual. -->
+    <!--HSC the phrase can be changed - described in [DtPrt#15.3.2] -->
+    <variable id="On the page"> on page <param ref-name="pagenum"/></variable>
+
+    <!-- Template for generated page number of a reference
+         in printed manual, when referenced element has no title. -->
+    <variable id="Page"> page <param ref-name="pagenum"/></variable>
+
+    <!-- Template for generated page number of a reference
+         in chm/html, when referenced element has no title. -->
+    <variable id="This link">this link</variable>
+
+    <!-- Image path to use for a note of "note" type. -->
+    <!-- The actual icon can be changed acc. to [DtPrt#10.5.4]
+         To delete an icon, just delete the content "Configuration/Open ..... hand.gif 
+         so you end up in the variable catch only. -->    
+    <variable id="note Note Image Path">Customization/OpenTopic/common/artwork/note.png</variable>
+    <!-- Image path to use for a note of "notice" type. -->
+    <variable id="notice Note Image Path">Customization/OpenTopic/common/artwork/notice.png</variable>
+    <!-- Image path to use for a note of "attention" type. -->
+    <variable id="attention Note Image Path">Customization/OpenTopic/common/artwork/attention.png</variable>
+    <!-- Image path to use for a note of "caution" type. -->
+    <variable id="caution Note Image Path">Customization/OpenTopic/common/artwork/caution.png</variable>
+    <!-- Image path to use for a note of "tip" type. -->
+    <variable id="tip Note Image Path">Customization/OpenTopic/common/artwork/tip.png</variable>
+    <!-- Image path to use for a note of "danger" type. -->
+    <variable id="danger Note Image Path">Customization/OpenTopic/common/artwork/danger.png</variable>    
+    <!-- Image path to use for a note of "warning" type. -->
+    <variable id="warning Note Image Path">Customization/OpenTopic/common/artwork/warning.png</variable>    
+    <!-- Image path to use for a note of "fastpath" type. -->
+    <variable id="fastpath Note Image Path">Customization/OpenTopic/common/artwork/fastpath.png</variable>
+    <!-- Image path to use for a note of "important" type. -->
+    <variable id="important Note Image Path">Customization/OpenTopic/common/artwork/important.png</variable>
+    <!-- Image path to use for a note of "remember" type. -->
+    <variable id="remember Note Image Path">Customization/OpenTopic/common/artwork/remember.png</variable>
+    <!-- Image path to use for a note of "restriction" type. -->
+    <variable id="restriction Note Image Path">Customization/OpenTopic/common/artwork/restriction.png</variable>
+    <!-- Image path to use for a note of "trouble" type. -->
+    <variable id="trouble Note Image Path">Customization/OpenTopic/common/artwork/trouble.png</variable>
+    <!-- Image path to use for a note of "other" type. -->
+    <variable id="other Note Image Path">Customization/OpenTopic/common/artwork/other.png</variable>
+
+    <!--
+        String used for links in end of document in XHTML
+    -->
+
+    <!-- The title of the links to parent -->
+    <variable id="Parent topic">Parent Topic</variable>
+
+    <!-- The title of the links to next topics -->
+    <variable id="Next topic">Next Topic</variable>
+
+    <!-- The title of the links to previous topics -->
+    <variable id="Previous topic">Previous Topic</variable>
+
+    <!-- The title of the links to child topics -->
+    <variable id="Child topics">Child Topics</variable>
+
+    <!-- The title of the links to Related concepts -->
+    <variable id="Related concepts">Related Concepts</variable>
+
+    <!-- The title of the links to Related tasks -->
+    <variable id="Related tasks">Related Tasks</variable>
+
+    <!-- The title of the links to Related references -->
+    <variable id="Related references">Related References</variable>
+
+    <!-- The title of the links to Related information -->
+    <variable id="Related information">Related Information</variable>
+
+    <!--
+       Strings used in the online-help publishing.
+    -->
+
+    <!-- The title of the "contents" button in online-help output -->
+    <variable id="Contents button title">Contents</variable>
+
+    <!-- The title of the "index" button in online-help output -->
+    <variable id="Index button title">Index</variable>
+
+    <!-- The separator of multiple index entries in online-help output -->
+    <variable id="Index multiple entries separator">, </variable>
+
+    <!-- The title of the "search" button in online-help output -->
+    <variable id="Search button title">Search</variable>
+
+    <!-- The title of the "back" button in online-help output -->
+    <variable id="Back button title">Back</variable>
+
+    <!-- The title of the "forward" button in online-help output -->
+    <variable id="Forward button title">Forward</variable>
+
+    <!-- The title of the "main page" button in online-help output -->
+    <variable id="Main page button title">Home</variable>
+
+    <!-- The title of the "previous page" button in online-help output -->
+    <variable id="Previous page button title">Previous Topic</variable>
+
+    <!-- The title of the "next page" button in online-help output -->
+    <variable id="Next page button title">Next Topic</variable>
+
+    <!-- The "online help" document title prefix in online-help output -->
+    <variable id="Online help prefix">Online Help</variable>
+
+    <!-- The search by index field title in online-help output -->
+    <variable id="Search index field title">Search for the keyword:</variable>
+
+    <!-- The search by index button title in online-help output -->
+    <variable id="Search index button title">View</variable>
+
+    <!-- The search by text field title in online-help output -->
+    <variable id="Search text field title">Search help for:</variable>
+
+    <!-- The search by text button title in online-help output -->
+    <variable id="Search text button title">Search</variable>
+
+	<variable id="Online Help Search Method Field">Search method</variable>
+	<variable id="Online Help Search Method Or">or</variable>
+	<variable id="Online Help Search Method And">and</variable>
+	<variable id="Search Highlight Switch">Highlight text in search results</variable>
+	<variable id="Search index next button title">Show Next</variable>
+	<variable id="Search Whole Words Switch">Find whole words only</variable>
+	<variable id="Search Case Sensitive Switch">Match case</variable>
+	<variable id="Search Stopped Message">The search was stopped after 50 hits.</variable>
+	<!--This one is a java script expression. So if the order of message should be another don't forget to add '+'
+	and quotes to the string expressions.-->
+	<variable id="Search Excluded Stop Words Message">"The following words were excluded from the search: "+<param ref-name="stop-words-list"/></variable>
+	<variable id="Search Search in Progress Message">Search in progress...</variable>
+	<variable id="Search Search Give No Results Message">No matches were found.</variable>
+
+    <!--Label for a step with importance="optional"-->
+    <variable id="Optional Step">Optional:</variable>
+
+    <!--Labels for task sections--> <!--HSC can be changed acc. to [DtPrt#12.5] -->
+    <variable id="Task Prereq">Before you begin</variable>
+    <variable id="Task Context">About this task</variable>
+    <variable id="Task Steps">Procedure</variable>
+  <variable id="#steps-unordered-label"><variable id="Task Steps"/></variable>
+    <variable id="Task Result">Results</variable>
+    <variable id="Task Example">Example</variable>
+    <variable id="Task Postreq">What to do next</variable>
+    
+    <!--Glossary Variables-->
+    <!-- The footer that appears on the odd-numbered glossary pages. -->
+    <variable id="Glossary odd footer">
+      <param ref-name="inner"/>
+      <param ref-name="center"/>
+      <param ref-name="outer"/>
+    </variable>
+
+    <!-- The footer that appears on the even-numbered glossary pages. -->
+    <variable id="Glossary even footer">
+      <param ref-name="outer"/>
+      <param ref-name="center"/>
+      <param ref-name="inner"/>
+    </variable>
+
+    <!-- The header that appears on the odd-numbered glossary pages. -->
+    <variable id="Glossary odd header">
+      <param ref-name="inner"/>
+      <param ref-name="center"/>
+      <param ref-name="outer"/>
+    </variable>
+
+    <!-- The header that appears on the even-numbered glossary pages. -->
+    <variable id="Glossary even header">
+      <param ref-name="outer"/>
+      <param ref-name="center"/>
+      <param ref-name="inner"/>
+    </variable>
+     
+     <!-- The heading string to put at the top of the Glossary -->
+     <variable id="Glossary">Glossary</variable>
+     
+     <!-- The heading string to put at the top of the List of Tables -->
+     <!--HSC [DtPrt#18.5] changes the name of the title string 
+     <variable id="List of Tables">List of Tables</variable> -->
+     <variable id="List of Tables">Tables</variable>
+     
+     <!-- The heading string to put at the top of the List of Figures -->
+     <!--HSC [DtPrt#18.5] changes the name of the title string 
+     <variable id="List of Figures">List of Figures</variable> -->
+     <variable id="List of Figures">Figures</variable>
+     
+  <variable id="Option">Option</variable>
+  <variable id="Description">Description</variable>
+  <!--
+  <variable id="#menucascade-separator">&#xA0;&#x3E; → </variable>
+  replaced by right arrow
+  -->
+  <variable id="#menucascade-separator">&#xA0;&#x2192; </variable>
+  <variable id="#quote-start">"</variable>
+  <variable id="#quote-end">"</variable>
+  <!--HSC Add variables for the content based headers acc. to [DtPrt#8.10.4.2] -->
+  <variable id="Book Title">Book Title acc. to [DtPrt#8.10.4.2]</variable>
+  
+  <!--HSC Copy Year acc. to [DtPrt#8.10.4.2] -->
+  <variable id="Copy Year">©Copyright </variable>
+  <variable id="Post Box">PO Box </variable>
+  <variable id="TrademarkLabel">Trademarks </variable>
+  
+  
+  <variable id="Product Version">Product Version acc. to [DtPrt#8.10.4.2]</variable>
+  <!-- Text to use for 'Note' label generated from <note> element with 'type' attribute set to
+       'other' and 'othertype' attribute set to 'bestpractice' acc. to [DtPrt#10.5.6] -->
+  <variable id="Best Practice">Best Practice</variable>
+  <!-- Text to use for checklist unordered list acc. to [DtPrt#11.6]
+       Actually 25A1 didn't buy me the checkbox symbol, but that's the only problem
+       The variable IS addressed and replacing it by something else works fine
+       I verified 25A1 - it is correct UTF-8
+  -->
+  <variable id="Checklist bullet">&#x25A1;</variable>
+  <!--HSC Image for bullet lists acc. to [DtPrt#11.7.2] -->
+  <variable id="Bullet Image Path">Customization/OpenTopic/common/artwork/folder.png</variable>
+  <!--HSC Ordered List Number is replaced by Step Number acc. to [DtPrt#12.7] -->
+  <variable id="Step Number"><param ref-name="number"/>) </variable>
+  <!--HSC refering to steps acc. to [DtPrt#12.8.2] suggests standard text as label-->
+  <variable id="Go to step">Go to step </variable>
+  <!-- end addition -->
+</vars>
+

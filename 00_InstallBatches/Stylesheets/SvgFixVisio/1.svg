@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no" ?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN"
+"http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+    width="210mm" height="291mm" viewBox="0mm 0mm 210mm 291mm">
+    <title>das line-Element</title>
+    <desc>nur Linien</desc>
+
+    <!-- schwarze Linien -->
+    <line x1="20mm" y1="0mm" x2="20mm" y2="40mm"
+    style="stroke:black; stroke-width:2px;" />
+</svg>
+

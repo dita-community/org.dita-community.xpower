@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
+<concept id="concept_q2b_xt1_2r">
+ <title>Concept 1</title>
+ <shortdesc></shortdesc>
+ <conbody>
+  <p>Here's an image from a mountain tour on the <xref keyref="gls/gls_ortler"/></p>
+        <p>
+            <fig id="fig_uts_qv2_yr">
+                <title>test</title>
+                <image href="../gfx/Hintergrat.png" id="image_uz4_wv2_yr" placement="break"/>
+            </fig>
+        </p>
+ </conbody>
+</concept>

@@ -1,0 +1,448 @@
+
+clean.book.pdf:
+   [delete] Deleting directory F:\scherzer\RefDita\pdf
+
+book.pdf:
+
+init:
+
+dita2custpdf:
+     [echo] ProjDoc=..\..\..\Gnd\DocuDesign\XZ00_Process\Documentation
+     [echo] 10/03/2016 09:09:18 HSCT:dita2pdf.cust:in
+
+dita2pdf2.init:
+
+check-arg:
+     [echo] 10/03/2016 09:09:19 HSCT:check-arg:in
+    [mkdir] Created dir: F:\scherzer\RefDita\pdf
+    [mkdir] Created dir: F:\scherzer\RefDita\build\temp\temp20160310090917295
+     [echo] 10/03/2016 09:09:19 HSCT:check-arg:out
+
+log-arg:
+     [echo] 10/03/2016 09:09:19 HSCT:log-arg:in
+     [echo] *****************************************************************
+     [echo] * basedir = F:\scherzer\RefDita\build
+     [echo] * dita.dir = F:\Dita-OT2
+     [echo] * input = F:\scherzer\RefDita\src\REF_book_BookTemplate.ditamap
+     [echo] * transtype = custpdf
+     [echo] * tempdir = F:\scherzer\RefDita\build\temp\temp20160310090917295
+     [echo] * outputdir = F:\scherzer\RefDita\pdf
+     [echo] * clean.temp = yes
+     [echo] * DITA-OT version = 2.2.2
+     [echo] * XML parser = Xerces
+     [echo] * XSLT processor = Saxon
+     [echo] * collator = ICU
+     [echo] *****************************************************************
+     [echo] #Ant properties
+     [echo] #Thu Mar 10 09:09:19 CET 2016
+     [echo] args.bookmap-order=retain
+     [echo] args.debug=yes
+     [echo] args.filter=../src/ditaval/book.ditaval
+     [echo] args.gen.task.lbl=YES
+     [echo] args.grammar.cache=yes
+     [echo] args.input=F\:\\scherzer\\RefDita\\src\\REF_book_BookTemplate.ditamap
+     [echo] args.logdir=F\:\\scherzer\\RefDita\\pdf
+     [echo] args.rellinks=nofamily
+     [echo] args.xml.systemid.set=yes
+     [echo] dita.dir=F\:\\Dita-OT2
+     [echo] dita.input.valfile=../src/ditaval/book.ditaval
+     [echo] dita.plugin.com.ref1.pdf.dir=F\:\\Dita-OT2\\plugins\\com.ref1.pdf
+     [echo] dita.plugin.com.sophos.tocjs.dir=F\:\\Dita-OT2\\plugins\\com.sophos.tocjs
+     [echo] dita.plugin.net.sourceforge.dita.dbdita.dir=F\:\\Dita-OT2\\plugins\\dbdita
+     [echo] dita.plugin.org.dita-community.common.xslt.dir=F\:\\Dita-OT2\\plugins\\org.dita-community.common.xslt
+     [echo] dita.plugin.org.dita.base.dir=F\:\\Dita-OT2
+     [echo] dita.plugin.org.dita.docbook.dir=F\:\\Dita-OT2\\plugins\\org.dita.docbook
+     [echo] dita.plugin.org.dita.eclipsecontent.dir=F\:\\Dita-OT2\\plugins\\org.dita.eclipsecontent
+     [echo] dita.plugin.org.dita.eclipsehelp.dir=F\:\\Dita-OT2\\plugins\\org.dita.eclipsehelp
+     [echo] dita.plugin.org.dita.html5.dir=F\:\\Dita-OT2\\plugins\\org.dita.html5
+     [echo] dita.plugin.org.dita.htmlhelp.dir=F\:\\Dita-OT2\\plugins\\org.dita.htmlhelp
+     [echo] dita.plugin.org.dita.javahelp.dir=F\:\\Dita-OT2\\plugins\\org.dita.javahelp
+     [echo] dita.plugin.org.dita.odt.dir=F\:\\Dita-OT2\\plugins\\org.dita.odt
+     [echo] dita.plugin.org.dita.pdf2.axf.dir=F\:\\Dita-OT2\\plugins\\org.dita.pdf2.axf
+     [echo] dita.plugin.org.dita.pdf2.dir=F\:\\Dita-OT2\\plugins\\org.dita.pdf2
+     [echo] dita.plugin.org.dita.pdf2.fop.dir=F\:\\Dita-OT2\\plugins\\org.dita.pdf2.fop
+     [echo] dita.plugin.org.dita.pdf2.xep.dir=F\:\\Dita-OT2\\plugins\\org.dita.pdf2.xep
+     [echo] dita.plugin.org.dita.specialization.dita11.dir=F\:\\Dita-OT2\\plugins\\org.dita.specialization.dita11
+     [echo] dita.plugin.org.dita.specialization.dita132.dir=F\:\\Dita-OT2\\plugins\\org.dita.specialization.dita132
+     [echo] dita.plugin.org.dita.specialization.eclipsemap.dir=F\:\\Dita-OT2\\plugins\\org.dita.specialization.eclipsemap
+     [echo] dita.plugin.org.dita.troff.dir=F\:\\Dita-OT2\\plugins\\org.dita.troff
+     [echo] dita.plugin.org.dita.wordrtf.dir=F\:\\Dita-OT2\\plugins\\org.dita.wordrtf
+     [echo] dita.plugin.org.dita.xhtml.dir=F\:\\Dita-OT2\\plugins\\org.dita.xhtml
+     [echo] dita.plugin.org.dita4publishers.doctypes.dir=F\:\\Dita-OT2\\plugins\\org.dita4publishers.doctypes
+     [echo] dita.plugin.org.dita4publishers.word2dita.dir=F\:\\Dita-OT2\\plugins\\org.dita4publishers.word2dita
+     [echo] dita.plugin.org.oasis-open.dita.v1_2.dir=F\:\\Dita-OT2\\plugins\\org.oasis-open.dita.v1_2
+     [echo] dita.plugin.org.oasis-open.dita.v1_3.dir=F\:\\Dita-OT2\\plugins\\org.oasis-open.dita.v1_3
+     [echo] dita.temp.dir=F\:\\scherzer\\RefDita\\build\\temp\\temp20160310090917295
+     [echo] dita2wordToDita.buildfile.dir=F\:\\Dita-OT2
+     [echo] preprocess.copy-image.skip=true
+     [echo] *****************************************************************
+     [echo] 10/03/2016 09:09:19 HSCT:log-arg:out
+
+build-init:
+
+preprocess.init:
+     [echo] *****************************************************************
+     [echo] * input = F:\scherzer\RefDita\src\REF_book_BookTemplate.ditamap
+     [echo] *****************************************************************
+
+gen-list:
+ [gen-list] Using Xerces grammar pool for DTD and schema caching.
+ [gen-list] Processing file:/F:/scherzer/RefDita/src/REF_book_BookTemplate.ditamap
+ [gen-list] Processing file:/F:/scherzer/RefDita/src/book/xmp_Abstract.dita
+ [gen-list] Processing file:/F:/scherzer/RefDita/src/book/xmp_Notices.dita
+ [gen-list] Processing file:/F:/scherzer/RefDita/src/book/xmp_NoticesSub.dita
+ [gen-list] Processing file:/F:/scherzer/RefDita/src/book/xmp_Preface.dita
+ [gen-list] Processing file:/F:/scherzer/RefDita/src/book/xmp_TopicTypeExamples.dita
+ [gen-list] Processing file:/F:/scherzer/RefDita/src/book/xmp_concept1.dita
+ [gen-list] Processing file:/F:/scherzer/RefDita/src/book/xmp_topic1.dita
+ [gen-list] Processing file:/F:/scherzer/RefDita/src/book/xmp_task1.dita
+ [gen-list] Processing file:/F:/scherzer/RefDita/src/book/xmp_reference1.dita
+ [gen-list] Processing file:/F:/scherzer/RefDita/src/book/xmp_SpecialChapters.dita
+ [gen-list] Processing file:/F:/scherzer/RefDita/src/book/ContactsAddr.dita
+ [gen-list] Processing file:/F:/scherzer/RefDita/src/book/ContactsImg.dita
+ [gen-list] Processing file:/F:/scherzer/RefDita/src/book/xmp_Appendix.dita
+ [gen-list] Processing file:/F:/scherzer/RefDita/src/book/xmp_Annex1.dita
+ [gen-list] Processing file:/F:/scherzer/RefDita/src/book/xmp_Annex2.dita
+ [gen-list] Processing file:/F:/scherzer/RefDita/src/book/Glossary.dita
+ [gen-list] Serializing job specification
+
+debug-filter:
+   [filter] Using Xerces grammar pool for DTD and schema caching.
+   [filter] Processing file:/F:/scherzer/RefDita/src/book/xmp_topic1.dita
+   [filter] Processing file:/F:/scherzer/RefDita/src/book/xmp_Abstract.dita
+   [filter] Processing file:/F:/scherzer/RefDita/src/book/xmp_Notices.dita
+   [filter] Processing file:/F:/scherzer/RefDita/src/REF_book_BookTemplate.ditamap
+   [filter] Processing file:/F:/scherzer/RefDita/src/book/ContactsAddr.dita
+   [filter] Processing file:/F:/scherzer/RefDita/src/book/xmp_NoticesSub.dita
+   [filter] Processing file:/F:/scherzer/RefDita/src/book/ContactsImg.dita
+   [filter] Processing file:/F:/scherzer/RefDita/src/book/xmp_reference1.dita
+   [filter] Processing file:/F:/scherzer/RefDita/src/book/xmp_concept1.dita
+   [filter] Processing file:/F:/scherzer/RefDita/src/book/xmp_TopicTypeExamples.dita
+   [filter] Processing file:/F:/scherzer/RefDita/src/book/Glossary.dita
+   [filter] Processing file:/F:/scherzer/RefDita/src/book/xmp_task1.dita
+   [filter] Processing file:/F:/scherzer/RefDita/src/book/xmp_Appendix.dita
+   [filter] Processing file:/F:/scherzer/RefDita/src/book/xmp_Annex1.dita
+   [filter] Processing file:/F:/scherzer/RefDita/src/book/xmp_Preface.dita
+   [filter] Processing file:/F:/scherzer/RefDita/src/book/xmp_SpecialChapters.dita
+   [filter] Processing file:/F:/scherzer/RefDita/src/book/xmp_Annex2.dita
+[job-helper] Processing F:\scherzer\RefDita\build\temp\temp20160310090917295\.job.xml to F:\scherzer\RefDita\build\temp\temp20160310090917295\outditafiles.list
+[job-helper] Loading stylesheet F:\Dita-OT2\xsl\job-helper.xsl
+[job-helper] Processing F:\scherzer\RefDita\build\temp\temp20160310090917295\.job.xml to F:\scherzer\RefDita\build\temp\temp20160310090917295\fullditamapandtopic.list
+[job-helper] Loading stylesheet F:\Dita-OT2\xsl\job-helper.xsl
+[job-helper] Processing F:\scherzer\RefDita\build\temp\temp20160310090917295\.job.xml to F:\scherzer\RefDita\build\temp\temp20160310090917295\fullditatopic.list
+[job-helper] Loading stylesheet F:\Dita-OT2\xsl\job-helper.xsl
+[job-helper] Processing F:\scherzer\RefDita\build\temp\temp20160310090917295\.job.xml to F:\scherzer\RefDita\build\temp\temp20160310090917295\fullditamap.list
+[job-helper] Loading stylesheet F:\Dita-OT2\xsl\job-helper.xsl
+[job-helper] Processing F:\scherzer\RefDita\build\temp\temp20160310090917295\.job.xml to F:\scherzer\RefDita\build\temp\temp20160310090917295\hrefditatopic.list
+[job-helper] Loading stylesheet F:\Dita-OT2\xsl\job-helper.xsl
+[job-helper] Processing F:\scherzer\RefDita\build\temp\temp20160310090917295\.job.xml to F:\scherzer\RefDita\build\temp\temp20160310090917295\conref.list
+[job-helper] Loading stylesheet F:\Dita-OT2\xsl\job-helper.xsl
+[job-helper] Processing F:\scherzer\RefDita\build\temp\temp20160310090917295\.job.xml to F:\scherzer\RefDita\build\temp\temp20160310090917295\image.list
+[job-helper] Loading stylesheet F:\Dita-OT2\xsl\job-helper.xsl
+[job-helper] Processing F:\scherzer\RefDita\build\temp\temp20160310090917295\.job.xml to F:\scherzer\RefDita\build\temp\temp20160310090917295\flagimage.list
+[job-helper] Loading stylesheet F:\Dita-OT2\xsl\job-helper.xsl
+[job-helper] Processing F:\scherzer\RefDita\build\temp\temp20160310090917295\.job.xml to F:\scherzer\RefDita\build\temp\temp20160310090917295\html.list
+[job-helper] Loading stylesheet F:\Dita-OT2\xsl\job-helper.xsl
+[job-helper] Processing F:\scherzer\RefDita\build\temp\temp20160310090917295\.job.xml to F:\scherzer\RefDita\build\temp\temp20160310090917295\canditopics.list
+[job-helper] Loading stylesheet F:\Dita-OT2\xsl\job-helper.xsl
+[job-helper] Processing F:\scherzer\RefDita\build\temp\temp20160310090917295\.job.xml to F:\scherzer\RefDita\build\temp\temp20160310090917295\subjectscheme.list
+[job-helper] Loading stylesheet F:\Dita-OT2\xsl\job-helper.xsl
+[job-helper] Processing F:\scherzer\RefDita\build\temp\temp20160310090917295\.job.xml to F:\scherzer\RefDita\build\temp\temp20160310090917295\conreftargets.list
+[job-helper] Loading stylesheet F:\Dita-OT2\xsl\job-helper.xsl
+[job-helper] Processing F:\scherzer\RefDita\build\temp\temp20160310090917295\.job.xml to F:\scherzer\RefDita\build\temp\temp20160310090917295\copytosource.list
+[job-helper] Loading stylesheet F:\Dita-OT2\xsl\job-helper.xsl
+[job-helper] Processing F:\scherzer\RefDita\build\temp\temp20160310090917295\.job.xml to F:\scherzer\RefDita\build\temp\temp20160310090917295\subtargets.list
+[job-helper] Loading stylesheet F:\Dita-OT2\xsl\job-helper.xsl
+[job-helper] Processing F:\scherzer\RefDita\build\temp\temp20160310090917295\.job.xml to F:\scherzer\RefDita\build\temp\temp20160310090917295\resourceonly.list
+[job-helper] Loading stylesheet F:\Dita-OT2\xsl\job-helper.xsl
+[job-helper] Processing F:\scherzer\RefDita\build\temp\temp20160310090917295\.job.xml to F:\scherzer\RefDita\build\temp\temp20160310090917295\user.input.file.list
+[job-helper] Loading stylesheet F:\Dita-OT2\xsl\job-helper.xsl
+[job-helper] Processing F:\scherzer\RefDita\build\temp\temp20160310090917295\.job.xml to F:\scherzer\RefDita\build\temp\temp20160310090917295\hreftargets.list
+[job-helper] Loading stylesheet F:\Dita-OT2\xsl\job-helper.xsl
+[job-helper] Processing F:\scherzer\RefDita\build\temp\temp20160310090917295\.job.xml to F:\scherzer\RefDita\build\temp\temp20160310090917295\conref.list
+[job-helper] Loading stylesheet F:\Dita-OT2\xsl\job-helper.xsl
+[job-helper] Processing F:\scherzer\RefDita\build\temp\temp20160310090917295\.job.xml to F:\scherzer\RefDita\build\temp\temp20160310090917295\hrefditatopic.list
+[job-helper] Loading stylesheet F:\Dita-OT2\xsl\job-helper.xsl
+[job-helper] Processing F:\scherzer\RefDita\build\temp\temp20160310090917295\.job.xml to F:\scherzer\RefDita\build\temp\temp20160310090917295\fullditatopic.list
+[job-helper] Loading stylesheet F:\Dita-OT2\xsl\job-helper.xsl
+[job-helper] Processing F:\scherzer\RefDita\build\temp\temp20160310090917295\.job.xml to F:\scherzer\RefDita\build\temp\temp20160310090917295\fullditamapandtopic.list
+[job-helper] Loading stylesheet F:\Dita-OT2\xsl\job-helper.xsl
+[job-helper] Processing F:\scherzer\RefDita\build\temp\temp20160310090917295\.job.xml to F:\scherzer\RefDita\build\temp\temp20160310090917295\conreftargets.list
+[job-helper] Loading stylesheet F:\Dita-OT2\xsl\job-helper.xsl
+[job-helper] Processing F:\scherzer\RefDita\build\temp\temp20160310090917295\.job.xml to F:\scherzer\RefDita\build\temp\temp20160310090917295\canditopics.list
+[job-helper] Loading stylesheet F:\Dita-OT2\xsl\job-helper.xsl
+[job-helper] Processing F:\scherzer\RefDita\build\temp\temp20160310090917295\.job.xml to F:\scherzer\RefDita\build\temp\temp20160310090917295\resourceonly.list
+[job-helper] Loading stylesheet F:\Dita-OT2\xsl\job-helper.xsl
+
+mapref-check:
+
+mapref:
+   [mapref] Transforming into F:\scherzer\RefDita\build\temp\temp20160310090917295
+   [mapref] Loading stylesheet F:\Dita-OT2\xsl\preprocess\mapref.xsl
+   [mapref] Processing F:\scherzer\RefDita\build\temp\temp20160310090917295\REF_book_BookTemplate.ditamap
+
+branch-filter:
+[branch-filter] Processing file:/F:/scherzer/RefDita/build/temp/temp20160310090917295/REF_book_BookTemplate.ditamap
+
+copy-image-check:
+
+copy-image:
+
+copy-html:
+
+copy-flag-check:
+
+copy-flag:
+
+copy-files:
+
+keyref:
+   [keyref] Reading file:/F:/scherzer/RefDita/build/temp/temp20160310090917295/REF_book_BookTemplate.ditamap
+   [keyref] Processing file:/F:/scherzer/RefDita/build/temp/temp20160310090917295/book/xmp_concept1.dita
+   [mapref] Transforming into F:\scherzer\RefDita\build\temp\temp20160310090917295
+   [mapref] Loading stylesheet F:\Dita-OT2\xsl\preprocess\mapref.xsl
+   [mapref] Processing F:\scherzer\RefDita\build\temp\temp20160310090917295\REF_book_BookTemplate.ditamap
+
+conrefpush:
+[job-helper] Processing F:\scherzer\RefDita\build\temp\temp20160310090917295\.job.xml to F:\scherzer\RefDita\build\temp\temp20160310090917295\conref.list
+[job-helper] Loading stylesheet F:\Dita-OT2\xsl\job-helper.xsl
+
+conref-check:
+
+conref:
+
+profile-check:
+
+profile:
+
+topic-fragment:
+[topic-fragment] Processing file:/F:/scherzer/RefDita/build/temp/temp20160310090917295/book/xmp_topic1.dita
+[topic-fragment] Processing file:/F:/scherzer/RefDita/build/temp/temp20160310090917295/book/xmp_Abstract.dita
+[topic-fragment] Processing file:/F:/scherzer/RefDita/build/temp/temp20160310090917295/book/xmp_Notices.dita
+[topic-fragment] Processing file:/F:/scherzer/RefDita/build/temp/temp20160310090917295/book/ContactsAddr.dita
+[topic-fragment] Processing file:/F:/scherzer/RefDita/build/temp/temp20160310090917295/book/xmp_NoticesSub.dita
+[topic-fragment] Processing file:/F:/scherzer/RefDita/build/temp/temp20160310090917295/book/ContactsImg.dita
+[topic-fragment] Processing file:/F:/scherzer/RefDita/build/temp/temp20160310090917295/book/xmp_reference1.dita
+[topic-fragment] Processing file:/F:/scherzer/RefDita/build/temp/temp20160310090917295/book/xmp_concept1.dita
+[topic-fragment] Processing file:/F:/scherzer/RefDita/build/temp/temp20160310090917295/book/xmp_TopicTypeExamples.dita
+[topic-fragment] Processing file:/F:/scherzer/RefDita/build/temp/temp20160310090917295/book/Glossary.dita
+[topic-fragment] Processing file:/F:/scherzer/RefDita/build/temp/temp20160310090917295/book/xmp_task1.dita
+[topic-fragment] Processing file:/F:/scherzer/RefDita/build/temp/temp20160310090917295/book/xmp_Appendix.dita
+[topic-fragment] Processing file:/F:/scherzer/RefDita/build/temp/temp20160310090917295/book/xmp_Annex1.dita
+[topic-fragment] Processing file:/F:/scherzer/RefDita/build/temp/temp20160310090917295/book/xmp_Preface.dita
+[topic-fragment] Processing file:/F:/scherzer/RefDita/build/temp/temp20160310090917295/book/xmp_SpecialChapters.dita
+[topic-fragment] Processing file:/F:/scherzer/RefDita/build/temp/temp20160310090917295/book/xmp_Annex2.dita
+
+coderef:
+
+move-meta-entries:
+[move-meta] Processing file:/F:/scherzer/RefDita/build/temp/temp20160310090917295/REF_book_BookTemplate.ditamap
+[move-meta] Processing file:/F:/scherzer/RefDita/build/temp/temp20160310090917295/REF_book_BookTemplate.ditamap
+[move-meta] Processing file:/F:/scherzer/RefDita/build/temp/temp20160310090917295/book/xmp_Notices.dita
+[move-meta] Processing file:/F:/scherzer/RefDita/build/temp/temp20160310090917295/book/xmp_Notices.dita
+[move-meta] Processing file:/F:/scherzer/RefDita/build/temp/temp20160310090917295/book/xmp_reference1.dita
+[move-meta] Processing file:/F:/scherzer/RefDita/build/temp/temp20160310090917295/book/xmp_reference1.dita
+[move-meta] Processing file:/F:/scherzer/RefDita/build/temp/temp20160310090917295/book/xmp_Preface.dita
+[move-meta] Processing file:/F:/scherzer/RefDita/build/temp/temp20160310090917295/book/xmp_Preface.dita
+[move-meta] Processing file:/F:/scherzer/RefDita/build/temp/temp20160310090917295/book/Glossary.dita
+[move-meta] Processing file:/F:/scherzer/RefDita/build/temp/temp20160310090917295/book/Glossary.dita
+[move-meta] Processing file:/F:/scherzer/RefDita/build/temp/temp20160310090917295/book/xmp_NoticesSub.dita
+[move-meta] Processing file:/F:/scherzer/RefDita/build/temp/temp20160310090917295/book/xmp_NoticesSub.dita
+[move-meta] Processing file:/F:/scherzer/RefDita/build/temp/temp20160310090917295/book/ContactsImg.dita
+[move-meta] Processing file:/F:/scherzer/RefDita/build/temp/temp20160310090917295/book/ContactsImg.dita
+[move-meta] Processing file:/F:/scherzer/RefDita/build/temp/temp20160310090917295/book/xmp_SpecialChapters.dita
+[move-meta] Processing file:/F:/scherzer/RefDita/build/temp/temp20160310090917295/book/xmp_SpecialChapters.dita
+[move-meta] Processing file:/F:/scherzer/RefDita/build/temp/temp20160310090917295/book/xmp_Appendix.dita
+[move-meta] Processing file:/F:/scherzer/RefDita/build/temp/temp20160310090917295/book/xmp_Appendix.dita
+[move-meta] Processing file:/F:/scherzer/RefDita/build/temp/temp20160310090917295/book/xmp_Annex2.dita
+[move-meta] Processing file:/F:/scherzer/RefDita/build/temp/temp20160310090917295/book/xmp_Annex2.dita
+[move-meta] Processing file:/F:/scherzer/RefDita/build/temp/temp20160310090917295/book/xmp_Abstract.dita
+[move-meta] Processing file:/F:/scherzer/RefDita/build/temp/temp20160310090917295/book/xmp_Abstract.dita
+[move-meta] Processing file:/F:/scherzer/RefDita/build/temp/temp20160310090917295/book/xmp_topic1.dita
+[move-meta] Processing file:/F:/scherzer/RefDita/build/temp/temp20160310090917295/book/xmp_topic1.dita
+[move-meta] Processing file:/F:/scherzer/RefDita/build/temp/temp20160310090917295/book/xmp_task1.dita
+[move-meta] Processing file:/F:/scherzer/RefDita/build/temp/temp20160310090917295/book/xmp_task1.dita
+[move-meta] Processing file:/F:/scherzer/RefDita/build/temp/temp20160310090917295/book/xmp_TopicTypeExamples.dita
+[move-meta] Processing file:/F:/scherzer/RefDita/build/temp/temp20160310090917295/book/xmp_TopicTypeExamples.dita
+[move-meta] Processing file:/F:/scherzer/RefDita/build/temp/temp20160310090917295/book/xmp_concept1.dita
+[move-meta] Processing file:/F:/scherzer/RefDita/build/temp/temp20160310090917295/book/xmp_concept1.dita
+[move-meta] Processing file:/F:/scherzer/RefDita/build/temp/temp20160310090917295/book/xmp_Annex1.dita
+[move-meta] Processing file:/F:/scherzer/RefDita/build/temp/temp20160310090917295/book/xmp_Annex1.dita
+[move-meta] Processing file:/F:/scherzer/RefDita/build/temp/temp20160310090917295/book/ContactsAddr.dita
+[move-meta] Processing file:/F:/scherzer/RefDita/build/temp/temp20160310090917295/book/ContactsAddr.dita
+[move-meta] Processing file:/F:/scherzer/RefDita/build/temp/temp20160310090917295/REF_book_BookTemplate.ditamap
+[move-meta] Loading stylesheet F:\Dita-OT2\xsl\preprocess\mappull.xsl
+
+chunk-check:
+
+chunk:
+    [chunk] Processing file:/F:/scherzer/RefDita/build/temp/temp20160310090917295/REF_book_BookTemplate.ditamap
+[job-helper] Processing F:\scherzer\RefDita\build\temp\temp20160310090917295\.job.xml to F:\scherzer\RefDita\build\temp\temp20160310090917295\fullditatopic.list
+[job-helper] Loading stylesheet F:\Dita-OT2\xsl\job-helper.xsl
+[job-helper] Processing F:\scherzer\RefDita\build\temp\temp20160310090917295\.job.xml to F:\scherzer\RefDita\build\temp\temp20160310090917295\fullditamap.list
+[job-helper] Loading stylesheet F:\Dita-OT2\xsl\job-helper.xsl
+[job-helper] Processing F:\scherzer\RefDita\build\temp\temp20160310090917295\.job.xml to F:\scherzer\RefDita\build\temp\temp20160310090917295\fullditamapandtopic.list
+[job-helper] Loading stylesheet F:\Dita-OT2\xsl\job-helper.xsl
+[job-helper] Processing F:\scherzer\RefDita\build\temp\temp20160310090917295\.job.xml to F:\scherzer\RefDita\build\temp\temp20160310090917295\resourceonly.list
+[job-helper] Loading stylesheet F:\Dita-OT2\xsl\job-helper.xsl
+[job-helper] Processing F:\scherzer\RefDita\build\temp\temp20160310090917295\.job.xml to F:\scherzer\RefDita\build\temp\temp20160310090917295\copytosource.list
+[job-helper] Loading stylesheet F:\Dita-OT2\xsl\job-helper.xsl
+[job-helper] Processing F:\scherzer\RefDita\build\temp\temp20160310090917295\.job.xml to F:\scherzer\RefDita\build\temp\temp20160310090917295\copytotarget2sourcemap.list
+[job-helper] Loading stylesheet F:\Dita-OT2\xsl\job-helper.xsl
+
+maplink-check:
+
+maplink:
+
+topicpull-check:
+
+topicpull:
+[topicpull] Transforming into F:\scherzer\RefDita\build\temp\temp20160310090917295
+[topicpull] Loading stylesheet F:\Dita-OT2\xsl\preprocess\topicpull.xsl
+[topicpull] Processing F:\scherzer\RefDita\build\temp\temp20160310090917295\book\ContactsAddr.dita
+[topicpull] Processing F:\scherzer\RefDita\build\temp\temp20160310090917295\book\xmp_TopicTypeExamples.dita
+[topicpull] Processing F:\scherzer\RefDita\build\temp\temp20160310090917295\book\xmp_Annex1.dita
+[topicpull] Processing F:\scherzer\RefDita\build\temp\temp20160310090917295\book\xmp_concept1.dita
+[topicpull] file:/F:/scherzer/RefDita/src/book/xmp_concept1.dita:7:81: 
+[topicpull] file:/F:/scherzer/RefDita/src/book/xmp_concept1.dita:7:81: [DOTX032E][ERROR]: Unable to retrieve link text from target: 'Glossary.dita#glsgrp/gls_ortler'. If the target is not accessible at build time, or does not have a title, provide the link text inside the reference.
+[topicpull] Processing F:\scherzer\RefDita\build\temp\temp20160310090917295\book\xmp_SpecialChapters.dita
+[topicpull] Processing F:\scherzer\RefDita\build\temp\temp20160310090917295\book\xmp_Abstract.dita
+[topicpull] Processing F:\scherzer\RefDita\build\temp\temp20160310090917295\book\xmp_Annex2.dita
+[topicpull] Processing F:\scherzer\RefDita\build\temp\temp20160310090917295\book\xmp_reference1.dita
+[topicpull] Processing F:\scherzer\RefDita\build\temp\temp20160310090917295\book\Glossary.dita
+[topicpull] Processing F:\scherzer\RefDita\build\temp\temp20160310090917295\book\xmp_topic1.dita
+[topicpull] Processing F:\scherzer\RefDita\build\temp\temp20160310090917295\book\ContactsImg.dita
+[topicpull] Processing F:\scherzer\RefDita\build\temp\temp20160310090917295\book\xmp_Appendix.dita
+[topicpull] Processing F:\scherzer\RefDita\build\temp\temp20160310090917295\book\xmp_NoticesSub.dita
+[topicpull] Processing F:\scherzer\RefDita\build\temp\temp20160310090917295\book\xmp_Notices.dita
+[topicpull] Processing F:\scherzer\RefDita\build\temp\temp20160310090917295\book\xmp_task1.dita
+[topicpull] Processing F:\scherzer\RefDita\build\temp\temp20160310090917295\book\xmp_Preface.dita
+
+flag-module-check:
+
+flag-module:
+[preprocess_flag] Transforming into F:\scherzer\RefDita\build\temp\temp20160310090917295
+[preprocess_flag] Loading stylesheet F:\Dita-OT2\xsl\preprocess\flag.xsl
+[preprocess_flag] Processing F:\scherzer\RefDita\build\temp\temp20160310090917295\book\ContactsAddr.dita
+[preprocess_flag] Processing F:\scherzer\RefDita\build\temp\temp20160310090917295\book\xmp_TopicTypeExamples.dita
+[preprocess_flag] Processing F:\scherzer\RefDita\build\temp\temp20160310090917295\book\xmp_Annex1.dita
+[preprocess_flag] Processing F:\scherzer\RefDita\build\temp\temp20160310090917295\book\xmp_concept1.dita
+[preprocess_flag] Processing F:\scherzer\RefDita\build\temp\temp20160310090917295\book\xmp_SpecialChapters.dita
+[preprocess_flag] Processing F:\scherzer\RefDita\build\temp\temp20160310090917295\book\xmp_Abstract.dita
+[preprocess_flag] Processing F:\scherzer\RefDita\build\temp\temp20160310090917295\book\xmp_Annex2.dita
+[preprocess_flag] Processing F:\scherzer\RefDita\build\temp\temp20160310090917295\book\xmp_reference1.dita
+[preprocess_flag] Processing F:\scherzer\RefDita\build\temp\temp20160310090917295\book\Glossary.dita
+[preprocess_flag] Processing F:\scherzer\RefDita\build\temp\temp20160310090917295\book\xmp_topic1.dita
+[preprocess_flag] Processing F:\scherzer\RefDita\build\temp\temp20160310090917295\book\ContactsImg.dita
+[preprocess_flag] Processing F:\scherzer\RefDita\build\temp\temp20160310090917295\book\xmp_Appendix.dita
+[preprocess_flag] Processing F:\scherzer\RefDita\build\temp\temp20160310090917295\book\xmp_NoticesSub.dita
+[preprocess_flag] Processing F:\scherzer\RefDita\build\temp\temp20160310090917295\book\xmp_Notices.dita
+[preprocess_flag] Processing F:\scherzer\RefDita\build\temp\temp20160310090917295\book\xmp_task1.dita
+[preprocess_flag] Processing F:\scherzer\RefDita\build\temp\temp20160310090917295\book\xmp_Preface.dita
+
+clean-map-check:
+
+clean-map:
+   [mapref] Transforming into F:\scherzer\RefDita\build\temp\temp20160310090917295
+   [mapref] Loading stylesheet F:\Dita-OT2\xsl\preprocess\clean-map.xsl
+   [mapref] Processing F:\scherzer\RefDita\build\temp\temp20160310090917295\REF_book_BookTemplate.ditamap
+
+preprocess:
+
+map2pdf2:
+     [echo] 10/03/2016 09:09:40 HSCT:Creating SetTemp.bat
+     [echo] 10/03/2016 09:09:40 HSCT:map2pdf2:in
+[topic-merge] Processing F:\scherzer\RefDita\build\temp\temp20160310090917295\REF_book_BookTemplate.ditamap
+[topic-merge] Processing F:\scherzer\RefDita\build\temp\temp20160310090917295\book\xmp_Abstract.dita
+[topic-merge] Processing F:\scherzer\RefDita\build\temp\temp20160310090917295\book\xmp_Notices.dita
+[topic-merge] Processing F:\scherzer\RefDita\build\temp\temp20160310090917295\book\xmp_NoticesSub.dita
+[topic-merge] Processing F:\scherzer\RefDita\build\temp\temp20160310090917295\book\xmp_Preface.dita
+[topic-merge] Processing F:\scherzer\RefDita\build\temp\temp20160310090917295\book\xmp_TopicTypeExamples.dita
+[topic-merge] Processing F:\scherzer\RefDita\build\temp\temp20160310090917295\book\xmp_concept1.dita
+[topic-merge] Processing F:\scherzer\RefDita\build\temp\temp20160310090917295\book\xmp_topic1.dita
+[topic-merge] Processing F:\scherzer\RefDita\build\temp\temp20160310090917295\book\xmp_task1.dita
+[topic-merge] Processing F:\scherzer\RefDita\build\temp\temp20160310090917295\book\xmp_reference1.dita
+[topic-merge] Processing F:\scherzer\RefDita\build\temp\temp20160310090917295\book\xmp_SpecialChapters.dita
+[topic-merge] Processing F:\scherzer\RefDita\build\temp\temp20160310090917295\book\ContactsAddr.dita
+[topic-merge] Processing F:\scherzer\RefDita\build\temp\temp20160310090917295\book\ContactsImg.dita
+[topic-merge] Processing F:\scherzer\RefDita\build\temp\temp20160310090917295\book\xmp_Appendix.dita
+[topic-merge] Processing F:\scherzer\RefDita\build\temp\temp20160310090917295\book\xmp_Annex1.dita
+[topic-merge] Processing F:\scherzer\RefDita\build\temp\temp20160310090917295\book\xmp_Annex2.dita
+[topic-merge] Processing F:\scherzer\RefDita\build\temp\temp20160310090917295\book\Glossary.dita
+
+transform.topic2pdf.init:
+
+publish.map.pdf.init:
+
+copyCoreArtwork:
+     [copy] Copying 3 files to F:\scherzer\RefDita\build\temp\temp20160310090917295\Configuration\OpenTopic
+     [copy] Copying 108 files to F:\scherzer\RefDita\build\temp\temp20160310090917295\Customization\OpenTopic
+
+transform.fo2pdf.xep.test-use:
+
+transform.fo2pdf.xep.init:
+
+transform.fo2pdf.fop.test-use:
+
+transform.fo2pdf.fop.init:
+
+transform.fo2pdf.ah.test-use:
+
+transform.fo2pdf.ah.init:
+
+transform.topic2fo.init:
+[detect-lang] Lang search finished
+     [echo] Using document.locale=en
+
+transform.topic2fo.index:
+
+transform.topic2fo.flagging.filter:
+     [copy] Copying 1 file to F:\scherzer\RefDita\build\temp\temp20160310090917295
+
+transform.topic2fo.flagging.no-filter:
+
+transform.topic2fo.flagging:
+
+transform.topic2fo.main:
+     [xslt] Processing F:\scherzer\RefDita\build\temp\temp20160310090917295\stage1a.xml to F:\scherzer\RefDita\build\temp\temp20160310090917295\stage2.fo
+     [xslt] Loading stylesheet F:\Dita-OT2\plugins\org.dita.pdf2.axf\xsl\fo\topic2fo_shell_axf.xsl
+     [xslt] TableCheck::Chapter Title: "Participants(Addr)"   Table[1]  File="file:/F:/scherzer/RefDita/src/book/ContactsAddr.dita"
+     [xslt] TableCheck::Chapter Title: "Participants(Img)"   Table[2]  File="file:/F:/scherzer/RefDita/src/book/ContactsImg.dita"
+
+transform.topic2fo.i18n.filter:
+     [xslt] Processing F:\scherzer\RefDita\build\temp\temp20160310090917295\stage3.fo to F:\scherzer\RefDita\build\temp\temp20160310090917295\topic.fo
+     [xslt] Loading stylesheet F:\Dita-OT2\plugins\org.dita.pdf2\xsl\fo\i18n-postprocess.xsl
+
+transform.topic2fo.i18n.no-filter:
+
+transform.topic2fo.i18n:
+
+transform.topic2fo:
+
+transform.fo2pdf.xep:
+
+transform.fo2pdf.fop:
+
+transform.fo2pdf.ah:
+
+transform.fo2pdf.ah.nooption:
+      [ahf] Processing F:\scherzer\RefDita\build\temp\temp20160310090917295/topic.fo to F:\scherzer\RefDita\pdf/REF_book_BookTemplate.pdf
+
+transform.fo2pdf.ah.hasoption:
+
+transform.fo2pdf:
+
+transform.topic2pdf:
+
+publish.map.pdf:
+     [echo] 10/03/2016 09:10:10 HSCT:map2pdf2:out
+
+topic2pdf2:
+
+dita2pdf2:
+     [echo] 10/03/2016 09:10:10 HSCT:dita2pdf.cust:out
+
+clean-temp:
+
+BUILD SUCCESSFUL
+Total time: 55 seconds

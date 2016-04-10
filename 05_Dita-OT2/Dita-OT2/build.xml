@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- (c) Copyright IBM Corp. 2006 All Rights Reserved.  hosted on 
+     Sourceforge.net. See the accompanying license.txt file for 
+     applicable licenses.--><!-- (c) Copyright IBM Corp. 2006 All Rights Reserved. --><project xmlns:dita="http://dita-ot.sourceforge.net" name="DOST" default="init">
+  
+  <property file="${basedir}/local.properties"/>
+  
+  <!-- Initialize DITA-OT base directory -->
+  <dirname property="ant.file.DOST.dir" file="${ant.file.DOST}"/>
+  <condition property="dita.dir" value="${ant.file.DOST.dir}">
+    <not>
+      <isset property="dita.dir"/>
+    </not>
+  </condition>
+  <condition property="dita.dir" value="${basedir}">
+    <not>
+      <isset property="dita.dir"/>
+    </not>
+  </condition>
+    
+  <path id="dost.class.path">
+    <pathelement location="${dita.dir}${file.separator}plugins/org.dita.pdf2/lib/fo.jar"/><pathelement location="${dita.dir}${file.separator}plugins/org.dita.pdf2.axf/lib/axf.jar"/><pathelement location="${dita.dir}${file.separator}plugins/org.dita.pdf2.xep/lib/xep.jar"/>
+    <pathelement location="${dita.dir}/lib/dost.jar"/>
+    <pathelement location="${dita.dir}/lib/dost-configuration.jar"/>
+  </path>
+  
+  <target name="init">
+    <dita-ot-fail id="DOTA001F">
+      <condition>
+        <and>
+          <not><equals arg1="${transtype}" arg2="tocjs" casesensitive="false"/></not><not><equals arg1="${transtype}" arg2="docbook" casesensitive="false"/></not><not><equals arg1="${transtype}" arg2="eclipsecontent" casesensitive="false"/></not><not><equals arg1="${transtype}" arg2="common-html" casesensitive="false"/></not><not><equals arg1="${transtype}" arg2="xhtml" casesensitive="false"/></not><not><equals arg1="${transtype}" arg2="eclipsehelp" casesensitive="false"/></not><not><equals arg1="${transtype}" arg2="html5" casesensitive="false"/></not><not><equals arg1="${transtype}" arg2="htmlhelp" casesensitive="false"/></not><not><equals arg1="${transtype}" arg2="javahelp" casesensitive="false"/></not><not><equals arg1="${transtype}" arg2="odt" casesensitive="false"/></not><not><equals arg1="${transtype}" arg2="pdf" casesensitive="false"/></not><not><equals arg1="${transtype}" arg2="pdf2" casesensitive="false"/></not><not><equals arg1="${transtype}" arg2="troff" casesensitive="false"/></not><not><equals arg1="${transtype}" arg2="wordrtf" casesensitive="false"/></not><not><equals arg1="${transtype}" arg2="word2dita" casesensitive="false"/></not><not><equals arg1="${transtype}" arg2="xpower" casesensitive="false"/></not>
+        </and>
+      </condition>
+      <param name="1" value="${transtype}"/>
+    </dita-ot-fail>
+    <condition property="clean.temp" value="true">
+      <not><isset property="clean.temp"/></not>
+    </condition>
+    <condition property="clean-temp.skip">
+      <isfalse value="${clean.temp}"/>
+    </condition>
+    <antcall>
+      <target name="dita2${transtype}"/>
+      <target name="clean-temp"/>
+    </antcall>
+  </target>
+  
+  <property name="dita.plugin.org.dita.pdf2.axf.dir" location="${dita.dir}/plugins/org.dita.pdf2.axf"/><property name="dita.plugin.org.dita.eclipsecontent.dir" location="${dita.dir}/plugins/org.dita.eclipsecontent"/><property name="dita.plugin.com.oxygenxml.highlight.dir" location="${dita.dir}/plugins/com.oxygenxml.highlight"/><property name="dita.plugin.org.dita.eclipsehelp.dir" location="${dita.dir}/plugins/org.dita.eclipsehelp"/><property name="dita.plugin.org.oasis-open.dita.v1_2.dir" location="${dita.dir}/plugins/org.oasis-open.dita.v1_2"/><property name="dita.plugin.org.oasis-open.dita.v1_3.dir" location="${dita.dir}/plugins/org.oasis-open.dita.v1_3"/><property name="dita.plugin.org.dita.pdf2.dir" location="${dita.dir}/plugins/org.dita.pdf2"/><property name="dita.plugin.org.dita4publishers.word2dita.dir" location="${dita.dir}/plugins/org.dita4publishers.word2dita"/><property name="dita.plugin.org.dita.pdf2.xep.dir" location="${dita.dir}/plugins/org.dita.pdf2.xep"/><property name="dita.plugin.org.dita.docbook.dir" location="${dita.dir}/plugins/org.dita.docbook"/><property name="dita.plugin.org.dita-community.common.xslt.dir" location="${dita.dir}/plugins/org.dita-community.common.xslt"/><property name="dita.plugin.org.dita.specialization.h2d.dir" location="${dita.dir}/plugins/h2d"/><property name="dita.plugin.net.sourceforge.dita.dbdita.dir" location="${dita.dir}/plugins/dbdita"/><property name="dita.plugin.org.dita.specialization.eclipsemap.dir" location="${dita.dir}/plugins/org.dita.specialization.eclipsemap"/><property name="dita.plugin.org.dita.htmlhelp.dir" location="${dita.dir}/plugins/org.dita.htmlhelp"/><property name="dita.plugin.org.dita.base.dir" location="${dita.dir}"/><property name="dita.plugin.org.dita.pdf2.fop.dir" location="${dita.dir}/plugins/org.dita.pdf2.fop"/><property name="dita.plugin.org.dita4publishers.doctypes.dir" location="${dita.dir}/plugins/org.dita4publishers.doctypes"/><property name="dita.plugin.org.dita.html5.dir" location="${dita.dir}/plugins/org.dita.html5"/><property name="dita.plugin.org.dita.javahelp.dir" location="${dita.dir}/plugins/org.dita.javahelp"/><property name="dita.plugin.org.dita.troff.dir" location="${dita.dir}/plugins/org.dita.troff"/><property name="dita.plugin.org.dita4publishers.xpower.dir" location="${dita.dir}/plugins/org.dita4publishers.xpower"/><property name="dita.plugin.org.dita.specialization.dita11.dir" location="${dita.dir}/plugins/org.dita.specialization.dita11"/><property name="dita.plugin.org.dita.xhtml.dir" location="${dita.dir}/plugins/org.dita.xhtml.HSX"/><property name="dita.plugin.org.dita.odt.dir" location="${dita.dir}/plugins/org.dita.odt"/><property name="dita.plugin.org.dita.specialization.dita132.dir" location="${dita.dir}/plugins/org.dita.specialization.dita132"/><property name="dita.plugin.com.sophos.tocjs.dir" location="${dita.dir}/plugins/com.sophos.tocjs"/><property name="dita.plugin.org.dita.wordrtf.dir" location="${dita.dir}/plugins/org.dita.wordrtf"/>
+  
+  <import file="plugins/org.dita.base/build_init.xml"/>
+  <import file="plugins/org.dita.base/build_preprocess.xml"/>
+
+  <import file="plugins/org.dita.docbook/build_dita2docbook.xml"/>
+
+  <import file="plugins/org.dita.eclipsecontent/build_dita2eclipsecontent.xml"/>
+
+  <import file="plugins/org.dita.xhtml.HSX/build_general.xml"/>
+  <import file="plugins/org.dita.xhtml.HSX/build_dita2xhtml.xml"/>
+
+  <import file="plugins/org.dita.eclipsehelp/build_dita2eclipsehelp.xml"/>
+
+  <import file="plugins/org.dita.html5/build_dita2html5.xml"/>
+
+  <import file="plugins/org.dita.htmlhelp/build_dita2htmlhelp.xml"/>
+
+  <import file="plugins/org.dita.javahelp/build_dita2javahelp.xml"/>
+
+  <import file="plugins/org.dita.odt/build_dita2odt.xml"/>
+
+
+  <import file="plugins/org.dita.pdf2/build.xml"/>
+
+
+  <import file="plugins/org.dita.pdf2.axf/build_axf.xml"/>
+
+  <import file="plugins/org.dita.pdf2.fop/build_fop.xml"/>
+
+  <import file="plugins/org.dita.pdf2.xep/build_xep.xml"/>
+
+  <import file="plugins/org.dita.troff/build_dita2troff.xml"/>
+
+  <import file="plugins/org.dita.wordrtf/build_dita2wordrtf.xml"/>
+
+  <import file="plugins/org.dita4publishers.word2dita/build_transtype-word2dita.xml"/>
+
+    <import file="plugins/org.dita4publishers.xpower/build_xpower_template.xml"/>
+  
+  
+
+  <target name="dita2tocjs" depends="build-init, preprocess, tocjsInit, map2tocjs, topic2tocjs, tocjsDefaultOutput">
+  </target>
+
+  <target name="tocjsInit">
+    <property name="html-version" value="xhtml"/>
+    <condition property="dita.plugin.com.sophos.tocjs.copydefaults" value="true">
+        <not>
+            <isset property="output.file"/>
+        </not>
+    </condition>
+    <property name="output.file" value="${output.dir}${file.separator}toctree.js"/>
+    <property name="out.ext" value=".html"/>
+  </target>
+
+  <target name="topic2tocjs" if="noMap">
+    <antcall target="dita.map.tocjs">
+      
+    </antcall>
+    <echo>The TocJS output type only supports ditamap files as input.</echo>
+  </target>
+
+  <target name="map2tocjs" unless="noMap">
+    <antcall target="dita.map.tocjs">
+      <param name="input" value="${dita.temp.dir}${file.separator}${user.input.file}"/>
+    </antcall>
+  </target>
+
+  <target name="dita.map.tocjs" description="generate merged for tocjs">
+    <xslt in="${input}" out="${output.file}" style="${dita.plugin.com.sophos.tocjs.dir}/xsl/tocjs.xsl">
+      <param name="contentwin" expression="${content.frame}" if="content.frame"/>
+      <param name="htmlext" expression="${out.ext}"/>
+      <xmlcatalog refid="dita.catalog"/>
+    </xslt>
+  </target>
+
+  <target name="tocjsDefaultOutput" if="dita.plugin.com.sophos.tocjs.copydefaults">
+      
+      <antcall target="tocjsDefaultXhtmlOutput"/>
+      <antcall target="tocjsDefaultFrameset"/>
+      
+      <copy todir="${output.dir}"><fileset dir="${dita.plugin.com.sophos.tocjs.dir}${file.separator}basefiles"><include name="**/*"/></fileset></copy>
+  </target>
+
+  <target name="tocjsDefaultXhtmlOutput" depends="copy-revflag, xhtml.topics, copy-css">
+      
+  </target>
+
+  <target name="tocjsDefaultFrameset" if="dita.plugin.com.sophos.tocjs.copydefaults">
+      
+      <xslt basedir="${dita.temp.dir}" destdir="${output.dir}" includesfile="${dita.temp.dir}${file.separator}${user.input.file.listfile}" extension="${out.ext}" style="${dita.plugin.com.sophos.tocjs.dir}${file.separator}xsl${file.separator}frameset.xsl">
+  	    <excludesfile name="${dita.temp.dir}${file.separator}${resourceonlyfile}" if="resourceonlyfile"/>
+        <param name="OUTEXT" expression="${out.ext}" if="out.ext"/>
+        <param name="CSSPATH" expression="${CSSPATH}" if="csspath"/>
+        <xmlcatalog refid="dita.catalog"/>
+      </xslt>
+  </target>
+
+
+  
+  <property file="${basedir}${file.separator}dbdita${file.separator}dbdita.properties"/>
+
+
+
+    <xmlcatalog id="dita.catalog">
+    <catalogpath path="${dita.plugin.org.dita.base.dir}/catalog-dita.xml"/>
+  </xmlcatalog>
+  
+
+  
+  <target name="docbook2dita" depends="use-init" description="Convert DocBook divisions to DITA topics">
+      <mkdir dir="${dbdita.output.dir}"/>
+      <xslt processor="trax" in="${dbdita.input.dir}${file.separator}${dbdita.docbook.input}" out="${dbdita.output.dir}${file.separator}${dbdita.dita.output}" style="${basedir}${file.separator}dbdita${file.separator}db2dita${file.separator}docbook2dita.xsl">
+        <xmlcatalog refid="dita.catalog"/>
+      </xslt>
+  </target>
+
+  <target name="docbook2ditaDir" depends="use-init">
+      <mkdir dir="${dbdita.output.dir}"/>
+      <xslt processor="trax" basedir="${dbdita.input.dir}" includes="${dbdita.input.pattern}" destdir="${dbdita.output.dir}" style="${basedir}${file.separator}dbdita${file.separator}db2dita${file.separator}docbook2dita.xsl">
+        <xmlcatalog refid="dita.catalog"/>
+      </xslt>
+  </target>
+  
+    <target name="use-init">
+        <available classname="net.sf.saxon.StyleSheet" property="hasSaxon"/>
+        <available classname="org.apache.fop.tools.anttasks.Fop" property="hasFOP"/>
+        <available file="C:\Program Files\HTML Help Workshop\hhc.exe" property="HTMLHelpCompiler" value="C:\Program Files\HTML Help Workshop\hhc.exe"/>
+        <property name="clean.temp" value="true"/>
+  </target>
+
+  
+
+  <target name="docbookRelate2xhtml" depends="dbdita-use-init">
+      <condition property="dita.ext" value=".dita">
+        <not><isset property="dita.ext"/></not>
+      </condition>
+      <antcall target="docbookRelatePush">
+		<param name="dbdita.input.dir" value="${dbdita.input.dir}"/>
+		<param name="dbdita.map.input" value="${dbdita.map.input}"/>
+		<param name="dbdita.map.temp" value="${dbdita.map.temp}"/>
+      </antcall>
+      <antcall target="docbookRelatePush2xhtml">
+		<param name="dbdita.input.dir" value="${dbdita.input.dir}"/>
+		<param name="dbdita.map.input" value="${dbdita.map.input}"/>
+		<param name="dbdita.output.dir" value="${dbdita.output.dir}"/>
+      </antcall>
+      
+      <antcall target="dita2xhtml">
+        <param name="transtype" value="xhtml"/>
+		<param name="args.input" value="${dbdita.input.dir}${file.separator}${dbdita.map.temp}"/>
+		<param name="dita.input.dirname" value="${dbdita.input.dir}"/>
+		<param name="dita.input" value="${dbdita.map.temp}"/>
+		<param name="output.dir" value="${dbdita.output.dir}"/>
+        <param name="dita.extname" value="${dita.ext}"/>
+		<param name="clean.temp" value="yes"/>
+      </antcall>
+  </target>
+
+  <target name="docbookRelatePush" depends="use-init" description="Push relationships from a DITA map into DocBook articles">
+      <condition property="dita.ext" value=".dita">
+        <not><isset property="dita.ext"/></not>
+      </condition>
+      <basename property="map.root" file="${dbdita.map.input}" suffix=".ditamap"/>
+      <xslt processor="trax" in="${dbdita.input.dir}${file.separator}${dbdita.map.input}" out="${dbdita.input.dir}${file.separator}${map.root}_TEMP.txt" style="${basedir}${file.separator}dbdita${file.separator}dbMap${file.separator}xsl${file.separator}dbmappush.xsl">
+        <param name="DITAEXT" expression="${dita.ext}"/>
+        <param name="DBEXT" expression="${docbook.ext}" if="docbook.ext"/>
+        <param name="HTMLEXT" expression="${out.ext}" if="out.ext"/>
+        <xmlcatalog refid="dita.catalog"/>
+      </xslt>
+      <xslt processor="trax" in="${dbdita.input.dir}${file.separator}${dbdita.map.input}" out="${dbdita.input.dir}${file.separator}${dbdita.map.temp}" style="${basedir}${file.separator}dbdita${file.separator}dbMap${file.separator}xsl${file.separator}dbmapout.xsl">
+        <param name="DBINEXT" expression="${docbook.ext}" if="docbook.ext"/>
+        <param name="DBOUTEXT" expression="${out.ext}" if="out.ext"/>
+        <xmlcatalog refid="dita.catalog"/>
+      </xslt>
+      <delete file="${dbdita.input.dir}${file.separator}${map.root}_TEMP.txt"/>
+  </target>
+
+  <target name="docbookRelatePush2xhtml" depends="dbdita-use-init" if="dbxhtml.xsl">
+      <basename property="map.root" file="${dbdita.map.input}" suffix=".ditamap"/>
+      <mkdir dir="${dita.temp.dir}${file.separator}dbMap"/>
+      <xslt processor="trax" in="${dbdita.input.dir}${file.separator}${dbdita.map.input}" out="${dita.temp.dir}${file.separator}dbMap${file.separator}${map.root}_GENERATED.txt" style="${basedir}${file.separator}dbdita${file.separator}dbMap${file.separator}xsl${file.separator}dbmapfiles.xsl">
+        <param name="DBOUTEXT" expression=".xml"/>
+        <xmlcatalog refid="dita.catalog"/>
+      </xslt>
+      <xslt processor="trax" basedir="${dbdita.input.dir}" includesfile="${dita.temp.dir}${file.separator}dbMap${file.separator}${map.root}_GENERATED.txt" destdir="${dbdita.output.dir}" style="${basedir}${file.separator}dbdita${file.separator}dbMap${file.separator}xsl${file.separator}dbrelated.xsl">
+        <param name="base.dir" expression="${dbdita.output.dir}"/>
+        <xmlcatalog refid="dita.catalog"/>
+      </xslt>
+  </target>
+
+  <target name="docbookMix2xhtml" depends="use-init">
+      <condition property="dita.ext" value=".dita">
+        <not><isset property="dita.ext"/></not>
+      </condition>
+      <antcall target="docbookMix2dita">
+		<param name="dbdita.input.dir" value="${dbdita.input.dir}"/>
+		<param name="dbdita.map.input" value="${dbdita.map.input}"/>
+		<param name="dbdita.map.temp" value="${dbdita.map.temp}"/>
+		<param name="dbdita.output.dir" value="${dbdita.output.dir}"/>
+      </antcall>
+      <antcall target="dita2xhtml">
+        <param name="transtype" value="xhtml"/>
+		<param name="args.input" value="${dbdita.input.dir}${file.separator}${dbdita.map.temp}"/>
+		<param name="dita.input.dirname" value="${dbdita.input.dir}"/>
+		<param name="dita.input" value="${dbdita.map.temp}"/>
+		<param name="output.dir" value="${dbdita.output.dir}"/>
+        <param name="dita.extname" value="${dita.ext}"/>
+		<param name="clean.temp" value="yes"/>
+      </antcall>
+  </target>
+
+  <target name="docbookMix2dita" depends="use-init" description="Convert DocBook articles referenced from a DITA map to DITA">
+      <condition property="dita.ext" value=".dita">
+        <not><isset property="dita.ext"/></not>
+      </condition>
+      <basename property="map.root" file="${dbdita.map.input}" suffix=".ditamap"/>
+      <mkdir dir="${dbdita.output.dir}"/>
+      <xslt processor="trax" in="${dbdita.input.dir}${file.separator}${dbdita.map.input}" out="${dbdita.input.dir}${file.separator}${map.root}_GENERATED.txt" style="${basedir}${file.separator}dbdita${file.separator}dbMap${file.separator}xsl${file.separator}dbmapfiles.xsl">
+        <param name="DBOUTEXT" expression=""/>
+        <param name="BUILDINFIX" expression=""/>
+        <xmlcatalog refid="dita.catalog"/>
+      </xslt>
+      <xslt processor="trax" basedir="${dbdita.input.dir}" includesfile="${dbdita.input.dir}${file.separator}${map.root}_GENERATED.txt" destdir="${dbdita.input.dir}" extension="_GENERATED${dita.ext}" style="${basedir}${file.separator}dbdita${file.separator}db2dita${file.separator}docbook2dita.xsl">
+        <xmlcatalog refid="dita.catalog"/>
+      </xslt>
+      <xslt processor="trax" in="${dbdita.input.dir}${file.separator}${dbdita.map.input}" out="${dbdita.input.dir}${file.separator}${dbdita.map.temp}" style="${basedir}${file.separator}dbdita${file.separator}dbMap${file.separator}xsl${file.separator}dbmapout.xsl">
+        <param name="DBINEXT" expression="${docbook.ext}" if="docbook.ext"/>
+        <param name="DBOUTEXT" expression="${dita.ext}"/>
+        <param name="DBOUTFORMAT" expression=""/>
+        <xmlcatalog refid="dita.catalog"/>
+      </xslt>
+  </target>
+
+  <target name="docbookCompose2xhtml" depends="dbdita-use-init">
+      <mkdir dir="${dbdita.output.dir}"/>
+      <antcall target="docbookCompose2docbook">
+		<param name="dbdita.input.dir" value="${dbdita.input.dir}"/>
+		<param name="dbdita.map.input" value="${dbdita.map.input}"/>
+		<param name="dbdita.docbook.temp" value="${dbdita.docbook.temp}"/>
+      </antcall>
+      <antcall target="docbook2xhtml">
+		<param name="dbdita.input.dir" value="${dbdita.input.dir}"/>
+		<param name="dbdita.output.dir" value="${dbdita.output.dir}"/>
+		<param name="dbdita.input.file" value="${dbdita.docbook.temp}"/>
+		<param name="dbdita.output.file" value="${dbdita.html.out}"/>
+      </antcall>
+  </target>
+
+  <target name="docbookCompose2docbook" depends="dbdita-use-init" description="Assemble DocBook divisions as specified by a DITA map">
+      <xslt processor="trax" in="${dbdita.input.dir}${file.separator}${dbdita.map.input}" out="${dbdita.input.dir}${file.separator}${dbdita.docbook.temp}" style="${basedir}${file.separator}dbdita${file.separator}dbMap${file.separator}xsl${file.separator}dbmap2db.xsl">
+        <xmlcatalog refid="dita.catalog"/>
+      </xslt>
+  </target>
+
+  <target name="dbdita-use-init" depends="use-init">
+    <condition property="dbxhtml.xsl" value="${dbtool.dir}${file.separator}xhtml${file.separator}docbook.xsl">
+      <and>
+        <isset property="dbtool.dir"/>
+        <available file="${dbtool.dir}${file.separator}xhtml${file.separator}docbook.xsl"/> 
+      </and>
+    </condition>
+  </target>
+
+  <target name="docbookDitaref2xhtml" depends="dbdita-use-init">
+      <mkdir dir="${dbdita.output.dir}"/>
+      <antcall target="docbookDitaref2docbook">
+		<param name="dbdita.input.dir" value="${dbdita.input.dir}"/>
+		<param name="dbdita.docbook.input" value="${dbdita.docbook.input}"/>
+		<param name="dbdita.docbook.temp" value="${dbdita.docbook.temp}"/>
+      </antcall>
+      <antcall target="docbook2xhtml">
+		<param name="dbdita.input.dir" value="${dbdita.input.dir}"/>
+		<param name="dbdita.output.dir" value="${dbdita.output.dir}"/>
+		<param name="dbdita.input.file" value="${dbdita.docbook.temp}"/>
+		<param name="dbdita.output.file" value="${dbdita.html.out}"/>
+      </antcall>
+  </target>
+
+  <target name="docbookDitaref2docbook" depends="dbdita-use-init" description="Populate a DocBook book by reference to a DITA map">
+      <xslt processor="trax" in="${dbdita.input.dir}${file.separator}${dbdita.docbook.input}" out="${dbdita.input.dir}${file.separator}${dbdita.docbook.temp}" style="${basedir}${file.separator}dbdita${file.separator}dbMap${file.separator}xsl${file.separator}ditaref2db.xsl">
+        <param name="DITAEXT" expression="${dita.ext}"/>
+        <xmlcatalog refid="dita.catalog"/>
+      </xslt>
+  </target>
+
+  <target name="docbook2xhtml" if="dbxhtml.xsl">
+      <mkdir dir="${dbdita.output.dir}"/>
+      <xslt processor="trax" in="${dbdita.input.dir}${file.separator}${dbdita.input.file}" out="${dbdita.output.dir}${file.separator}${dbdita.output.file}" style="${dbxhtml.xsl}">
+        <xmlcatalog refid="dita.catalog"/>
+        <param name="base.dir" expression="${dbdita.output.dir}"/>
+      </xslt>
+  </target>
+
+  <target name="docbook2xhtmlDir" if="dbxhtml.xsl">
+      <mkdir dir="${dbdita.output.dir}"/>
+      <xslt processor="trax" basedir="${dbdita.input.dir}" includes="${dbdita.input.pattern}" destdir="${dbdita.output.dir}" style="${dbxhtml.xsl}">
+        <xmlcatalog refid="dita.catalog"/>
+        <param name="base.dir" expression="${dbdita.output.dir}"/>
+      </xslt>
+  </target>
+
+  
+  
+    
+
+  
+  <!-- Deprecated since 2.1 -->
+  <target name="help">
+    <echo level="info">See http://www.dita-ot.org/${otrelease}/</echo>
+  </target>
+
+</project>

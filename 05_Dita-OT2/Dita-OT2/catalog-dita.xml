@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- (c) Copyright IBM Corp. 2004, 2005 All Rights Reserved. See the accompanying license.txt file for applicable licenses.
+--><!-- (c) Copyright IBM Corp. 2004, 2005 All Rights Reserved. --><catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" xmlns:dita="http://dita-ot.sourceforge.net">
+
+  <!-- Java properties file DTD -->
+  <rewriteURI uriStartString="plugin:org.dita.pdf2.axf:" rewritePrefix="plugins/org.dita.pdf2.axf/"/><rewriteURI uriStartString="plugin:org.dita.eclipsecontent:" rewritePrefix="plugins/org.dita.eclipsecontent/"/><rewriteURI uriStartString="plugin:com.oxygenxml.highlight:" rewritePrefix="plugins/com.oxygenxml.highlight/"/><rewriteURI uriStartString="plugin:org.dita.eclipsehelp:" rewritePrefix="plugins/org.dita.eclipsehelp/"/><rewriteURI uriStartString="plugin:org.oasis-open.dita.v1_2:" rewritePrefix="plugins/org.oasis-open.dita.v1_2/"/><rewriteURI uriStartString="plugin:org.oasis-open.dita.v1_3:" rewritePrefix="plugins/org.oasis-open.dita.v1_3/"/><rewriteURI uriStartString="plugin:org.dita.pdf2:" rewritePrefix="plugins/org.dita.pdf2/"/><rewriteURI uriStartString="plugin:org.dita4publishers.word2dita:" rewritePrefix="plugins/org.dita4publishers.word2dita/"/><rewriteURI uriStartString="plugin:org.dita.pdf2.xep:" rewritePrefix="plugins/org.dita.pdf2.xep/"/><rewriteURI uriStartString="plugin:org.dita.docbook:" rewritePrefix="plugins/org.dita.docbook/"/><rewriteURI uriStartString="plugin:org.dita-community.common.xslt:" rewritePrefix="plugins/org.dita-community.common.xslt/"/><rewriteURI uriStartString="plugin:org.dita.specialization.h2d:" rewritePrefix="plugins/h2d/"/><rewriteURI uriStartString="plugin:net.sourceforge.dita.dbdita:" rewritePrefix="plugins/dbdita/"/><rewriteURI uriStartString="plugin:org.dita.specialization.eclipsemap:" rewritePrefix="plugins/org.dita.specialization.eclipsemap/"/><rewriteURI uriStartString="plugin:org.dita.htmlhelp:" rewritePrefix="plugins/org.dita.htmlhelp/"/><rewriteURI uriStartString="plugin:org.dita.base:" rewritePrefix="./"/><rewriteURI uriStartString="plugin:org.dita.pdf2.fop:" rewritePrefix="plugins/org.dita.pdf2.fop/"/><rewriteURI uriStartString="plugin:org.dita4publishers.doctypes:" rewritePrefix="plugins/org.dita4publishers.doctypes/"/><rewriteURI uriStartString="plugin:org.dita.html5:" rewritePrefix="plugins/org.dita.html5/"/><rewriteURI uriStartString="plugin:org.dita.javahelp:" rewritePrefix="plugins/org.dita.javahelp/"/><rewriteURI uriStartString="plugin:org.dita.troff:" rewritePrefix="plugins/org.dita.troff/"/><rewriteURI uriStartString="plugin:org.dita4publishers.xpower:" rewritePrefix="plugins/org.dita4publishers.xpower/"/><rewriteURI uriStartString="plugin:org.dita.specialization.dita11:" rewritePrefix="plugins/org.dita.specialization.dita11/"/><rewriteURI uriStartString="plugin:org.dita.xhtml:" rewritePrefix="plugins/org.dita.xhtml.HSX/"/><rewriteURI uriStartString="plugin:org.dita.odt:" rewritePrefix="plugins/org.dita.odt/"/><rewriteURI uriStartString="plugin:org.dita.specialization.dita132:" rewritePrefix="plugins/org.dita.specialization.dita132/"/><rewriteURI uriStartString="plugin:com.sophos.tocjs:" rewritePrefix="plugins/com.sophos.tocjs/"/><rewriteURI uriStartString="plugin:org.dita.wordrtf:" rewritePrefix="plugins/org.dita.wordrtf/"/>
+  
+  <system systemId="http://java.sun.com/dtd/properties.dtd" uri="dtd/properties.dtd"/>
+
+   
+
+      <public publicId="-//OASIS//DTD DocBook XML V4.4//EN" uri="${dbdtd.uri}/docbookx.dtd"/>
+      <public publicId="-//OASIS//DTD DocBook CALS Table Model V4.4//EN" uri="${dbdtd.uri}/calstblx.dtd"/>
+      <public publicId="-//OASIS//ELEMENTS DocBook XML HTML Tables V4.4//EN" uri="${dbdtd.uri}/htmltblx.mod"/>
+      <public publicId="-//OASIS//DTD XML Exchange Table Model 19990315//EN" uri="${dbdtd.uri}/soextblx.dtd"/>
+      <public publicId="-//OASIS//ELEMENTS DocBook Information Pool V4.4//EN" uri="${dbdtd.uri}/dbpoolx.mod"/>
+      <public publicId="-//OASIS//ELEMENTS DocBook Document Hierarchy V4.4//EN" uri="${dbdtd.uri}/dbhierx.mod"/>
+      <public publicId="-//OASIS//ENTITIES DocBook Additional General Entities V4.4//EN" uri="${dbdtd.uri}/dbgenent.mod"/>
+      <public publicId="-//OASIS//ENTITIES DocBook Notations V4.4//EN" uri="${dbdtd.uri}/dbnotnx.mod"/>
+      <public publicId="-//OASIS//ENTITIES DocBook Character Entities V4.4//EN" uri="${dbdtd.uri}/dbcentx.mod"/>
+      <public publicId="ISO 8879:1986//ENTITIES Diacritical Marks//EN//XML" uri="${dbdtd.uri}/ent/isodia.ent"/>
+      <public publicId="ISO 8879:1986//ENTITIES Numeric and Special Graphic//EN//XML" uri="${dbdtd.uri}/ent/isonum.ent"/>
+      <public publicId="ISO 8879:1986//ENTITIES Publishing//EN//XML" uri="${dbdtd.uri}/ent/isopub.ent"/>
+      <public publicId="ISO 8879:1986//ENTITIES General Technical//EN//XML" uri="${dbdtd.uri}/ent/isotech.ent"/>
+      <public publicId="ISO 8879:1986//ENTITIES Added Latin 1//EN//XML" uri="${dbdtd.uri}/ent/isolat1.ent"/>
+      <public publicId="ISO 8879:1986//ENTITIES Added Latin 2//EN//XML" uri="${dbdtd.uri}/ent/isolat2.ent"/>
+      <public publicId="ISO 8879:1986//ENTITIES Greek Letters//EN//XML" uri="${dbdtd.uri}/ent/isogrk1.ent"/>
+      <public publicId="ISO 8879:1986//ENTITIES Monotoniko Greek//EN//XML" uri="${dbdtd.uri}/ent/isogrk2.ent"/>
+      <public publicId="ISO 8879:1986//ENTITIES Greek Symbols//EN//XML" uri="${dbdtd.uri}/ent/isogrk3.ent"/>
+      <public publicId="ISO 8879:1986//ENTITIES Alternative Greek Symbols//EN//XML" uri="${dbdtd.uri}/ent/isogrk4.ent"/>
+      <public publicId="ISO 8879:1986//ENTITIES Added Math Symbols: Arrow Relations//EN//XML" uri="${dbdtd.uri}/ent/isoamsa.ent"/>
+      <public publicId="ISO 8879:1986//ENTITIES Added Math Symbols: Binary Operators//EN//XML" uri="${dbdtd.uri}/ent/isoamsb.ent"/>
+      <public publicId="ISO 8879:1986//ENTITIES Added Math Symbols: Delimiters//EN//XML" uri="${dbdtd.uri}/ent/isoamsc.ent"/>
+      <public publicId="ISO 8879:1986//ENTITIES Added Math Symbols: Negated Relations//EN//XML" uri="${dbdtd.uri}/ent/isoamsn.ent"/>
+      <public publicId="ISO 8879:1986//ENTITIES Added Math Symbols: Ordinary//EN//XML" uri="${dbdtd.uri}/ent/isoamso.ent"/>
+      <public publicId="ISO 8879:1986//ENTITIES Added Math Symbols: Relations//EN//XML" uri="${dbdtd.uri}/ent/isoamsr.ent"/>
+      <public publicId="ISO 8879:1986//ENTITIES Box and Line Drawing//EN//XML" uri="${dbdtd.uri}/ent/isobox.ent"/>
+      <public publicId="ISO 8879:1986//ENTITIES Russian Cyrillic//EN//XML" uri="${dbdtd.uri}/ent/isocyr1.ent"/>
+      <public publicId="ISO 8879:1986//ENTITIES Non-Russian Cyrillic//EN//XML" uri="${dbdtd.uri}/ent/ent/isocyr2.ent"/>
+
+  
+  <public publicId="-//IBM//DTD DocBook Referencing DITA//EN" uri="dbMap/dtd/docbookDitaref.dtd"/>
+  <public publicId="-//IBM//ELEMENTS DocBook Referencing DITA//EN" uri="dbMap/dtd/docbookDitaref.mod"/>
+
+  
+  <public publicId="-//IBM//DTD DocBook Article Relationship Map//EN" uri="dbMap/dtd/articleMap.dtd"/>
+  <public publicId="-//IBM//ENTITIES DocBook Article Map Domain//EN" uri="dbMap/dtd/articleDomain.ent"/>
+  <public publicId="-//IBM//ELEMENTS DocBook Article Map Domain//EN" uri="dbMap/dtd/articleDomain.mod"/>
+
+  <public publicId="-//IBM//DTD DocBook Composition Map//EN" uri="dbMap/dtd/docbookMap.dtd"/>
+  <public publicId="-//IBM//ELEMENTS DocBook Composition Map//EN" uri="dbMap/dtd/docbookMap.mod"/>
+
+   <nextCatalog catalog="plugins/org.oasis-open.dita.v1_3/catalog.xml"/><nextCatalog catalog="plugins/org.oasis-open.dita.v1_2/catalog.xml"/><nextCatalog catalog="plugins/org.dita.specialization.dita11/catalog.xml"/><nextCatalog catalog="plugins/org.dita.specialization.dita132/catalog.xml"/><nextCatalog catalog="plugins/org.dita.specialization.eclipsemap/catalog.xml"/><nextCatalog catalog="plugins/h2d/catalog.xml"/><nextCatalog catalog="plugins/org.dita4publishers.doctypes/catalog.xml"/>
+  
+</catalog>

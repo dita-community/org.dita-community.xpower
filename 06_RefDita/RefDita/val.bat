@@ -1,0 +1,1 @@
+call e src\ditaval\%Dita-Token%.ditaval

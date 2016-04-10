@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "urn:pubid:dita4publishers.org:doctypes:dita:article" "article.dtd">
+<article
+  id="article-id">
+  <title/>
+  <prolog></prolog>
+  <body>
+    <p><eqn_inline>
+      <d4pMathML>
+        <m:math/>
+      </d4pMathML>
+      </eqn_inline></p>
+  </body>
+  <subsection
+    id="ss1">
+    <title/>
+  </subsection>
+  <sidebar
+    id="sb1">
+    <title/>
+  </sidebar>
+</article>

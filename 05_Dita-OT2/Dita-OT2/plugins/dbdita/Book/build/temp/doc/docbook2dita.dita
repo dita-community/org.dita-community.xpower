@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?><?workdir /F:\Dita-OT2\plugins\dbdita\Book\build\temp\doc?><?workdir-uri file:/F:/Dita-OT2/plugins/dbdita/Book/build/temp/doc/?><?path2project ..\?><?path2project-uri ../?><!--
+ | (C) Copyright IBM Corporation 2006. All Rights Reserved.
+ * hosted on
+ |          Sourceforge.net. See the accompanying license.txt file for
+ |          applicable licenses.
+ *--><!--
+ | (C) Copyright IBM Corporation 2006. All Rights Reserved.
+ *--><topic xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/" id="docbook2dita" xml:lang="en-us" ditaarch:DITAArchVersion="1.2" domains="(topic hi-d)                             (topic ut-d)                             (topic indexing-d)                            (topic hazard-d)                            (topic abbrev-d)                            (topic pr-d)                             (topic sw-d)                            (topic ui-d)    " class="- topic/topic " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\docbook2dita.dita" xtrc="topic:1;12:43">
+<title class="- topic/title " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\docbook2dita.dita" xtrc="title:1;13:8">The Docbook to DITA transform</title>
+<shortdesc class="- topic/shortdesc " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\docbook2dita.dita" xtrc="shortdesc:1;14:12">This directory provides the docbook-to-dita transform. </shortdesc>
+<body class="- topic/body " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\docbook2dita.dita" xtrc="body:1;15:7">
+<p class="- topic/p " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\docbook2dita.dita" xtrc="p:1;16:4">The Docbook-to-DITA transform uses a design pattern that might be called <term class="- topic/term " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\docbook2dita.dita" xtrc="term:1;16:83">a
+dialogue transform</term>. This approach makes a strict separation between
+the input and output logic. Generating an output element requires a conversation
+between the output writer and the input reader:</p>
+<dl class="- topic/dl " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\docbook2dita.dita" xtrc="dl:1;20:5"><dlentry class="- topic/dlentry " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\docbook2dita.dita" xtrc="dlentry:1;20:14">
+<dt class="- topic/dt " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\docbook2dita.dita" xtrc="dt:1;21:5">DITA writer</dt>
+<dd class="- topic/dd " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\docbook2dita.dita" xtrc="dd:1;22:5">The DITA writer knows how to generate DITA output. After producing an
+element, the writer requests the attributes and content of the element from
+the reader. For instance, the paragraph output rule generates a <codeph class="+ topic/ph pr-d/codeph " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\docbook2dita.dita" xtrc="codeph:1;24:73">&lt;p&gt;</codeph> element
+and then requests the id attribute and other attributes of the paragraph and
+then the paragraph content. Where the content is a simple sequence (for instance,
+as with a topic or list), the writer requests in the subelements individually. </dd>
+</dlentry><dlentry class="- topic/dlentry " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\docbook2dita.dita" xtrc="dlentry:2;28:20">
+<dt class="- topic/dt " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\docbook2dita.dita" xtrc="dt:2;29:5">Docbook reader</dt>
+<dd class="- topic/dd " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\docbook2dita.dita" xtrc="dd:2;30:5">The Docbook reader knows how to read Docbook input. When the DITA writer
+requests an attribute or content, the reader is responsible for satisfying
+the request from the current input context. For instance, when the DITA paragraph
+writer requests an id attribute, the reader might copy the id attribute from
+the current Docbook input element or from a nearby Docbook input element.
+The reader can also generate an id attribute or skip the id attribute. Similarly,
+when the DITA paragraph writer requests paragraph content, the reader can
+provide paragraph content by invoking the output rules on any of the text
+and subelements from the input (often but not necessarily from content of
+the current input element).</dd>
+</dlentry></dl>
+<p class="- topic/p " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\docbook2dita.dita" xtrc="p:2;41:4">This directory provides the following modules:</p>
+<dl class="- topic/dl " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\docbook2dita.dita" xtrc="dl:2;42:5"><dlentry class="- topic/dlentry " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\docbook2dita.dita" xtrc="dlentry:3;42:14">
+<dt class="- topic/dt " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\docbook2dita.dita" xtrc="dt:3;43:5">docbook2dita.xsl</dt>
+<dd class="- topic/dd " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\docbook2dita.dita" xtrc="dd:3;44:5">This module combines the Docbook reader and DITA writer to transform Docbook
+input to DITA output.</dd>
+</dlentry><dlentry class="- topic/dlentry " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\docbook2dita.dita" xtrc="dlentry:4;46:20">
+<dt class="- topic/dt " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\docbook2dita.dita" xtrc="dt:4;47:5">dbReader.xsl</dt>
+<dd class="- topic/dd " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\docbook2dita.dita" xtrc="dd:4;48:5">This module provides the base Docbook reader. The module can be extended
+by other modules that override the base module to handle requests from the
+DITA writer in different ways.</dd>
+</dlentry></dl>
+</body>
+</topic>

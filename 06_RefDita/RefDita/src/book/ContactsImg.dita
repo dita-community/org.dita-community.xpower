@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
+<concept id="members">
+    <title>Participants(Img)</title>
+    <shortdesc/>
+    <conbody>
+        <p>The following participants attended the meeting:</p>
+        <table id="tblParticipants" frame="none" pgwide="1" outputclass="rowcolor=white">
+            <tgroup cols="5">
+                <colspec colname="c1" colnum="1" colwidth="12mm" rowsep="1"/>
+                <colspec colname="c2" colnum="2" colwidth="*" rowsep="1"/>
+                <colspec colname="c3" colnum="3" colwidth="55mm" rowsep="1"/>
+                <colspec colname="c4" colnum="4" colwidth="17mm" rowsep="1"/>
+                <colspec colname="c5" colnum="5" colwidth="50mm" rowsep="1"/>
+                <thead>
+                    <row rowsep="0" outputclass="">
+                        <entry/>
+                        <entry>Person</entry>
+                        <entry>Dept.</entry>
+                        <entry namest="c4" nameend="c5">Connect</entry>
+                    </row>
+                </thead>
+                <tbody>
+                    <row rowsep="0" outputclass="compact">
+                        <entry morerows="2" outputclass="left:0pt" rowsep="1">
+                            <image id="HoffmannDustin_png" placement="inline" href="../gfx/HoffmannDustin.png" width="12mm"/>
+                        </entry>
+                        <entry morerows="2" rowsep="1"><b>Dustin Hoffmann</b><p outputclass="compact"><i>Actor</i></p>
+                            <p outputclass="compact">Character Mime</p>
+                        </entry>
+                        <entry morerows="2" rowsep="1">Columbia Pictures<p outputclass="compact">11661 San Vincente Blvd., Suite 222</p><p outputclass="compact">90049  Los Angeles, CA</p><p outputclass="compact">USA</p></entry>
+                        <entry>Phone:</entry>
+                        <entry>+1 213 592 4993</entry>
+                    </row>
+                    <row rowsep="0" outputclass="compact">
+                        <entry>Mobile:</entry>
+                        <entry>+1 213 4248 6724</entry>
+                    </row>
+                    <row rowsep="0" outputclass="compact">
+                        <entry rowsep="1">eMail:</entry>
+                        <entry rowsep="1">dustin.hoffmann@la-actors.com</entry>
+                    </row>
+                    <row rowsep="0" outputclass="compact">
+                        <entry morerows="2" outputclass="left:0pt" rowsep="1">
+                            <image id="ScherzerHelmut_png" placement="inline" href="../gfx/ScherzerHelmut.png" width="12mm"/>
+                        </entry>
+                        <entry morerows="2" rowsep="1"><b>Helmut Scherzer</b><p outputclass="compact"><i>Senior Technical Advisor</i></p>
+                            <p outputclass="compact">Architecture</p>
+                        </entry>
+                        <entry morerows="2" rowsep="1">Giesecke &amp; Devrient<p outputclass="compact">Prinzregentenstrasse 159</p><p outputclass="compact">81677 Munich, BAY</p><p outputclass="compact">Germany</p></entry>
+                        <entry>Phone:</entry>
+                        <entry>+49 89 4119 2084</entry>
+                    </row>
+                    <row rowsep="0" outputclass="compact">
+                        <entry>Mobile:</entry>
+                        <entry>+49 174 313 9891</entry>
+                    </row>
+                    <row rowsep="0" outputclass="compact">
+                        <entry rowsep="1">eMail:</entry>
+                        <entry rowsep="1">helmut.scherzer@gi-de.com</entry>
+                    </row>
+                    <row rowsep="0" outputclass="compact">
+                        <entry morerows="2" outputclass="left:0pt" rowsep="1">
+                            <image id="VoightAngelina_png" placement="inline" href="../gfx/VoightAngelina.png" width="12mm"/>
+                        </entry>
+                        <entry morerows="2" rowsep="1"><b>Angelina Jolie Voight</b><p outputclass="compact"><i>Actress</i></p>
+                            <p outputclass="compact">Action</p>
+                        </entry>
+                        <entry morerows="2" rowsep="1">Hollywood Enterprises<p outputclass="compact">9200 Sunset Boulevard, Suite 810</p><p outputclass="compact">90069 West Hollywood, CA</p><p outputclass="compact">USA</p></entry>
+                        <entry>Phone:</entry>
+                        <entry>+1 213 8573 1964</entry>
+                    </row>
+                    <row rowsep="0" outputclass="compact">
+                        <entry>Mobile:</entry>
+                        <entry>+1 213 572 3334</entry>
+                    </row>
+                    <row rowsep="0" outputclass="compact">
+                        <entry rowsep="1">eMail:</entry>
+                        <entry rowsep="1">angelina.jolie@fanmail.com</entry>
+                    </row>
+                    <row rowsep="0" outputclass="compact">
+                        <entry morerows="2" outputclass="left:0pt" rowsep="1">
+                            <image id="ClooneyGeorge_png" placement="inline" href="../gfx/ClooneyGeorge.png" width="12mm"/>
+                        </entry>
+                        <entry morerows="2" rowsep="1"><b>George Clooney</b><p outputclass="compact"><i>Actor</i></p>
+                            <p outputclass="compact">Action</p>
+                        </entry>
+                        <entry morerows="2" rowsep="1">Smoke House Pictures, Inc<p outputclass="compact">10866 Wilshire Blvd.</p><p outputclass="compact">90024 Los Angeles, CA</p><p outputclass="compact">USA</p></entry>
+                        <entry>Phone:</entry>
+                        <entry>+1 213 7492 3214</entry>
+                    </row>
+                    <row rowsep="0" outputclass="compact">
+                        <entry>Mobile:</entry>
+                        <entry>+1 213 6794 3151</entry>
+                    </row>
+                    <row rowsep="0" outputclass="compact">
+                        <entry rowsep="1">eMail:</entry>
+                        <entry rowsep="1">george.clooney@actors.com</entry>
+                    </row>
+                    <row rowsep="0" outputclass="compact">
+                        <entry morerows="2" outputclass="left:0pt" rowsep="1">
+                            <image id="HathawayAnne_png" placement="inline" href="../gfx/HathawayAnne.png" width="12mm"/>
+                        </entry>
+                        <entry morerows="2" rowsep="1"><b>Anne Hathaway</b><p outputclass="compact"><i>Actress</i></p>
+                            <p outputclass="compact">Drama</p>
+                        </entry>
+                        <entry morerows="2" rowsep="1">Universal Pictures<p outputclass="compact">West 74th Street</p><p outputclass="compact">10023 New York, NY</p><p outputclass="compact">USA</p></entry>
+                        <entry>Phone:</entry>
+                        <entry>+1 914 42011-56</entry>
+                    </row>
+                    <row rowsep="0" outputclass="compact">
+                        <entry>Mobile:</entry>
+                        <entry>+1 914 62 553 701</entry>
+                    </row>
+                    <row rowsep="0" outputclass="compact">
+                        <entry rowsep="1">eMail:</entry>
+                        <entry rowsep="1">anne-hathaway@moviemail.com</entry>
+                    </row>
+                    <row rowsep="1">
+                        <entry/>
+                        <entry/>
+                        <entry/>
+                        <entry/>
+                        <entry/>
+                    </row>
+                </tbody>
+            </tgroup>
+        </table>
+    </conbody>
+</concept>

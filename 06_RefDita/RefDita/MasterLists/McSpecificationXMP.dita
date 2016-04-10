@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
+<concept id="ml_specs">
+    <title id="ml_Title">Specifications master list</title>
+    <conbody>
+        <p>
+            <table rowsep="1" colsep="0" pgwide="1" id="ezRead">
+                <title>Learning XML/XSLT</title>
+                <tgroup cols="3">
+                    <colspec colname="c1" colnum="1" colwidth="32mm"/>
+                    <colspec colname="c2" colnum="2" colwidth="88mm"/>
+                    <colspec colname="c3" colnum="3" colwidth="50mm"/>
+                    <thead>
+                        <row>
+                            <entry>BibEnt</entry>
+                            <entry>Description</entry>
+                            <entry>Publisher</entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row outputclass="compact">
+                            <entry id="spb_DtPrt">[DtPrt]</entry>
+                            <entry id="spd_DtPrt"><b>DITA for Print: A DITA Open Toolkit Workbook</b><p>DITA Open
+                                    Toolkit 1.8 by Leigh W. White</p><p outputclass="compact"><xref
+                                        href="http://xmlpress.net" format="html" scope="external"/></p></entry>
+                            <entry id="spp_DtPrt">XmlPress</entry>
+                        </row>
+                        <row outputclass="compact">
+                            <entry id="spb_XslTut">[XslTut]</entry>
+                            <entry id="spd_XslTut"><b>Beginning XSLT 2.0</b><p>From Novice to Professional, Jeni
+                                    Tennison</p><p outputclass="compact"><xref href="http://www.it-ebooks.info"
+                                        format="html" scope="external"/></p></entry>
+                            <entry id="spp_XslTut">Apress</entry>
+                        </row>
+                        <row outputclass="compact">
+                            <entry id="spb_Xslt">[Xslt]</entry>
+                            <entry id="spd_Xslt"><b>XSLT</b><p>Mastering XSLT transformations, Doug, Tidwell</p><p
+                                    outputclass="compact"><xref href="http://www.oreilly.com" format="html"
+                                        scope="external"/></p></entry>
+                            <entry id="spp_Xslt">O'Reilly</entry>
+                        </row>
+                        <row outputclass="compact">
+                            <entry id="spb_XsltCook">[XsltCook]</entry>
+                            <entry id="spd_XsltCook"><b>XSLT Cookbook</b><p>Solutions and Examples for XML and XSLT
+                                    Developers, Sal Mangano</p><p outputclass="compact"><xref
+                                        href="http://www.oreilly.com" format="html" scope="external"/></p></entry>
+                            <entry>O'Reilly</entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>            
+        </p>
+        <p>
+            <table rowsep="1" colsep="0" pgwide="1" id="references">
+                <title>References</title>
+                <tgroup cols="3">
+                    <colspec colname="c1" colnum="1" colwidth="32mm"/>
+                    <colspec colname="c2" colnum="2" colwidth="88mm"/>
+                    <colspec colname="c3" colnum="3" colwidth="50mm"/>
+                    <thead>
+                        <row>
+                            <entry>BibEnt</entry>
+                            <entry>Description</entry>
+                            <entry>Publisher</entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row outputclass="compact">
+                            <entry id="spb_ezread">[ezRead]</entry>
+                            <entry id="spd_ezread"><b>ezRead Documentation Guide</b><p>ezRead Documentation Technology
+                                and Tools, Helmut Scherzer</p><p><xref href="http://www.hscherzer.de/dita.html"
+                                    format="html" scope="external"
+                                    >http://www.hscherzer.de/dita.html/</xref></p></entry>
+                            <entry id="spp_ezread">none</entry>
+                        </row>
+                        <row outputclass="compact">
+                            <entry id="spb_MyDita">[MyDita]</entry>
+                            <entry id="spd_MyDita"><b>Using DITA</b><p>Reference Guide for the Extended Dita-OT plugin,
+                                    Helmut Scherzer</p><p><xref href="http://www.hscherzer.de/dita.html" format="html"
+                                        scope="external">http://www.hscherzer.de/dita.html/</xref></p></entry>
+                            <entry id="spp_MyDita">none</entry>
+                        </row>
+                        <row outputclass="compact">
+                            <entry id="spb_ditaspec">[DitaSpec]</entry>
+                            <entry id="spd_ditaspec"><b>Darwin Information Typing Architecture (DITA) Version
+                                    1.2</b><p>OASIS Standard 1 December 2010</p><p outputclass="compact"><xref
+                                        href="http://docs.oasis-open.org/dita/v1.2/os/spec/DITA1.2-spec.pdf"
+                                        format="pdf" scope="external"/></p></entry>
+                            <entry id="spp_ditaspec">OASIS</entry>
+                        </row>
+                        <row outputclass="compact">
+                            <entry id="spb_oxy17">[oxy17]</entry>
+                            <entry id="spd_oxy17"><b>Oxygen XML Editor 17.0 User Guide</b><p>Oxygen XML Editor User
+                                    Manual</p><p outputclass="compact"><xref href="http://www.oxygenxml.com"
+                                        format="html" scope="external"/></p></entry>
+                            <entry id="spp_oxy17">Syncro Soft SRL.</entry>
+                        </row>
+                        <row outputclass="compact">
+                            <entry id="spb_PlantUML">[PlantUML]</entry>
+                            <entry id="spd_PlantUML"><b>Drawing UML with PlantUML</b><p>Language Reference Guide
+                                    (Version 8031)</p></entry>
+                            <entry id="spp_PlantUML">PlantUML project</entry>
+                        </row>
+                        <row outputclass="compact">
+                            <entry id="spb_svgspec">[svgspec]</entry>
+                            <entry id="spd_svgspec"><b>Scalable Vector Graphics (SVG) 1.1 Specification</b><p>W3C
+                                    Recommendation, 14 January 2003</p><p outputclass="compact"><xref
+                                        href="http://www.w3.org/TR/2003/REC-SVG11-20030114/" format="html"
+                                        scope="external"/></p></entry>
+                            <entry id="spp_svgspec">W3C</entry>
+                        </row>
+                        <row outputclass="compact">
+                            <entry id="spb_Xslfo">[xslfo]</entry>
+                            <entry id="spd_Xslfo"><b>Extensible Stylesheet Language (XSL) Version 1.1</b><p>W3C
+                                    Recommendation, 05 December 2006, Anders Berglund (IBM), <xref
+                                        href="mailto:alrb@us.ibm.com" format="html" scope="external"/></p><p
+                                    outputclass="compact"><xref href="http://www.w3.org/TR/xsl11/" format="html"
+                                        scope="external"/></p></entry>
+                            <entry id="spp_Xslfo">W3C</entry>
+                        </row>
+                        <row outputclass="compact">
+                            <entry id="spb_AHF">[AHF]</entry>
+                            <entry id="spd_AHF"><b>Antenna House Formatter V6</b><p>User Guide</p></entry>
+                            <entry id="spp_AHF">Antenna House, Inc</entry>
+                        </row>
+                        <row outputclass="compact">
+                            <entry id="spb_Ant">[Ant]</entry>
+                            <entry id="spd_Ant"><b>Apache Ant 1.8.1 Manual</b><p/></entry>
+                            <entry id="spp_Ant">APACHE</entry>
+                        </row>
+                        <row outputclass="compact">
+                            <entry id="spb_empty">[empty]</entry>
+                            <entry id="spd_empty"><b/><p/></entry>
+                            <entry id="spp_empty"/>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>            
+        </p>
+    </conbody>
+</concept>

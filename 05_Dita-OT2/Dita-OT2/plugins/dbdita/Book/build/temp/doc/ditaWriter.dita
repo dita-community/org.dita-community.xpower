@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?><?workdir /F:\Dita-OT2\plugins\dbdita\Book\build\temp\doc?><?workdir-uri file:/F:/Dita-OT2/plugins/dbdita/Book/build/temp/doc/?><?path2project ..\?><?path2project-uri ../?><!--
+ | (C) Copyright IBM Corporation 2006. All Rights Reserved.
+ * hosted on
+ |          Sourceforge.net. See the accompanying license.txt file for
+ |          applicable licenses.
+ *--><!--
+ | (C) Copyright IBM Corporation 2006. All Rights Reserved.
+ *--><topic xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/" id="ditawriter" xml:lang="en-us" ditaarch:DITAArchVersion="1.2" domains="(topic hi-d)                             (topic ut-d)                             (topic indexing-d)                            (topic hazard-d)                            (topic abbrev-d)                            (topic pr-d)                             (topic sw-d)                            (topic ui-d)    " class="- topic/topic " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\ditaWriter.dita" xtrc="topic:1;12:41">
+<title class="- topic/title " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\ditaWriter.dita" xtrc="title:1;13:8">DITA writer</title>
+<shortdesc class="- topic/shortdesc " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\ditaWriter.dita" xtrc="shortdesc:1;14:12">This directory contains the DITA output writer.</shortdesc>
+<body class="- topic/body " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\ditaWriter.dita" xtrc="body:1;15:7">
+<p class="- topic/p " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\ditaWriter.dita" xtrc="p:1;16:4">The output writer provides the following rules for each output element.
+(In the descriptions, <varname class="+ topic/keyword sw-d/varname " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\ditaWriter.dita" xtrc="varname:1;17:32">moduleName</varname> stands for a module that
+provides an element or attribute, <varname class="+ topic/keyword sw-d/varname " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\ditaWriter.dita" xtrc="varname:2;18:44">elementName</varname> stands for
+an element, and <varname class="+ topic/keyword sw-d/varname " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\ditaWriter.dita" xtrc="varname:3;19:26">attributeName</varname> stands for an attributeName.)
+Each rule consists of a mode:</p>
+<dl class="- topic/dl " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\ditaWriter.dita" xtrc="dl:1;21:5"><dlentry class="- topic/dlentry " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\ditaWriter.dita" xtrc="dlentry:1;21:14">
+<dt class="- topic/dt " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\ditaWriter.dita" xtrc="dt:1;22:5"><varname class="+ topic/keyword sw-d/varname " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\ditaWriter.dita" xtrc="varname:4;22:14">moduleName</varname>.<varname class="+ topic/keyword sw-d/varname " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\ditaWriter.dita" xtrc="varname:5;22:44">elementName</varname>.out</dt>
+<dd class="- topic/dd " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\ditaWriter.dita" xtrc="dd:1;23:5">Generates the <varname class="+ topic/keyword sw-d/varname " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\ditaWriter.dita" xtrc="varname:6;23:28">elementName</varname> element from the <varname class="+ topic/keyword sw-d/varname " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\ditaWriter.dita" xtrc="varname:7;23:76">moduleName</varname> module.
+For instance, the <codeph class="+ topic/ph pr-d/codeph " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\ditaWriter.dita" xtrc="codeph:1;24:27">topic.keyword.out</codeph> rule generates a <codeph class="+ topic/ph pr-d/codeph " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\ditaWriter.dita" xtrc="codeph:2;24:79">&lt;keyword&gt;</codeph> element.
+The rule also fires the wrapper rules to request the attributes and content
+of the element. </dd>
+</dlentry><dlentry class="- topic/dlentry " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\ditaWriter.dita" xtrc="dlentry:2;27:20">
+<dt class="- topic/dt " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\ditaWriter.dita" xtrc="dt:2;28:5"><varname class="+ topic/keyword sw-d/varname " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\ditaWriter.dita" xtrc="varname:8;28:14">moduleName</varname>.<varname class="+ topic/keyword sw-d/varname " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\ditaWriter.dita" xtrc="varname:9;28:44">elementName</varname>.atts.in</dt>
+<dd class="- topic/dd " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\ditaWriter.dita" xtrc="dd:2;29:5">Provides a wrapper for requesting the attributes of the <varname class="+ topic/keyword sw-d/varname " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\ditaWriter.dita" xtrc="varname:10;29:70">elementName</varname> element
+from <varname class="+ topic/keyword sw-d/varname " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\ditaWriter.dita" xtrc="varname:11;30:15">moduleName</varname> module.</dd>
+</dlentry><dlentry class="- topic/dlentry " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\ditaWriter.dita" xtrc="dlentry:3;31:20">
+<dt class="- topic/dt " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\ditaWriter.dita" xtrc="dt:3;32:5"><varname class="+ topic/keyword sw-d/varname " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\ditaWriter.dita" xtrc="varname:12;32:14">moduleName</varname>.<varname class="+ topic/keyword sw-d/varname " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\ditaWriter.dita" xtrc="varname:13;32:44">elementName</varname>.<varname class="+ topic/keyword sw-d/varname " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\ditaWriter.dita" xtrc="varname:14;32:75">attributeName</varname>.att.in</dt>
+<dd class="- topic/dd " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\ditaWriter.dita" xtrc="dd:3;33:5">Requests the value of <varname class="+ topic/keyword sw-d/varname " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\ditaWriter.dita" xtrc="varname:15;33:36">attributeName</varname> in the context
+of the <varname class="+ topic/keyword sw-d/varname " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\ditaWriter.dita" xtrc="varname:16;34:17">elementName</varname> element from the <varname class="+ topic/keyword sw-d/varname " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\ditaWriter.dita" xtrc="varname:17;34:65">moduleName</varname> module.
+The default handler for this rule requests the value of <varname class="+ topic/keyword sw-d/varname " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\ditaWriter.dita" xtrc="varname:18;35:66">attributeName</varname> in
+any context. </dd>
+</dlentry><dlentry class="- topic/dlentry " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\ditaWriter.dita" xtrc="dlentry:4;37:20">
+<dt class="- topic/dt " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\ditaWriter.dita" xtrc="dt:4;38:5"><varname class="+ topic/keyword sw-d/varname " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\ditaWriter.dita" xtrc="varname:19;38:14">attributeName</varname>.att.in</dt>
+<dd class="- topic/dd " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\ditaWriter.dita" xtrc="dd:4;39:5">Requests the value of <varname class="+ topic/keyword sw-d/varname " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\ditaWriter.dita" xtrc="varname:20;39:36">attributeName</varname> in any context. </dd>
+</dlentry><dlentry class="- topic/dlentry " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\ditaWriter.dita" xtrc="dlentry:5;40:20">
+<dt class="- topic/dt " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\ditaWriter.dita" xtrc="dt:5;41:5"><varname class="+ topic/keyword sw-d/varname " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\ditaWriter.dita" xtrc="varname:21;41:14">moduleName</varname>.<varname class="+ topic/keyword sw-d/varname " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\ditaWriter.dita" xtrc="varname:22;41:44">elementName</varname>.content.in</dt>
+<dd class="- topic/dd " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\ditaWriter.dita" xtrc="dd:5;42:5">Provides a wrapper for requesting the content of the <varname class="+ topic/keyword sw-d/varname " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\ditaWriter.dita" xtrc="varname:23;42:67">elementName</varname> element
+from <varname class="+ topic/keyword sw-d/varname " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\ditaWriter.dita" xtrc="varname:24;43:15">moduleName</varname> module. If the content model isn't shared,
+the default handler for this rule requests content from the children and text
+(if the content model supports mixed content) of the current input node.<p class="- topic/p " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\ditaWriter.dita" xtrc="p:2;45:76">If
+the content model is shared, the default handler invokes a rule for the shared
+content model. For instance, elements that accept content conforming to the <codeph class="+ topic/ph pr-d/codeph " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\ditaWriter.dita" xtrc="codeph:3;47:85">words.cnt</codeph> group
+invoke the rule for <codeph class="+ topic/ph pr-d/codeph " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\ditaWriter.dita" xtrc="codeph:4;48:29">words.cnt.text.in</codeph>.</p><p class="- topic/p " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\ditaWriter.dita" xtrc="p:3;48:63">If the content
+model takes a simple sequence, the default handler for this rule requests
+the subelements in sequence. </p></dd>
+</dlentry><dlentry class="- topic/dlentry " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\ditaWriter.dita" xtrc="dlentry:6;51:20">
+<dt class="- topic/dt " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\ditaWriter.dita" xtrc="dt:6;52:5"><varname class="+ topic/keyword sw-d/varname " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\ditaWriter.dita" xtrc="varname:25;52:14">moduleName</varname>.<varname class="+ topic/keyword sw-d/varname " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\ditaWriter.dita" xtrc="varname:26;52:44">elementName</varname>.child</dt>
+<dd class="- topic/dd " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\ditaWriter.dita" xtrc="dd:6;53:5">Requests the current input element as a child in the context of the <varname class="+ topic/keyword sw-d/varname " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\ditaWriter.dita" xtrc="varname:27;53:82">elementName</varname> element
+from the <varname class="+ topic/keyword sw-d/varname " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\ditaWriter.dita" xtrc="varname:28;54:19">moduleName</varname> module. The default handler for this
+rule requests the current input element as a child in any context.</dd>
+</dlentry><dlentry class="- topic/dlentry " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\ditaWriter.dita" xtrc="dlentry:7;56:20">
+<dt class="- topic/dt " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\ditaWriter.dita" xtrc="dt:7;57:5">child</dt>
+<dd class="- topic/dd " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\ditaWriter.dita" xtrc="dd:7;58:5">Requests the current input element as a child in any context.</dd>
+</dlentry><dlentry class="- topic/dlentry " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\ditaWriter.dita" xtrc="dlentry:8;59:20">
+<dt class="- topic/dt " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\ditaWriter.dita" xtrc="dt:8;60:5"><varname class="+ topic/keyword sw-d/varname " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\ditaWriter.dita" xtrc="varname:29;60:14">moduleName</varname>.<varname class="+ topic/keyword sw-d/varname " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\ditaWriter.dita" xtrc="varname:30;60:44">elementName</varname>.in</dt>
+<dd class="- topic/dd " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\ditaWriter.dita" xtrc="dd:8;61:5">Requests the <varname class="+ topic/keyword sw-d/varname " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\ditaWriter.dita" xtrc="varname:31;61:27">elementName</varname> element from the <varname class="+ topic/keyword sw-d/varname " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\ditaWriter.dita" xtrc="varname:32;61:75">moduleName</varname> module.
+This rule gets invoked only by a content wrapper when the content model has
+a simple sequence.</dd>
+</dlentry></dl>
+<p class="- topic/p " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\ditaWriter.dita" xtrc="p:4;65:4">The reader can handle a request in a specific output context or in any
+context as appropriate. For instance, the Docbook reader handles a context-free
+request for an id attribute by copying the id (if present) on the current
+input element to the output. In addition, however, the Docbook reader handles
+the request for an id attribute in a topic context by generating an id if
+necessary. </p>
+<pre xml:space="preserve" class="- topic/pre " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\ditaWriter.dita" xtrc="pre:1;71:6"/>
+</body>
+</topic>

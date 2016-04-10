@@ -1,0 +1,7 @@
+\MasterLists\
+\StyleSheets\
+\out\
+\glx\
+DoorsGlossarySyntax.pdf
+nocopy.txt
+

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
+<concept id="concept_sj3_rdn_ps" outputclass="noprint">
+    <title outputclass="newpage"/>
+    <shortdesc/>
+    <conbody>
+        <p>This file contains a simple list of paragraphs which are CSV delimited names of meeting participants. The
+            file shall not have a title and ot has the <apiname>outputclass = noprint</apiname> which prevents it from
+            being included into the PDF file</p>
+        <p>You can however give it a title and remove the <apiname>outputclass = noprint</apiname> if you use the
+                <apiname>ditaval</apiname> selection during processing.</p>
+        <p>The file is required to generate the files<dl>
+                <dlentry>
+                    <dt>ContactsAddr.dita</dt>
+                    <dd>which contains a list of the selected contacts including availability information after running
+                        the <filepath>CreateContacts.xsl</filepath> stylesheet.</dd>
+                </dlentry>
+                <dlentry>
+                    <dt>ContactsImg.dita</dt>
+                    <dd>which is the same as <filepath>ContactsAddr.dita</filepath> but in addition uses images in the
+                        first column to make the appearance more attractive.</dd>
+                </dlentry>
+            </dl></p>
+        <p>The participants need to be listed in an unsorted list as follows.</p>
+        <p>
+            <ul id="ul_vlk_lcn_dv">
+                <li>Scherzer, Helmut</li>
+                <li>Voight, Angelina, Jolie</li>
+                <li>Clooney, George</li>
+                <li>Hoffmann, Dustin</li>
+                <li>Hathaway, Anne</li>
+            </ul>
+        </p>
+    </conbody>
+</concept>

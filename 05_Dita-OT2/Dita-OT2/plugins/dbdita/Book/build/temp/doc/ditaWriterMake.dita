@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?><?workdir /F:\Dita-OT2\plugins\dbdita\Book\build\temp\doc?><?workdir-uri file:/F:/Dita-OT2/plugins/dbdita/Book/build/temp/doc/?><?path2project ..\?><?path2project-uri ../?><!--
+ | (C) Copyright IBM Corporation 2006. All Rights Reserved.
+ * hosted on
+ |          Sourceforge.net. See the accompanying license.txt file for
+ |          applicable licenses.
+ *--><!--
+ | (C) Copyright IBM Corporation 2006. All Rights Reserved.
+ *--><topic xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/" id="ditawritermake" xml:lang="en-us" ditaarch:DITAArchVersion="1.2" domains="(topic hi-d)                             (topic ut-d)                             (topic indexing-d)                            (topic hazard-d)                            (topic abbrev-d)                            (topic pr-d)                             (topic sw-d)                            (topic ui-d)    " class="- topic/topic " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\ditaWriterMake.dita" xtrc="topic:1;12:45">
+<title class="- topic/title " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\ditaWriterMake.dita" xtrc="title:1;13:8">DITA writer make</title>
+<shortdesc class="- topic/shortdesc " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\ditaWriterMake.dita" xtrc="shortdesc:1;14:12">This transform generates the DITA writer from the DITA schema modules</shortdesc>
+<body class="- topic/body " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\ditaWriterMake.dita" xtrc="body:1;15:7">
+<p class="- topic/p " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\ditaWriterMake.dita" xtrc="p:1;16:4">The transform first merges the DITA topic or domain type modules and then
+reads each type module and generates a writer transform module for the DITA
+topic type or domain. </p>
+<note class="- topic/note " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\ditaWriterMake.dita" xtrc="note:1;19:7">This transform depends on rigorous conformance to the design pattern
+for DITA type modules. As a result, the transform is somewhat fragile and
+should be run only when modules change or new modules are added. </note>
+</body>
+</topic>

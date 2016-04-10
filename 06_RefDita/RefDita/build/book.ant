@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- This file is part of the DITA Open Toolkit project hosted on
+     Sourceforge.net. See the accompanying license.txt file for
+     applicable licenses.-->
+<!-- (c) Copyright IBM Corp. 2004, 2006 All Rights Reserved. -->
+<project name="book_pdf" default="book.pdf" basedir=".">
+
+    <property name="dita.dir" location="${DitaOT}"/>
+    <property name="output.dir" location="${DitaOutputDir}"/>
+    <property name="settings.dir" location="${DitaOutputDir}"/>
+    <property name="retain.topic.fo" value="yes"/>
+    <property name="org.dita.pdf2.use-out-temp" value="true"/>
+    <property name="clean.temp" value="yes"/>
+    <!--HSC [DtPrt#15.4.1] implements related links -->
+    <property name="args.debug" value="yes"/>
+    <property name="args.rellinks" value="nofamily"/>
+    <!--HSX [DitaSpec#3.1.8] for the DITAVAL elements -->
+    <property name="args.filter" value="../src/ditaval/${TOKEN}.ditaval"/>
+    <property name="settings.path" location="${AXF_OPT}"/>
+    <property name="env.AXF_OPT" location="${settings.path}/AHFSettings.xml"/>
+
+    <property name="ProjectDocu" value="'test'"/>
+    <!--HSC [DtPrt#16.15.6] allows to eliminate the mini-TOC using BASIC
+    <property name="args.chapter.layout" value="BASIC"/>
+    -->
+
+    <target name="book.pdf" description="build the DITA source as PDF" depends="clean.book.pdf">
+        <ant antfile="${dita.dir}/build.xml">
+            <property name="args.input" location="../src/${INPUT}.ditamap"/>
+            <property name="transtype" value="xpower"/>
+            <property name="pdf.formatter" value="ah"/>
+            <property name="axf.path" value="${AHF_HOME}"/>
+            <!--
+            -->
+            <!-- also found by set AXF_OPT=F:\Gnd\DocuDesign\Dita\AHF\settings\AHFSettings.xml -->
+            <!---i "${setttings}" -->
+        </ant>
+    </target>
+
+    <target name="clean.book.pdf" description="remove the PDF output">
+        <delete dir="${output.dir}"/>
+    </target>
+
+</project>
+

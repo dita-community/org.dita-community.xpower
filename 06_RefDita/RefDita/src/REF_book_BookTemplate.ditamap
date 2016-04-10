@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE bookmap PUBLIC "-//OASIS//DTD DITA BookMap//EN" "../dtd/bookmap/dtd/bookmap.dtd">
+<!-- (c) Copyright IBM Corp. 2004, 2007 All Rights Reserved. -->
+<bookmap id="taskbook" xml:lang="en">
+    <booktitle>
+        <booklibrary>ezRead Library</booklibrary>
+        <mainbooktitle>DITA Book Template</mainbooktitle>
+        <booktitlealt>Working reference book to start DITA fast</booktitlealt>
+    </booktitle>
+    <bookmeta>
+        <shortdesc><keyword>ditabook</keyword><data name="style">dsgn_smart</data>This is the short title</shortdesc>        
+        <authorinformation>
+            <personinfo>
+                <namedetails>
+                    <personname>
+                        <firstname>Helmut</firstname>
+                        <lastname>Scherzer</lastname>
+                        <otherinfo>Lead Architect</otherinfo>
+                    </personname>
+                </namedetails>
+                <addressdetails>
+                    <thoroughfare>Prinzregentenstr. 159</thoroughfare>
+                    <locality>
+                        <postalcode>81677</postalcode>
+                        <localityname>Munich</localityname>
+                    </locality>
+                    <administrativearea>BAY</administrativearea>
+                    <country>Germany</country>
+                </addressdetails>
+                <contactnumbers>
+                    <contactnumber name="Private" value="+49 89 4119 2084"/>
+                    <contactnumber name="Work" value="+49 89 4119 2084"/>
+                </contactnumbers>
+                <emailaddresses>
+                    <emailaddress name="Private" value="helmut.scherzer@gi-de.com"/>
+                    <emailaddress name="Work" value="helmut.scherzer@gi-de.com"/>
+                </emailaddresses>
+            </personinfo>
+            <organizationinfo>
+                <namedetails>
+                    <personname>
+                        <firstname>Helmut</firstname>
+                        <lastname>Scherzer</lastname>
+                        <otherinfo>Editor</otherinfo>
+                    </personname>
+                </namedetails>
+                <addressdetails>
+                    <thoroughfare>Prinzregentenstr. 159</thoroughfare>
+                    <locality>
+                        <postalcode>81677</postalcode>
+                        <localityname>Munich</localityname>
+                        <data name="postbox" value="80 07 29"/>
+                    </locality>
+                    <administrativearea>BAY</administrativearea>
+                    <country>Germany</country>
+                </addressdetails>
+                <contactnumbers>
+                    <contactnumber name="Fon" value="+49 89 4119 2084"/>
+                    <contactnumber name="Mobile" value="+49 174 313 9891"/>
+                </contactnumbers>
+                <emailaddresses>
+                    <emailaddress name="mail" value="helmut.scherzer@gi-de.com"/>
+                </emailaddresses>
+                <urls>
+                    <url>www.gi-de.com</url>
+                </urls>
+            </organizationinfo>
+        </authorinformation>
+        <!--HSC added to test metadata acc. to [DtPrt#8.5] -->
+        <critdates>
+            <revised modified="20150703" golive="2015-01-22" expiry="2015-05-20"/>
+        </critdates>
+        <prodinfo>
+            <prodname>Version<data name="image" value="gfx/front.png"/><data name="top-left-width"
+                value="115mm 60mm 100mm"/></prodname>
+            <vrmlist>
+                <vrm version="1.0" release="100.23-1.42" modification="wmDraft.svg"/>
+            </vrmlist>
+        </prodinfo>
+        <!-- end added -->
+        <bookid>
+            <isbn>ISBN 0174-313-9891</isbn>
+            <booknumber>ezRead 3.0</booknumber>
+            <maintainer>
+                <organization>Giesecke &amp; Devrient</organization>
+                <person>person</person>
+            </maintainer>
+        </bookid>
+        <bookrights>
+            <copyrfirst>
+                <year>2014</year>
+            </copyrfirst>
+            <copyrlast>
+                <year>2017</year>
+            </copyrlast>
+            <bookowner>
+                <organization>Giesecke &amp; Devrient <data name="logo" value="gfx/GdLogo.svg"
+                /><data name="height" value="10mm"/>
+                </organization>
+            </bookowner>
+            <bookrestriction value="G&amp;D Confidential"/>
+            <summary>
+                <data name="disclaimer" value="en">This document as well as the information or material contained is
+                    copyrighted. Any use not explicitly permitted by copyright law requires prior consent of Giesecke
+                    &amp; Devrient GmbH. This applies to any reproduction, revision, translation, storage on microfilm
+                    as well as its import and processing in electronical systems, in particular. </data>
+                <data name="trademark" value="en">ezRead<sup>™</sup> is a registered trademark of Giesecke Devrient
+                    GmbH, München.</data>
+            </summary>
+        </bookrights>
+    </bookmeta>
+    <frontmatter>
+        <booklists>
+            <toc/>
+            <!--HSC [DtPrt#18.3] show how to add list of tables and figures -->
+            <tablelist/>
+            <figurelist/>
+        </booklists>
+        <bookabstract href="book/xmp_Abstract.dita"/>
+        <notices href="book/xmp_Notices.dita">
+            <topicref href="book/xmp_NoticesSub.dita"/>
+        </notices>
+        <preface href="book/xmp_Preface.dita"/>
+    </frontmatter>
+    <chapter href="book/xmp_TopicTypeExamples.dita">
+        <topicref href="book/sysvars.dita"/>
+        <topicref href="book/xmp_concept1.dita"/>
+        <topicref href="book/xmp_topic1.dita"/>
+        <topicref href="book/xmp_task1.dita"/>
+        <topicref href="book/xmp_reference1.dita"/>
+    </chapter>
+    <chapter href="book/xmp_SpecialChapters.dita">
+        <topicref href="book/meeting.dita" audience="system"/>
+        <topicref href="book/ContactsAddr.dita"/>
+        <topicref href="book/ContactsImg.dita"/>
+    </chapter>
+    <appendix href="book/xmp_Appendix.dita">
+        <topicref href="book/xmp_Annex1.dita"/>
+        <topicref href="book/xmp_Annex2.dita"/>
+    </appendix>
+    <backmatter>
+        <booklists>
+            <glossarylist>
+                <topicref keys="gls" href="book/Glossary.dita"/>
+            </glossarylist>
+            <indexlist/>
+        </booklists>
+    </backmatter>
+</bookmap>

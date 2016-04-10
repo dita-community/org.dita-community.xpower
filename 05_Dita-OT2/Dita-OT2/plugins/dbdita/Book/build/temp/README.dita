@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?><?workdir /F:\Dita-OT2\plugins\dbdita\Book\build\temp?><?workdir-uri file:/F:/Dita-OT2/plugins/dbdita/Book/build/temp/?><?path2project?><?path2project-uri ./?><!--
+ | (C) Copyright IBM Corporation 2006. All Rights Reserved.
+ * hosted on
+ |          Sourceforge.net. See the accompanying license.txt file for
+ |          applicable licenses.
+ *--><!--
+ | (C) Copyright IBM Corporation 2006. All Rights Reserved.
+ *--><topic xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/" id="readme" xml:lang="en-us" ditaarch:DITAArchVersion="1.2" domains="(topic hi-d)                             (topic ut-d)                             (topic indexing-d)                            (topic hazard-d)                            (topic abbrev-d)                            (topic pr-d)                             (topic sw-d)                            (topic ui-d)    " class="- topic/topic " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\README.dita" xtrc="topic:1;12:37">
+<title class="- topic/title " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\README.dita" xtrc="title:1;13:8">Docbook and DITA</title>
+<shortdesc class="- topic/shortdesc " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\README.dita" xtrc="shortdesc:1;14:12">This plugin provides a transform from Docbook to DITA and some
+proof-of-concept examples of interoperability.</shortdesc>
+<body class="- topic/body " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\README.dita" xtrc="body:1;16:7">
+<note type="important" class="- topic/note " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\README.dita" xtrc="note:1;17:24">
+<p class="- topic/p " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\README.dita" xtrc="p:1;18:4">The transform has a number of limitations and is a proof of
+concept rather than a robust conversion transform.
+</p>
+</note>
+</body>
+</topic>

@@ -1,0 +1,16 @@
+Worked out in commons.xsl
+<xsl:template match="*[contains(@class,' topic/note ')]" mode="setNoteImagePath">
+
+    note.png
+    notice.png
+    attention.png
+    caution.png
+    tip.png
+    danger.png
+    warning.png
+    fastpath.png
+    important.png
+    remember.png
+    restriction.png
+    trouble.png
+    other.png

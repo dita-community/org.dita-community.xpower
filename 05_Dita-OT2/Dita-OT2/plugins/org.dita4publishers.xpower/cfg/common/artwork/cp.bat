@@ -1,0 +1,13 @@
+copy warning.png note.png
+copy warning.png notice.png
+copy warning.png attention.png
+copy warning.png caution.png
+copy warning.png tip.png
+copy warning.png danger.png
+copy warning.png warning.png
+copy warning.png fastpath.png
+copy warning.png important.png
+copy warning.png remember.png
+copy warning.png restriction.png
+copy warning.png trouble.png
+copy warning.png other.png

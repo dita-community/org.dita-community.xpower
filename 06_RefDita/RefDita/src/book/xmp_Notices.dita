@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
+<concept id="notices" xml:lang="en-us">
+	<title id="idAboutNotices">About Notices</title>
+	<shortdesc>Describes the notices frontmatter layout</shortdesc>
+	<conbody>
+        <p outputclass="chk1">Notices may be un usual text to indicated special remarks about the
+            text to follow.</p>
+        <p outputclass="mrg">Use cases</p>
+        <p>In standardization documents, very often we find patent warnings in notices.</p>
+		<p>The notices section is build as usual concept type. However, the DITA-OT catches the notices
+            type in<apiname>commons.xsl</apiname> and provides separate attributes. By default these
+            attributes derive from some defaults by they are addressable separately.</p>
+		<p>The keyword to understand the notices processing is
+				<apiname>processTopicNotices</apiname>. This template is called out of the
+				<apiname>topic/topic</apiname> (very general) processing step and explicitly
+			processed in <apiname>commons.xsl</apiname>.</p>
+		<section>
+			<title>Sub-Notices</title>
+			<p>The Notices may contain subchapters which will be correctly listed in the mini-toc.
+				As of today the mini-toc only puts out H2 chapters, in general that should be ok but
+				I will still have to fix that.</p>
+            <p>This block is created as a <keyword>section</keyword>.</p>
+		</section>
+	</conbody>
+</concept>

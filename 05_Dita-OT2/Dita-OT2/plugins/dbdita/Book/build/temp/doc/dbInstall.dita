@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?><?workdir /F:\Dita-OT2\plugins\dbdita\Book\build\temp\doc?><?workdir-uri file:/F:/Dita-OT2/plugins/dbdita/Book/build/temp/doc/?><?path2project ..\?><?path2project-uri ../?><!--
+ | (C) Copyright IBM Corporation 2006. All Rights Reserved.
+ * hosted on
+ |          Sourceforge.net. See the accompanying license.txt file for
+ |          applicable licenses.
+ *--><!--
+ | (C) Copyright IBM Corporation 2006. All Rights Reserved.
+ *--><task xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/" id="dbInstall" xml:lang="en-us" ditaarch:DITAArchVersion="1.2" domains="(topic task)                            (topic hi-d)                             (topic ut-d)                             (topic indexing-d)                            (topic hazard-d)                            (topic abbrev-d)                            (topic pr-d)                             (topic sw-d)                            (topic ui-d)                            (topic task strictTaskbody-c)    " class="- topic/topic task/task " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\dbInstall.dita" xtrc="task:1;12:39">
+<title class="- topic/title " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\dbInstall.dita" xtrc="title:1;13:8">Installing the DocBook-DITA plugin</title>
+<shortdesc class="- topic/shortdesc " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\dbInstall.dita" xtrc="shortdesc:1;14:12">This plugin provides a transform from Docbook to DITA and some
+proof-of-concept examples of interoperability.</shortdesc>
+<taskbody class="- topic/body task/taskbody " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\dbInstall.dita" xtrc="taskbody:1;16:11">
+<steps class="- topic/ol task/steps " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\dbInstall.dita" xtrc="steps:1;17:8">
+<step class="- topic/li task/step " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\dbInstall.dita" xtrc="step:1;18:7"><cmd class="- topic/ph task/cmd " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\dbInstall.dita" xtrc="cmd:1;18:12">You must install the DITA Open Toolkit 1.3 or higher and run a test
+build to verify the installation.
+</cmd></step>
+<step class="- topic/li task/step " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\dbInstall.dita" xtrc="step:2;21:7"><cmd class="- topic/ph task/cmd " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\dbInstall.dita" xtrc="cmd:2;21:12">It's also recommended that you install the DocBook tools at
+version 1.69.1 and the DocBook 4.4 DTDs.</cmd>
+<info class="- topic/itemgroup task/info " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\dbInstall.dita" xtrc="info:1;23:7">Other versions may work but haven't been tested.</info>
+</step>
+<step class="- topic/li task/step " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\dbInstall.dita" xtrc="step:3;25:7"><cmd class="- topic/ph task/cmd " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\dbInstall.dita" xtrc="cmd:3;25:12">Edit the dbdita.properties file in the plugin directory to
+identify the location of the DocBook tools and document types.
+</cmd></step>
+<step class="- topic/li task/step " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\dbInstall.dita" xtrc="step:4;28:7"><cmd class="- topic/ph task/cmd " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\dbInstall.dita" xtrc="cmd:4;28:12">In the base directory for the DITA Open Toolkit, install
+the plugin.
+</cmd>
+<stepxmp class="- topic/itemgroup task/stepxmp " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\dbInstall.dita" xtrc="stepxmp:1;31:10">
+<p class="- topic/p " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\dbInstall.dita" xtrc="p:1;32:4">You execute the following command (using blackslashes instead of 
+slashes on Windows):</p>
+<codeblock xml:space="preserve" class="+ topic/pre pr-d/codeblock " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\dbInstall.dita" xtrc="codeblock:1;34:12">ant -f demo\dbdita\install-plugin.xml</codeblock>
+</stepxmp>
+</step>
+<step class="- topic/li task/step " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\dbInstall.dita" xtrc="step:5;37:7"><cmd class="- topic/ph task/cmd " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\dbInstall.dita" xtrc="cmd:5;37:12">Verify the plugin installed correctly with a sample build.</cmd>
+<stepxmp class="- topic/itemgroup task/stepxmp " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\dbInstall.dita" xtrc="stepxmp:2;38:10">
+<p class="- topic/p " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\dbInstall.dita" xtrc="p:2;39:4">You can execute the following command (again, using blackslashes
+instead of slashes on Windows):</p>
+<codeblock xml:space="preserve" class="+ topic/pre pr-d/codeblock " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\dbInstall.dita" xtrc="codeblock:2;41:12">ant -f demo\dbdita\run-ant.xml docbook2DITADemo</codeblock>
+</stepxmp>
+</step>
+</steps>
+<result class="- topic/section task/result " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\dbInstall.dita" xtrc="result:1;45:9"><p class="- topic/p " xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\doc\dbInstall.dita" xtrc="p:3;45:12">You can use the DocBook-to-DITA transform on your own
+DocBook content or explore the interoperability demos.
+</p>
+</result>
+</taskbody>
+<related-links class="- topic/related-links "><linkpool class="- topic/linkpool " xtrc="topicref:8;29:116" xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\dbdita.ditamap"><link class="- topic/link " format="dita" href="../doc/dbMapXSL.dita" mapclass="- map/topicref " role="sibling" scope="local" type="topic" xtrc="topicref:9;31:106" xtrf="F:\Dita-OT2\plugins\dbdita\Book\src\dbdita.ditamap"><?ditaot usertext?><linktext class="- topic/linktext "><?ditaot gentext?>Demonstration transforms</linktext><?ditaot genshortdesc?><desc class="- topic/desc ">The examples of DocBook and DITA interoperability can be processed with demonstration transforms.</desc></link></linkpool></related-links></task>

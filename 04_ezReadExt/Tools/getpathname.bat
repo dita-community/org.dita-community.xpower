@@ -1,0 +1,1 @@
+set ProjPathName=%~f1

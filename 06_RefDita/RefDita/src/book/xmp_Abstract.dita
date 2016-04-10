@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd" []>
+<concept id="concept-1">
+  <title>Abstract</title>
+  <conbody>
+    <p>This document describes its own formatting in order to allow the reader changing XSL-FO page
+      parameters through intuitive progress. There's nothing better than Leigh White's book
+      [DtPrt#1] which is the best entry point ever to understand the mechanisms of XSL-FO. Yet after
+      reading the book you might still need some search to modify layouts. This documents concludes
+      the learning of the book by pointers to the places that are relevant for the format of the
+      document.</p>
+        <section>
+            <title>About the abstract</title>
+            <p>The <keyword>abstract</keyword> usually serves as short summary of the content to be
+                expected in an article or book. The topic is described in [DitaSpec#3.2.5.1.8].</p>
+            <p>Like the <keyword>notices</keyword> and the <keyword>preface</keyword>, the
+                    <keyword>abstract</keyword> is also part of the <keyword>frontmatter</keyword>
+                [Ditaspec#3.2.5.1.19] section of a ditamap.</p>
+        </section>
+  </conbody>
+</concept>

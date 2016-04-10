@@ -1,0 +1,1 @@
+ant -f dbdita\run-ant.xml docbook2DITADemo

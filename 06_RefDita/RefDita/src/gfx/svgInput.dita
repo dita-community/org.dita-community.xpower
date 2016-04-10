@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This is a dummy input file for the SVG conversion
+     It should be available in any gfx directory.
+     It shall be associated with the svgRepairAllSvg.xsl stylesheet
+     Do not change
+-->
+<doc>
+    <entry/>
+</doc>
