@@ -1,1 +1,3 @@
-call e src\ditaval\%Dita-Token%.ditaval
+    @echo off
+    call SetInp.bat
+    call e src\ditaval\%Dita-Token%.ditaval

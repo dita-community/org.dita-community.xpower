@@ -1,4 +1,8 @@
 <!-- check [DitaSpec#3.1.8] -->
+<!-- Attention acc. to [DitaSpec#revprop] the rev attribute can
+     only be used for flagging, not for conditional processing
+-->
+
 <!--HSX The target fields (e.g. 'product' or 'audience' take blank delimited multiple values
         To evaluate multiple values, you need to have separate statement for each of those values
         

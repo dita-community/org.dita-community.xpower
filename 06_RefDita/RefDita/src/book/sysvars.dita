@@ -3,6 +3,6 @@
 <concept id="sysvars" outputclass="noprint">
     <title/>
     <conbody>
-        <p><ph id="sys-ezread">ezRead Technology</ph></p>
+        <p><ph id="ezread">ezRead Technology</ph></p>
     </conbody>
 </concept>

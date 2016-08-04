@@ -123,20 +123,20 @@
         <preface href="book/xmp_Preface.dita"/>
     </frontmatter>
     <chapter href="book/xmp_TopicTypeExamples.dita">
-        <topicref href="book/sysvars.dita"/>
-        <topicref href="book/xmp_concept1.dita"/>
-        <topicref href="book/xmp_topic1.dita"/>
-        <topicref href="book/xmp_task1.dita"/>
-        <topicref href="book/xmp_reference1.dita"/>
+        <topicref href="book/sysvars.dita" keys="sysvar"/>
+        <topicref href="book/xmp_concept1.dita" keys="concept1"/>
+        <topicref href="book/xmp_topic1.dita" keys="topic1"/>
+        <topicref href="book/xmp_task1.dita" keys="task1"/>
+        <topicref href="book/xmp_reference1.dita" keys="reference1"/>
     </chapter>
     <chapter href="book/xmp_SpecialChapters.dita">
         <topicref href="book/meeting.dita" audience="system"/>
-        <topicref href="book/ContactsAddr.dita"/>
-        <topicref href="book/ContactsImg.dita"/>
+        <topicref href="book/ContactsAddr.dita" keys="addr"/>
+        <topicref href="book/ContactsImg.dita" keys="addrimg"/>
     </chapter>
     <appendix href="book/xmp_Appendix.dita">
-        <topicref href="book/xmp_Annex1.dita"/>
-        <topicref href="book/xmp_Annex2.dita"/>
+        <topicref href="book/xmp_Annex1.dita" keys="annex1"/>
+        <topicref href="book/xmp_Annex2.dita" keys="annex2"/>
     </appendix>
     <backmatter>
         <booklists>

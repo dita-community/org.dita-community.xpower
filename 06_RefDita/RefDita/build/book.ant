@@ -14,8 +14,19 @@
     <!--HSC [DtPrt#15.4.1] implements related links -->
     <property name="args.debug" value="yes"/>
     <property name="args.rellinks" value="nofamily"/>
-    <!--HSX [DitaSpec#3.1.8] for the DITAVAL elements -->
+    <!--HSX [DitaSpec#3.1.8] for the DITAVAL elements   
     <property name="args.filter" value="../src/ditaval/${TOKEN}.ditaval"/>
+    -->
+
+    <condition property="args.filter" value="../src/ditaval/${TOKEN}.ditaval">
+            <available file="../src/ditaval/${TOKEN}.ditaval"/>
+    </condition>    
+    <condition property="args.filter" value="../src/ditaval/book.ditaval">
+        <not>
+            <available file="../src/ditaval/${TOKEN}.ditaval"/>
+        </not>
+    </condition>
+        
     <property name="settings.path" location="${AXF_OPT}"/>
     <property name="env.AXF_OPT" location="${settings.path}/AHFSettings.xml"/>
 
