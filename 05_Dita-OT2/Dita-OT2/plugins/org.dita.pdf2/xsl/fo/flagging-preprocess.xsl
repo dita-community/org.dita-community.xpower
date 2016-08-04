@@ -15,6 +15,7 @@
    <!-- The document tree of filterfile returned by document($FILTERFILE,/)-->
 
    <!-- Define the error message prefix identifier -->
+   <!-- Deprecated since 2.3 -->
    <xsl:variable name="msgprefix">DOTX</xsl:variable>
 
    <xsl:variable name="FILTERFILEURL">
@@ -478,8 +479,7 @@
       <xsl:choose>
          <xsl:when test="$conflictexist='true' and $flagsParams/val/style-conflict[@foreground-conflict-color or @background-conflict-color]">
             <xsl:call-template name="output-message">
-               <xsl:with-param name="msgnum">054</xsl:with-param>
-               <xsl:with-param name="msgsev">W</xsl:with-param>
+               <xsl:with-param name="id" select="'DOTX054W'"/>
             </xsl:call-template>
 
             <xsl:if test="$flagsParams/val/style-conflict[@foreground-conflict-color]">

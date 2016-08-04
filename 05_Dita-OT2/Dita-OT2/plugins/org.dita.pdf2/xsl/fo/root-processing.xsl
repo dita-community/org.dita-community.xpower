@@ -27,7 +27,7 @@ These terms and conditions supersede the terms and conditions in any
 licensing agreement to the extent that such terms and conditions conflict
 with those set forth herein.
 
-This file is part of the DITA Open Toolkit project hosted on Sourceforge.net. 
+This file is part of the DITA Open Toolkit. 
 See the accompanying license.txt file for applicable licenses.
 -->
 
@@ -98,15 +98,13 @@ See the accompanying license.txt file for applicable licenses.
     <xsl:template match="*[contains(@class, ' map/topicref ')]" mode="topicref-validation">
         <xsl:if test="@href = ''">
           <xsl:call-template name="output-message">
-            <xsl:with-param name="msgnum">004</xsl:with-param>
-            <xsl:with-param name="msgsev">F</xsl:with-param>
+            <xsl:with-param name="id" select="'PDFX004F'"/>
           </xsl:call-template>
         </xsl:if>
         <xsl:if test="@href and @id">
             <xsl:if test="not(@id = '') and empty(key('topic-id', @id))">
               <xsl:call-template name="output-message">
-                <xsl:with-param name="msgnum">005</xsl:with-param>
-                <xsl:with-param name="msgsev">F</xsl:with-param>
+                <xsl:with-param name="id" select="'PDFX005F'"/>
                 <xsl:with-param name="msgparams">%1=<xsl:value-of select="@href"/></xsl:with-param>
               </xsl:call-template>
             </xsl:if>
@@ -267,9 +265,21 @@ See the accompanying license.txt file for applicable licenses.
     <xsl:apply-templates select="*" mode="generatePageSequences"/>
   </xsl:template>
   <xsl:template match="*[contains(@class, ' map/topicref ')]" mode="generatePageSequences" priority="0">
-    <xsl:for-each select="key('topic-id', @id)">
-      <xsl:call-template name="processTopicSimple"/>
-    </xsl:for-each>
+    <xsl:choose>
+      <xsl:when test="ancestor::*[contains(@class,' bookmap/frontmatter ')]">
+        <!-- TODO: To fit the pattern, this should be in its own match template. But a general match for frontmatter/*
+             conflicts with priority of existing rules (e.g., preface); changing priorities would
+             break customizations. --> 
+        <xsl:for-each select="key('topic-id', @id)">
+          <xsl:call-template name="processFrontMatterTopic"/>
+        </xsl:for-each>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:for-each select="key('topic-id', @id)">
+          <xsl:call-template name="processTopicSimple"/>
+        </xsl:for-each>
+      </xsl:otherwise>
+    </xsl:choose>
   </xsl:template>
   <xsl:template match="*[contains(@class, ' bookmap/frontmatter ') or
                          contains(@class, ' bookmap/backmatter ') or

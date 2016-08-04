@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svgimgs>
+    <svgimg uri="1">
+        <width>210</width>
+        <width-unit>mm</width-unit>
+        <height>291</height>
+        <height-unit>mm</height-unit>
+    </svgimg>
+    <svgimg uri="foo">
+        <width>163.2</width>
+        <width-unit>mm</width-unit>
+        <height>181.9</height>
+        <height-unit>mm</height-unit>
+    </svgimg>
+    <svgimg uri="test">
+        <width>16.5354</width>
+        <width-unit>in</width-unit>
+        <height>11.6929</height>
+        <height-unit>in</height-unit>
+    </svgimg>
+</svgimgs>

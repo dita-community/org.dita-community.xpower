@@ -1,0 +1,38 @@
+<project name="org.dita-community.xpower" default="dita2xpower">
+    <property name="transtype" value="xpower"/>
+    <target name="dita2xpower" xmlns:dita="http://dita-ot.sourceforge.net" dita:extension="depends org.dita.dost.platform.InsertDependsAction">
+        <!--HSX the next location statement "dita.plugin.org.dita-community.xpower. ...." shall match the definition in line 50 of the
+        build.xml which was created acc. to [DtPrt#2.6] with ant -f integrator.xml. Otherwise
+        we won't get a PDF out of it -->
+        <property name="customization.dir" location="${dita.plugin.org.dita-community.xpower.dir}/cfg"/>
+        <!--HSC The following statement generates labels on steps (if desired)
+        described in [DtPrt#12.5]
+        -->
+
+        <!-- IMPORTANT  parameter import, ${ProjDoc}
+          in plugins\org.dita.pdf2\build.xml YOU NEED TO ADD ...        
+             The call to 
+             
+                 <xslt style="${temp.transformation.file}" in="${dita.temp.dir}/stage1a.xml" out="${dita.temp.dir}/stage2.fo">
+                   <param name="project.doc" expression="${ProjDocRel}"/>
+             
+             needs to add the param project.doc
+                   <param name="project.doc" expression="${ProjDocRel}"/>
+                   
+             in order to allow the propagation of the ProjDocRel variable. This is the
+             relative path from the topic.fo directory into the stub directory      
+        -->
+        <property name="project.doc" value="${ProjDocRel}"/>
+        <echo message="ProjDoc=${ProjDocRel}" />
+
+        <property name="args.gen.task.lbl" value="YES"/>
+        <!--HSX2 use 'retain' or 'discard' to get notices section and other stuff
+        'retain' is highly recommended -->
+        <property name="args.bookmap-order" value="retain"/>
+
+        <timestamp.echo message="HSCT:dita2pdf.cust:in" />
+        <antcall target="dita2pdf2"/>
+        <timestamp.echo message="HSCT:dita2pdf.cust:out" />
+    </target>
+
+</project>

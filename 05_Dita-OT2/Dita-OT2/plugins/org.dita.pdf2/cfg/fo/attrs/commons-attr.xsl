@@ -426,6 +426,21 @@ See the accompanying license.txt file for applicable licenses.
     <xsl:attribute-set name="__border__all" use-attribute-sets="__border__right __border__left __border__top __border__bot">
     </xsl:attribute-set>
 
+    <xsl:attribute-set name="__expanse__page">
+        <xsl:attribute name="start-indent">0</xsl:attribute>
+        <xsl:attribute name="end-indent">0</xsl:attribute>
+        <xsl:attribute name="width">auto</xsl:attribute>
+    </xsl:attribute-set>
+
+    <xsl:attribute-set name="__expanse__column">
+    </xsl:attribute-set>
+
+    <xsl:attribute-set name="__expanse__textline">
+    </xsl:attribute-set>
+
+    <xsl:attribute-set name="__expanse__spread">
+    </xsl:attribute-set>
+
     <xsl:attribute-set name="lines" use-attribute-sets="base-font">
         <xsl:attribute name="space-before">0.8em</xsl:attribute>
         <xsl:attribute name="space-after">0.8em</xsl:attribute>
@@ -690,16 +705,17 @@ See the accompanying license.txt file for applicable licenses.
   <xsl:attribute-set name="page-sequence.cover" use-attribute-sets="__force__page__count">
   </xsl:attribute-set>
 
-  <xsl:attribute-set name="page-sequence.notice" use-attribute-sets="__force__page__count">
+  <xsl:attribute-set name="page-sequence.frontmatter">
     <xsl:attribute name="format">i</xsl:attribute>
   </xsl:attribute-set>
   
-  <xsl:attribute-set name="page-sequence.preface" use-attribute-sets="__force__page__count">
-    <xsl:attribute name="format">i</xsl:attribute>  
+  <xsl:attribute-set name="page-sequence.notice" use-attribute-sets="__force__page__count page-sequence.frontmatter">
   </xsl:attribute-set>
   
-  <xsl:attribute-set name="page-sequence.toc" use-attribute-sets="__force__page__count">
-    <xsl:attribute name="format">i</xsl:attribute>
+  <xsl:attribute-set name="page-sequence.preface" use-attribute-sets="__force__page__count page-sequence.frontmatter">
+  </xsl:attribute-set>
+
+  <xsl:attribute-set name="page-sequence.toc" use-attribute-sets="__force__page__count page-sequence.frontmatter">
   </xsl:attribute-set>
 
   <xsl:attribute-set name="page-sequence.lot" use-attribute-sets="page-sequence.toc">

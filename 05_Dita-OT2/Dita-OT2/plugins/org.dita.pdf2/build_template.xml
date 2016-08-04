@@ -25,6 +25,17 @@ Technologies, Inc. as a result of this transaction.
 These terms and conditions supersede the terms and conditions in any
 licensing agreement to the extent that such terms and conditions conflict
 with those set forth herein.
+
+The call to 
+
+    <xslt style="${temp.transformation.file}" in="${dita.temp.dir}/stage1a.xml" out="${dita.temp.dir}/stage2.fo">
+      <param name="project.doc" expression="${ProjDocRel}"/>
+
+needs to add the param project.doc
+      <param name="project.doc" expression="${ProjDocRel}"/>
+in order to allow the propagation of the ProjDocRel variable. This is the
+relative path from the topic.fo directory into the stub directory      
+
 -->
 <project xmlns:dita="http://dita-ot.sourceforge.net" name="dita.build" basedir=".">
   
@@ -90,6 +101,7 @@ with those set forth herein.
     <!-- configure FO engines -->
     <!-- default is FOP.  Can be changed here, or with pdf.formatter property. -->
     <property name="pdf.formatter" value="fop"/>
+    <property name="equation.scale" value="100"/>
     
     <property name="artwork.dir" value="${pdf2.temp.dir}"/>
     
@@ -136,6 +148,8 @@ with those set forth herein.
   </target>
 
   <target name="map2pdf2" unless="noMap">
+    <timestamp.echo message="HSCT:Creating SetTemp.bat"/>
+    <echo message="set tempdir=${dita.temp.dir}" file="SetTemp.bat"/>
     <timestamp.echo message="HSCT:map2pdf2:in" />
     <dirname property="dita.temp.dir.fullpath" file="${dita.temp.dir}${file.separator}dummy.file"/>
     <pipeline message="topicmerge" taskname="topic-merge"
@@ -164,7 +178,6 @@ with those set forth herein.
   <target name="transform.topic2fo"
           depends="transform.topic2fo.init,
                    transform.topic2fo.index,
-                   transform.topic2fo.flagging,
                    transform.topic2fo.main,
                    transform.topic2fo.i18n"/>
     
@@ -288,30 +301,7 @@ with those set forth herein.
                       indexConfig="${index.config.file}" locale="${document.locale}"
                       catalogs="${xml.catalog.files}"/> 
   </target>
-
-  <target name="transform.topic2fo.flagging"
-          depends="transform.topic2fo.flagging.filter,
-                   transform.topic2fo.flagging.no-filter"/>
-  <target name="transform.topic2fo.flagging.filter" if="dita.input.valfile">
-    <condition property="_org.dita.pdf2.valfile" value="${dita.input.valfile}">
-      <available file="${dita.input.valfile}" type="file"/>
-    </condition>
-    <condition property="_org.dita.pdf2.valfile" value="${dita.plugin.org.dita.pdf2.dir}/${dita.input.valfile}">
-      <not><isset property="_org.dita.pdf2.valfile"/></not>
-    </condition>
-    <makeurl property="_org.dita.pdf2.valfile.url" file="${_org.dita.pdf2.valfile}" validate="no"/>
-    <copy file="${dita.temp.dir}/stage1.xml" tofile="${dita.temp.dir}/stage1a.xml"/>
-    <!--<xslt in="${dita.temp.dir}/stage1.xml" out="${dita.temp.dir}/stage1a.xml" style="${xsl.fo.dir}/flagging-preprocess.xsl">
-      <param name="filterFile" expression="${_org.dita.pdf2.valfile.url}"/>
-      <xmlcatalog>
-        <catalogpath path="${xml.catalog.files}"/>
-      </xmlcatalog>
-    </xslt>-->
-  </target>
-  <target name="transform.topic2fo.flagging.no-filter" unless="dita.input.valfile">
-    <copy file="${dita.temp.dir}/stage1.xml" tofile="${dita.temp.dir}/stage1a.xml"/>
-  </target>  
-
+  
   <target name="transform.topic2fo.main">
     <!--makeurl seems to output file:/C: style instead of file:///C:, but xep, fop, and ah all accept it.-->
     <makeurl property="artworkPrefixUrl" file="${artworkPrefix}"/>
@@ -322,8 +312,10 @@ with those set forth herein.
     <makeurl property="variable.file.url" file="${variable.file}" validate="no"/>
 
     <xslt style="${temp.transformation.file}"
-          in="${dita.temp.dir}/stage1a.xml"
+          in="${dita.temp.dir}/stage1.xml"
           out="${dita.temp.dir}/stage2.fo">
+      <param name="project.doc" expression="${ProjDocRel}"/>
+      <param name="equation.img.scale" expression="${equation.scale}"/>
       <param name="locale" expression="${document.locale}"/>
       <param name="customizationDir.url" expression="${customization.dir.url}" if="customization.dir"/>
       <param name="input.dir.url" expression="${user.input.dir.url}"/>
@@ -342,6 +334,7 @@ with those set forth herein.
       <param name="figurelink.style" expression="${args.figurelink.style}"/>
       <param name="tablelink.style" expression="${args.tablelink.style}"/>
       <param name="variableFiles.url" expression="${variable.file.url}" if="variable.file.exists"/>
+      <param name="defaultLanguage" expression="${default.language}"/>
       <dita:extension id="dita.conductor.pdf2.param" behavior="org.dita.dost.platform.InsertAction"/>
       <xmlcatalog>
         <catalogpath path="${xml.catalog.files}"/>
@@ -384,14 +377,13 @@ with those set forth herein.
       <not><isset property="i18n.config.file"/></not>
     </condition>
 
-    <i18n-preprocess input="${dita.temp.dir}/stage2.fo" output="${dita.temp.dir}/stage3.fo"
-                     config="${i18n.config.file}" catalogs="${xml.catalog.files}"/> 
-
-    <xslt in="${dita.temp.dir}/stage3.fo" out="${pdf2.temp.dir}/topic.fo" style="${xsl.fo.dir}/i18n-postprocess.xsl">
+    <i18n-preprocess input="${dita.temp.dir}/stage2.fo" output="${pdf2.temp.dir}/topic.fo"
+                     config="${i18n.config.file}"
+                     style="${xsl.fo.dir}/i18n-postprocess.xsl">
       <xmlcatalog>
         <catalogpath path="${xml.catalog.files}"/>
       </xmlcatalog>
-    </xslt>
+    </i18n-preprocess>
   </target>
   <target name="transform.topic2fo.i18n.no-filter" if="pdf2.i18n.skip">
     <echo level="info">Skip I18N font processing.</echo>

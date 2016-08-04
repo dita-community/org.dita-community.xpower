@@ -5,7 +5,8 @@
 <task id="rebuilding-the-dita-ot-documentation">
   <title>Rebuilding the DITA-OT documentation</title>
   <shortdesc>The DITA-OT ships with Ant scripts that enable you to rebuild the toolkit documentation. This is especially
-    helpful if your environment contains plug-ins that integrate additional messages into the toolkit. </shortdesc>
+    helpful if your environment contains plug-ins that integrate additional extension points, messages, or parameters
+    into the toolkit.</shortdesc>
   <taskbody>
     <steps>
       <step>
@@ -17,14 +18,14 @@
           <codeblock>ant -f build.xml <varname>target</varname></codeblock>
         </info>
         <info>
-          <p>The <varname>target</varname> parameter is optional and specifies a specific transformation type. It
-            takes the following values:<ul>
+          <p>The <varname>target</varname> parameter is optional and specifies a transformation type. It takes the
+            following values:
+            <ul>
               <li>html</li>
               <li>htmlhelp</li>
               <li>pdf</li>
             </ul></p>
-          <p>If you do not specify an Ant target, all three output formats (HTML5, HTML help, and PDF) are
-            generated.</p>
+          <p>If you do not specify an Ant target, HTML5 and PDF output is generated.</p>
         </info>
       </step>
     </steps>

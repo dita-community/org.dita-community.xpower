@@ -12,6 +12,7 @@
     <xsl:output method="xml" indent="no" use-character-maps="sample" name="xml"/>
 
     <xsl:param name="MasterPathName" required="no" select="'/F:/scherzer/RefDita/MasterLists/McGlossary.dita'" as="xs:string"/>
+    <xsl:param name="GlossaryName"   required="no" select="'Glossary.dita'" as="xs:string"/>
     <xsl:param name="FirstRun"       required="no" select="''" as="xs:string"/>
     <!-- We shall know where to place the target -->
     <xsl:param name="DitaToken" required="yes" as="xs:string"/>
@@ -35,13 +36,17 @@
     <!-- we do direct copy since 20160323
     <xsl:variable name="glName" select="concat('REF_gls_', $ProductNameFN, '.dita')"/>
     -->
-    <xsl:variable name="glName" select="'Glossary.dita'"/>
+    <xsl:variable name="glName" select="$GlossaryName"/>
     <!-- opmode = [local | conref] -->
     <xsl:variable name="opMode" select="'local'"/>
 
+    <xsl:variable name="MasterGlossaryName">
+        <xsl:value-of select="concat('/', $MasterPathName)"/>
+    </xsl:variable>
+    
     <xsl:variable name="McGlossary">
         <!--<xsl:copy-of select="document('src/test.dita')//glossentry" copy-namespaces="no"/>-->
-        <xsl:copy-of select="document(concat('/', $MasterPathName))//glossentry" copy-namespaces="no"/>
+        <xsl:copy-of select="document($MasterGlossaryName)//glossentry" copy-namespaces="no"/>
     </xsl:variable>
 
     <!--<xsl:template match="/">
@@ -65,7 +70,6 @@
         </xsl:copy>
     </xsl:template>
 
-
     <!-- extract the basename (e.g. APDU) from the actual @keyref = gls/gls_APDU_1 -->
     <xsl:template name="getGlossRef">
         <xsl:param name="myNode" select="." as="node()*"/>
@@ -83,7 +87,11 @@
 
     <!-- Create Glossary with only those entries that are present in file -->
     <xsl:template name="createGlossary">
-
+        <xsl:message>
+            <xsl:text>MasterGlossaryName = </xsl:text>
+            <xsl:value-of select="$MasterGlossaryName"/>
+        </xsl:message>
+        
         <!-- Plan the production in TcMap.xsl -->
         <xsl:element name="glossgroup">
             <xsl:attribute name="id" select="'refgls'"/>

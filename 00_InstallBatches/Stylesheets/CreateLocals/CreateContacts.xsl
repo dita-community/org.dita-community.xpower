@@ -1,17 +1,16 @@
 <?xml version="1.0"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema"
-    xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:xmp="http://ns.adobe.com/xap/1.0/"
-    xmlns:pdf="http://ns.adobe.com/pdf/1.3/" xmlns:xmpMM="http://ns.adobe.com/xap/1.0/mm/"
-    xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-    xmlns:x="adobe:ns:meta/" xmlns:exslt="http://exslt.org/common" xmlns:xlink="http://www.w3.org/1999/xlink"
-    xmlns:fox="http://www.w3.org/1999/XSL/Formatx" xmlns:my="my:my" xmlns:ditaarch="http://dita.oasis-open.org/"
-    exclude-result-prefixes="xsl x fox fn xs dc pdf ditaarch xlink xmpMM xmp my rdf" version="2.0">
+    xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:xmp="http://ns.adobe.com/xap/1.0/" xmlns:pdf="http://ns.adobe.com/pdf/1.3/"
+    xmlns:xmpMM="http://ns.adobe.com/xap/1.0/mm/" xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:x="adobe:ns:meta/" xmlns:exslt="http://exslt.org/common"
+    xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:fox="http://www.w3.org/1999/XSL/Formatx" xmlns:my="my:my"
+    xmlns:ditaarch="http://dita.oasis-open.org/" exclude-result-prefixes="xsl x fox fn xs dc pdf ditaarch xlink xmpMM xmp my rdf"
+    version="2.0">
 
     <xsl:output method="text" indent="no" use-character-maps="sample" name="text"/>
     <xsl:output method="xml" indent="no" use-character-maps="sample" name="xml"/>
 
-    <xsl:param name="MasterPathName" required="no"
-        select="'/F:/scherzer/RefDita/Stylesheets/CreateLocals/VcfContacts.xml'" as="xs:string"/>
+    <xsl:param name="VcfXmlRef" required="no" select="'/F:/scherzer/RefDita/Stylesheets/CreateLocals/VcfContacts.xml'" as="xs:string"/>
 
     <xsl:character-map name="sample">
         <!--    <xsl:output-character character="&#x3C;" string="&lt;"/>
@@ -47,7 +46,7 @@
 
     <xsl:key name="kycontacts" match="contact" use="person/lastname"/>
 
-    <xsl:variable name="contacts" select="document($MasterPathName)/vcfrecords"/>
+    <xsl:variable name="contacts" select="document($VcfXmlRef)/vcfrecords"/>
 
     <xsl:variable name="selectedContacts" as="node()*">
         <xsl:text>&#xA;</xsl:text>
@@ -123,12 +122,19 @@
          Scherzer, Kurt
          who are the meeting participants.
          
-         The VCF converted XML file is UTF-8 coded and is determined by $MasterPathName
+         The VCF converted XML file is UTF-8 coded and is determined by $VcfXmlRef
          which is an input parameter to the stylesheet - located in $contacts
     -->
     <xsl:variable name="folderURI" select="resolve-uri('.', base-uri())"/>
 
     <xsl:template match="/">
+        <xsl:message>
+            <xsl:text>Processing = </xsl:text>
+            <xsl:value-of select="base-uri()"/>
+            <xsl:text>&#xA;Reference = </xsl:text>
+            <xsl:value-of select="$VcfXmlRef"/>
+        </xsl:message>
+
         <xsl:result-document href="{concat($folderURI, 'ContactsImg.dita')}" format="xml">
             <xsl:message>
                 <xsl:value-of select="concat($folderURI, 'ContactsImg.dita')"/>
@@ -158,7 +164,17 @@
                         <xsl:text>The following participants were attending the meeting:</xsl:text>
                     </xsl:element>
 
-                    <xsl:call-template name="CreatePictureTable"/>
+                    <xsl:text>&#xA;        </xsl:text>
+                    <xsl:element name="p">
+                        <xsl:attribute name="audience" select="'internal'"/>
+                        <xsl:call-template name="CreateEmails">
+                            <xsl:with-param name="selc" select="$selFull"/>
+                        </xsl:call-template>
+                    </xsl:element>
+
+                    <xsl:element name="p">
+                        <xsl:call-template name="CreatePictureTable"/>
+                    </xsl:element>
                 </xsl:element>
                 <xsl:text>&#xA;</xsl:text>
             </xsl:element>
@@ -194,7 +210,18 @@
                         <xsl:text>The following participants were attending the meeting:</xsl:text>
                     </xsl:element>
 
-                    <xsl:call-template name="CreateAddressTable"/>
+                    <xsl:text>&#xA;        </xsl:text>
+                    <xsl:element name="p">
+                        <xsl:attribute name="audience" select="'internal'"/>
+                        <xsl:call-template name="CreateEmails">
+                            <xsl:with-param name="selc" select="$selFull"/>
+                        </xsl:call-template>
+                    </xsl:element>
+
+                    <xsl:text>&#xA;        </xsl:text>
+                    <xsl:element name="p">
+                        <xsl:call-template name="CreateAddressTable"/>
+                    </xsl:element>
                 </xsl:element>
                 <xsl:text>&#xA;</xsl:text>
             </xsl:element>
@@ -215,10 +242,54 @@
         <xsl:param name="firstN"/>
         <xsl:choose>
             <xsl:when test="string-length($firstN) &gt; 0">
-                <xsl:copy-of select="contact/person/key('kycontacts', $lastN)[person/firstname = $firstN]"/>
+                <xsl:choose>
+                    <xsl:when test="contact/person/key('kycontacts', $lastN)[person/firstname = $firstN]">
+                        <xsl:copy-of select="contact/person/key('kycontacts', $lastN)[person/firstname = $firstN]"/>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:message>
+                            <xsl:text>Missing[</xsl:text>
+                            <xsl:value-of select="$lastN"/>
+                            <xsl:text>, </xsl:text>
+                            <xsl:value-of select="$firstN"/>
+                            <xsl:text>]</xsl:text>
+                        </xsl:message>
+                        <xsl:element name="contact">
+                            <xsl:element name="person">
+                                <xsl:element name="firstname">
+                                    <xsl:value-of select="$firstN"/>
+                                </xsl:element>
+                                <xsl:element name="lastname">
+                                    <xsl:value-of select="$lastN"/>
+                                </xsl:element>
+                            </xsl:element>
+                        </xsl:element>
+                    </xsl:otherwise>
+                </xsl:choose>
             </xsl:when>
             <xsl:otherwise>
-                <xsl:copy-of select="contact/person/key('kycontacts', $lastN)"/>
+                <xsl:choose>
+                    <xsl:when test="contact/person/key('kycontacts', $lastN)">
+                        <xsl:copy-of select="contact/person/key('kycontacts', $lastN)"/>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:message>
+                            <xsl:text>Missing[</xsl:text>
+                            <xsl:value-of select="$lastN"/>
+                            <xsl:text>]</xsl:text>
+                        </xsl:message>
+                        <xsl:element name="contact">
+                            <xsl:element name="person">
+                                <xsl:element name="firstname">
+                                    <xsl:value-of select="$firstN"/>
+                                </xsl:element>
+                                <xsl:element name="lastname">
+                                    <xsl:value-of select="$lastN"/>
+                                </xsl:element>
+                            </xsl:element>
+                        </xsl:element>
+                    </xsl:otherwise>
+                </xsl:choose>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
@@ -366,8 +437,7 @@
                                 <xsl:attribute name="id"
                                     select="translate(tokenize(replace(person/imgpath, '\\', '/'), '/')[last()], '.', '_')"/>
                                 <xsl:attribute name="placement" select="'inline'"/>
-                                <xsl:attribute name="href"
-                                    select="concat('../gfx/', tokenize(person/imgpath, '\\')[last()])"/>
+                                <xsl:attribute name="href" select="concat('../gfx/', tokenize(person/imgpath, '\\')[last()])"/>
                                 <xsl:attribute name="width" select="'12mm'"/>
                                 <!-- just playing to show the path
                                 <xsl:attribute name="path" select="substring-before(person/imgpath, tokenize(person/imgpath, '\\')[last()])"/>
@@ -384,7 +454,7 @@
                     <xsl:attribute name="rowsep" select="1"/>
                     <xsl:element name="b">
                         <xsl:value-of
-                            select="replace(concat(person/firstname, ' ', person/middlename, ' ', person/lastname), '  ', ' ')"
+                            select="normalize-space(replace(concat(person/firstname, ' ', person/middlename, ' ', person/lastname), '  ', ' '))"
                         />
                     </xsl:element>
                     <xsl:element name="p">
@@ -414,7 +484,8 @@
                         <xsl:attribute name="outputclass" select="'compact'"/>
                         <xsl:choose>
                             <xsl:when test="string-length(business/addr/state)">
-                                <xsl:value-of select="concat(business/addr/postalcode, ' ', business/addr/city, ', ', business/addr/state)"/>
+                                <xsl:value-of select="concat(business/addr/postalcode, ' ', business/addr/city, ', ', business/addr/state)"
+                                />
                             </xsl:when>
                             <xsl:otherwise>
                                 <xsl:value-of select="concat(business/addr/postalcode, ' ', business/addr/city)"/>
@@ -592,7 +663,7 @@
                     <xsl:attribute name="rowsep" select="1"/>
                     <xsl:element name="b">
                         <xsl:value-of
-                            select="replace(concat(person/firstname, ' ', person/middlename, ' ', person/lastname), '  ', ' ')"
+                            select="normalize-space(replace(concat(person/firstname, ' ', person/middlename, ' ', person/lastname), '  ', ' '))"
                         />
                     </xsl:element>
                     <xsl:element name="p">
@@ -622,7 +693,8 @@
                         <xsl:attribute name="outputclass" select="'compact'"/>
                         <xsl:choose>
                             <xsl:when test="string-length(business/addr/state)">
-                                <xsl:value-of select="concat(business/addr/postalcode, ' ', business/addr/city, ', ', business/addr/state)"/>
+                                <xsl:value-of select="concat(business/addr/postalcode, ' ', business/addr/city, ', ', business/addr/state)"
+                                />
                             </xsl:when>
                             <xsl:otherwise>
                                 <xsl:value-of select="concat(business/addr/postalcode, ' ', business/addr/city)"/>
@@ -700,23 +772,39 @@
 
     </xsl:template>
 
+
+    <xsl:template name="CreateEmails">
+        <xsl:param name="selc"/>
+        <xsl:for-each select="$selc/contacts/contact">
+            <xsl:variable name="email">
+                <xsl:value-of select="business/connect/email"/>
+            </xsl:variable>
+            <xsl:if test="string-length(normalize-space($email)) &gt; 0">
+                <xsl:value-of select="business/connect/email"/>
+                <xsl:text>;</xsl:text>
+            </xsl:if>
+        </xsl:for-each>
+    </xsl:template>
+
     <xsl:template name="CreateBatch">
         <xsl:param name="selc"/>
         <xsl:message>
             <xsl:value-of select="concat($folderURI, '../../', 'getimg.bat')"/>
         </xsl:message>
-        
+
         <xsl:result-document href="{concat($folderURI, '../../', 'getimg.bat')}" format="text">
-            
-        <xsl:for-each select="$selc/contacts/contact">
-            <xsl:variable name="imgpath">
-                <xsl:value-of select="replace(person/imgpath, ', ', '\\')"/>
-            </xsl:variable>
-            <xsl:if test="string-length($imgpath)">
-                <xsl:value-of select="concat('call xcopy ', $imgpath, ' src\gfx\ /y')"/>
-            </xsl:if>
-            <xsl:text>&#xA;</xsl:text>
-        </xsl:for-each>
+            <xsl:for-each select="$selc/contacts/contact">
+                <xsl:message>
+                    <xsl:value-of select="person/lastname"/>
+                </xsl:message>
+                <xsl:variable name="imgpath">
+                    <xsl:value-of select="replace(person/imgpath, ', ', '\\')"/>
+                </xsl:variable>
+                <xsl:if test="string-length($imgpath)">
+                    <xsl:value-of select="concat('call xcopy ', $imgpath, ' src\gfx\ /y')"/>
+                </xsl:if>
+                <xsl:text>&#xA;</xsl:text>
+            </xsl:for-each>
         </xsl:result-document>
     </xsl:template>
 

@@ -37,14 +37,13 @@
 <xsl:import href="xslhtml/abbrev-d.xsl"/>
 <xsl:import href="xslhtml/markup-d.xsl"/>
 <xsl:import href="xslhtml/xml-d.xsl"/>
-
-
+<!-- Integrate support for flagging with dita-ot pseudo-domain -->
+<xsl:import href="xslhtml/htmlflag.xsl"/>  
+  
+<xsl:import xmlns:dita="http://dita-ot.sourceforge.net" href="../../com.oxygenxml.highlight/xhtmlHighlight.xsl"/><xsl:import href="../../org.dita-community.common.xslt/xsl/commonXsltExtensionSupport.xsl"/>
 
 <!-- the dita to xhtml converter for element reference documents - not used now -->
 <!--<xsl:import href="elementrefdisp.xsl"/>-->
-
-<!-- Integrate support for flagging with dita-ot pseudo-domain -->
-<xsl:include xmlns:dita="http://dita-ot.sourceforge.net" href="xslhtml/htmlflag.xsl"/>  
 
 <!-- root rule -->
 <xsl:template match="/">

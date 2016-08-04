@@ -50,11 +50,12 @@ See the accompanying license.txt file for applicable licenses.
 
 <!-- An adaptation of the Toolkit topicmerge.xsl for FO plugin use. -->
 
-<xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-    xmlns:xs="http://www.w3.org/2001/XMLSchema"
-    xmlns:ot-placeholder="http://suite-sol.com/namespaces/ot-placeholder"
-    xmlns:dita-ot="http://dita-ot.sourceforge.net/ns/201007/dita-ot"
-    exclude-result-prefixes="xs dita-ot">
+<xsl:stylesheet version="2.0"
+                xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+                xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                xmlns:ot-placeholder="http://suite-sol.com/namespaces/ot-placeholder"
+                xmlns:dita-ot="http://dita-ot.sourceforge.net/ns/201007/dita-ot"
+                exclude-result-prefixes="xs dita-ot">
 
     <xsl:import href="plugin:org.dita.base:xsl/common/dita-utilities.xsl"/>
     <xsl:import href="plugin:org.dita.base:xsl/common/output-message.xsl"/>
@@ -63,11 +64,9 @@ See the accompanying license.txt file for applicable licenses.
 
     <xsl:output indent="no"/>
 
-    <xsl:key name="topic" match="dita-merge/*[contains(@class, ' topic/topic ')]"
-        use="concat('#', @id)"/>
-    <xsl:key name="topic" match="dita-merge/dita"
-        use="concat('#', *[contains(@class, ' topic/topic ')][1]/@id)"/>
-    <xsl:key name="topicref" match="//*[contains(@class, ' map/topicref ')]" use="generate-id()"/>
+    <xsl:key name="topic" match="dita-merge/*[contains(@class,' topic/topic ')]" use="concat('#',@id)"/>
+    <xsl:key name="topic" match="dita-merge/dita" use="concat('#',*[contains(@class, ' topic/topic ')][1]/@id)"/>
+    <xsl:key name="topicref" match="//*[contains(@class,' map/topicref ')]" use="generate-id()"/>
 
     <!--
   <xsl:template match="/">
@@ -150,45 +149,37 @@ See the accompanying license.txt file for applicable licenses.
     <xsl:template match="*[@print = 'no']" priority="5" mode="build-tree"/>
 
     <!--HSC ===================== process all map parts, except their href attribute ======= -->
-    <xsl:template
-        match="
-            *[contains(@class, ' bookmap/backmatter ')] |
-            *[contains(@class, ' bookmap/booklists ')] |
-            *[contains(@class, ' bookmap/frontmatter ')]"
-        priority="2" mode="build-tree">
+    <xsl:template match="*[contains(@class,' bookmap/backmatter ')] |
+                         *[contains(@class,' bookmap/booklists ')] |
+                         *[contains(@class,' bookmap/frontmatter ')]" priority="2" mode="build-tree">
         <xsl:apply-templates mode="build-tree"/>
     </xsl:template>
 
-    <xsl:template match="*[contains(@class, ' bookmap/toc ')][not(@href)]" priority="2"
-        mode="build-tree">
+    <xsl:template match="*[contains(@class,' bookmap/toc ')][not(@href)]" priority="2" mode="build-tree">
         <ot-placeholder:toc id="{generate-id()}">
             <xsl:apply-templates mode="build-tree"/>
         </ot-placeholder:toc>
     </xsl:template>
 
-    <xsl:template match="*[contains(@class, ' bookmap/indexlist ')][not(@href)]" priority="2"
-        mode="build-tree">
+    <xsl:template match="*[contains(@class,' bookmap/indexlist ')][not(@href)]" priority="2" mode="build-tree">
         <ot-placeholder:indexlist id="{generate-id()}">
             <xsl:apply-templates mode="build-tree"/>
         </ot-placeholder:indexlist>
     </xsl:template>
 
-    <xsl:template match="*[contains(@class, ' bookmap/glossarylist ')][not(@href)]" priority="2"
-        mode="build-tree">
+    <xsl:template match="*[contains(@class,' bookmap/glossarylist ')][not(@href)]" priority="2" mode="build-tree">
         <ot-placeholder:glossarylist id="{generate-id()}">
             <xsl:apply-templates mode="build-tree"/>
         </ot-placeholder:glossarylist>
     </xsl:template>
 
-    <xsl:template match="*[contains(@class, ' bookmap/tablelist ')][not(@href)]" priority="2"
-        mode="build-tree">
+    <xsl:template match="*[contains(@class,' bookmap/tablelist ')][not(@href)]" priority="2" mode="build-tree">
         <ot-placeholder:tablelist id="{generate-id()}">
             <xsl:apply-templates mode="build-tree"/>
         </ot-placeholder:tablelist>
     </xsl:template>
 
-    <xsl:template match="*[contains(@class, ' bookmap/figurelist ')][not(@href)]" priority="2"
-        mode="build-tree">
+    <xsl:template match="*[contains(@class,' bookmap/figurelist ')][not(@href)]" priority="2" mode="build-tree">
         <ot-placeholder:figurelist id="{generate-id()}">
             <xsl:apply-templates mode="build-tree"/>
         </ot-placeholder:figurelist>
@@ -264,7 +255,7 @@ See the accompanying license.txt file for applicable licenses.
             <xsl:variable name="new_id">
                 <xsl:choose>
                     <xsl:when test="number($idcount) &gt; 0">
-                        <xsl:value-of select="concat(@id, '_ssol', $idcount)"/>
+                        <xsl:value-of select="concat(@id,'_ssol',$idcount)"/>
                     </xsl:when>
                     <xsl:otherwise>
                         <xsl:value-of select="@id"/>
@@ -291,7 +282,7 @@ See the accompanying license.txt file for applicable licenses.
             <xsl:apply-templates>
                 <xsl:with-param name="newid" select="$new_id"/>
             </xsl:apply-templates>
-            <xsl:apply-templates select="key('topicref', $parentId)/*" mode="build-tree"/>
+            <xsl:apply-templates select="key('topicref',$parentId)/*" mode="build-tree"/>
         </xsl:copy>
     </xsl:template>
 
@@ -480,9 +471,8 @@ See the accompanying license.txt file for applicable licenses.
     <xsl:template match="*[contains(@class, ' map/topicref ')]/@href">
         <xsl:copy-of select="."/>
         <xsl:attribute name="id">
-            <xsl:variable name="fragmentId" select="substring-after(., '#')"/>
-            <xsl:variable name="idcount"
-                select="count(../preceding::*[@href = current()][not(ancestor::*[contains(@class, ' map/reltable ')])]) + count(../ancestor::*[@href = current()])"/>
+            <xsl:variable name="fragmentId" select="substring-after(.,'#')"/>
+            <xsl:variable name="idcount" select="count(../preceding::*[@href = current()][not(ancestor::*[contains(@class, ' map/reltable ')])]) + count(../ancestor::*[@href = current()])"/>
             <xsl:choose>
                 <xsl:when test="$idcount &gt; 0">
                     <xsl:value-of select="concat($fragmentId, '_ssol', $idcount)"/>
@@ -597,18 +587,17 @@ See the accompanying license.txt file for applicable licenses.
         <xsl:copy-of select="."/>
     </xsl:template>
 
-    <xsl:key name="duplicate-id" match="*[not(contains(@class, ' topic/topic '))]/@id"
-        use="concat(ancestor::*[contains(@class, ' topic/topic ')][1]/@id, '|', .)"/>
+    <xsl:key name="duplicate-id"
+             match="*[not(contains(@class, ' topic/topic '))]/@id"
+             use="concat(ancestor::*[contains(@class, ' topic/topic ')][1]/@id, '|', .)"/>
 
     <xsl:template match="@id[not(parent::*[contains(@class, ' topic/topic ')])]">
         <xsl:param name="newid"/>
-        
         <xsl:attribute name="id">
             <xsl:value-of select="$newid"/>
             <xsl:text>_Connect_42_</xsl:text>
             <xsl:value-of select="."/>
-            <xsl:variable name="current-id"
-                select="concat(ancestor::*[contains(@class, ' topic/topic ')][1]/@id, '|', .)"/>
+            <xsl:variable name="current-id" select="concat(ancestor::*[contains(@class, ' topic/topic ')][1]/@id, '|', .)"/>
             <xsl:if test="not(generate-id(.) = generate-id(key('duplicate-id', $current-id)[1]))">
                 <xsl:text>_</xsl:text>
                 <xsl:value-of select="generate-id()"/>
@@ -660,18 +649,15 @@ See the accompanying license.txt file for applicable licenses.
 
     <xsl:template name="isNotTopicRef" as="xs:boolean">
         <xsl:param name="class" select="@class"/>
-        <xsl:sequence
-            select="
-                contains($class, ' bookmap/abbrevlist ')
-                or contains($class, ' bookmap/amendments ')
-                or contains($class, ' bookmap/bookabstract ')
-                or contains($class, ' bookmap/booklist ')
-                or contains($class, ' bookmap/colophon ')
-                or contains($class, ' bookmap/dedication ')
-                or contains($class, ' bookmap/tablelist ')
-                or contains($class, ' bookmap/trademarklist ')
-                or contains($class, ' bookmap/figurelist ')"
-        />
+        <xsl:sequence select="contains($class,' bookmap/abbrevlist ')
+                           or contains($class,' bookmap/amendments ')
+                           or contains($class,' bookmap/bookabstract ')
+                           or contains($class,' bookmap/booklist ')
+                           or contains($class,' bookmap/colophon ')
+                           or contains($class,' bookmap/dedication ')
+                           or contains($class,' bookmap/tablelist ')
+                           or contains($class,' bookmap/trademarklist ')
+                           or contains($class,' bookmap/figurelist ')"/>
     </xsl:template>
 
     <xsl:template match="*[contains(@class, ' map/reltable ')]" mode="build-tree"/>

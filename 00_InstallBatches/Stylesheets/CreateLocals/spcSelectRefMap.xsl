@@ -49,9 +49,9 @@
     <xsl:variable name="relaxed" select="1"/>
 
     <!-- unittest controls messages to be displayed for debugging
-         values: prcfiles
+         values: prcfiles chkEzLinks chkbib chktarget chkraw chkEntry
     -->
-    <xsl:variable name="unittest" select="'chkbib chkEzLinks'"/>
+    <xsl:variable name="unittest" select="'chkbib'"/>
 
     <!--========================== SYSTEM VARIABLES ================================= -->
 
@@ -182,7 +182,7 @@
                             </xsl:element>
                         </xsl:element>
                         <xsl:element name="tbody">
-                            <xsl:call-template name="selectBibliograpy"/>
+                            <xsl:call-template name="createBibliograpy"/>
                         </xsl:element>
                     </xsl:element>
                 </xsl:element>
@@ -191,7 +191,7 @@
     </xsl:template>
 
     <!-- Create the rows of the table -->
-    <xsl:template name="selectBibliograpy">
+    <xsl:template name="createBibliograpy">
         <!-- create unique values but unsorted -->
         <!--
         <xsl:message>
@@ -284,14 +284,14 @@
                     <xsl:for-each select="$spcref/*">
                         <xsl:element name="spcref">
                             <!--<xsl:message>
-                        <xsl:text>[</xsl:text>
-                        <xsl:value-of select="name()"/>
-                        <xsl:text>][</xsl:text>
-                        <xsl:value-of select="count($spcref/*)"/>
-                        <xsl:text>] = </xsl:text>
-                        <xsl:copy-of select="*" copy-namespaces="no"/>
-                        <xsl:text>&#xA;</xsl:text>
-                    </xsl:message>-->
+                                <xsl:text>[</xsl:text>
+                                <xsl:value-of select="name()"/>
+                                <xsl:text>][</xsl:text>
+                                <xsl:value-of select="count($spcref/*)"/>
+                                <xsl:text>] = </xsl:text>
+                                <xsl:copy-of select="*" copy-namespaces="no"/>
+                                <xsl:text>&#xA;</xsl:text>
+                            </xsl:message>-->
                             <xsl:copy-of select="*" copy-namespaces="no"/>
                         </xsl:element>
                     </xsl:for-each>
@@ -334,15 +334,15 @@
             </xsl:element>
         </xsl:variable>
 
-        <!-- <xsl:if test="count($spcBoth) > 0">
+        <!--<xsl:if test="count($spcBoth) > 0">
             <xsl:message>
                 <xsl:text>================== </xsl:text>
                 <xsl:value-of select="count($spcBoth)"/>
             </xsl:message>
-        </xsl:if>
-        <xsl:message>
+        </xsl:if>-->
+        <!--<xsl:message>
             <xsl:text>SPCBOTH = &#xA;</xsl:text>
-            <xsl:for-each select="$spcBoth">
+            <xsl:for-each select="$spcBoth/spcref">
                 <xsl:text>Entry[</xsl:text>
                 <xsl:value-of select="name()"/>
                 <xsl:text>]</xsl:text>
@@ -364,13 +364,13 @@
                 <xsl:sort select="upper-case(SortTerm)" order="ascending"/>
                 <xsl:if test="contains($unittest, 'chktarget')">
                     <xsl:message>
-                        <xsl:text>TARGETNAME[</xsl:text>
+                        <xsl:text>TARGETNAME(</xsl:text>
                         <xsl:value-of select="xref/@keyref"/>
-                        <xsl:text>]=</xsl:text>
+                        <xsl:text>)=</xsl:text>
                         <xsl:value-of select="TargetTerm"/>
-                        <xsl:text>  SortedBy [</xsl:text>
+                        <xsl:text>  SortedBy </xsl:text>
                         <xsl:value-of select="SortTerm"/>
-                        <xsl:text>]  Prefix [</xsl:text>
+                        <xsl:text>  Prefix = [</xsl:text>
                         <xsl:value-of select="Prefix"/>
                         <xsl:text>]</xsl:text>
                     </xsl:message>
@@ -415,12 +415,14 @@
                 </xsl:call-template>
             </xsl:variable>
 
-
-            <!--<xsl:message>
-                <xsl:value-of select="string(.)"/>
-                <xsl:text>:</xsl:text>
-                <xsl:value-of select="$basename"/>
-            </xsl:message>-->
+            <xsl:if test="contains($unittest, 'chkEntry')">
+                <xsl:message>
+                    <xsl:text>ENTRY = </xsl:text>
+                    <xsl:value-of select="string(.)"/>
+                    <xsl:text>:</xsl:text>
+                    <xsl:value-of select="$basename"/>
+                </xsl:message>
+            </xsl:if>
 
             <xsl:choose>
                 <xsl:when test="string-length($basename) > 0">
@@ -428,7 +430,7 @@
 
                     <xsl:choose>
                         <!-- check if our id is unique in McGlossary -->
-                        <xsl:when test="count($McSpecification//entry[contains(@id, concat('spb_', $basename, '_'))]) > 0">
+                        <xsl:when test="count($McSpecification//entry[@id = concat('spb_', $basename, '_')]) > 0">
                             <!-- we did find the entry, but it was ambigious
                          1. report that as comment - it is not possible to find the correct target since the Ref.Glossary
                             does not
@@ -452,7 +454,7 @@
                                     <xsl:attribute name="id" select="concat('spd_', $basename, '_1')"/>
                                     <xsl:attribute name="conref">
                                         <xsl:apply-templates
-                                            select="$McSpecification//entry[contains(@id, concat('spb_', $basename, '_1'))]/../entry[2]"/>
+                                            select="$McSpecification//entry[@id = concat('spb_', $basename, '_1')]/../entry[2]"/>
                                     </xsl:attribute>
                                     <xsl:call-template name="processTodo">
                                         <xsl:with-param name="cmtText" select="'Fix Glossary Master File!'"/>
@@ -465,7 +467,7 @@
                                 <xsl:element name="entry">
                                     <xsl:attribute name="id" select="concat('spp_', $basename, '_1')"/>
                                     <xsl:apply-templates
-                                        select="$McSpecification//entry[contains(@id, concat('spb_', $basename, '_1'))]/../entry[3]"/>
+                                        select="$McSpecification//entry[@id = concat('spb_', $basename, '_1')]/../entry[3]"/>
                                 </xsl:element>
                             </xsl:element>
                         </xsl:when>
@@ -493,11 +495,11 @@
 
                                         <!-- Col 2 = text -->
                                         <xsl:apply-templates
-                                            select="$McSpecification//entry[contains(@id, concat('spb_', $basename))]/../entry[2]"/>
+                                            select="$McSpecification//entry[@id = concat('spb_', $basename)]/../entry[2]"/>
 
                                         <!-- Col 3 = publisher -->
                                         <xsl:apply-templates
-                                            select="$McSpecification//entry[contains(@id, concat('spb_', $basename))]/../entry[3]"/>
+                                            select="$McSpecification//entry[@id = concat('spb_', $basename)]/../entry[3]"/>
                                     </xsl:element>
                                     <!-- no more used because I need the prefix ... 
                                         <xsl:apply-templates mode="copy"
@@ -614,28 +616,57 @@
         <xsl:param name="basename"/>
         <xsl:param name="prefix" select="''"/>
         <xsl:variable name="rawText">
-            <xsl:value-of select="$McSpecification//entry[contains(@id, concat('spb_', $basename))]/../entry[1]"/>
+            <xsl:copy-of select="$McSpecification//entry[@id = concat('spb_', $basename)]/../entry[1]" copy-namespaces="no"/>
         </xsl:variable>
+
+        <xsl:if test="contains($unittest, 'chkraw')">
+            <xsl:message>
+                <xsl:text>rawText</xsl:text>
+                <xsl:copy-of select="$rawText"/>
+            </xsl:message>
+        </xsl:if>
+
         <xsl:choose>
-            <!-- if the prefix wants to avoid the link, we propagate this to the bibliography
+            <!-- if the prefix in the written document wants to avoid the link, we propagate this to the bibliography
                  and exchange a potential other prefix of the library
             -->
             <xsl:when test="$prefix = '~'">
-                <xsl:analyze-string select="$rawText" regex="{'(.*)(\[.*\])'}">
-                    <xsl:matching-substring>
-                        <xsl:value-of select="concat($prefix, regex-group(2))"/>
-                    </xsl:matching-substring>
-                    <xsl:non-matching-substring>
-                        <xsl:value-of select="."/>
-                    </xsl:non-matching-substring>
-                </xsl:analyze-string>
+                <xsl:apply-templates select="$rawText" mode="setprefix"/>
             </xsl:when>
             <xsl:otherwise>
-                <xsl:value-of select="$rawText"/>
+                <xsl:apply-templates select="$rawText" mode="entry"/>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
 
+    <xsl:template match="entry" mode="entry">
+        <xsl:apply-templates mode="entry"/>
+    </xsl:template>
+
+    <xsl:template match="*" mode="entry">
+        <xsl:call-template name="putXML"/>
+    </xsl:template>
+
+    <xsl:template match="entry" mode="setprefix">
+        <xsl:apply-templates mode="setprefix"/>
+    </xsl:template>
+
+    <xsl:template match="text()" mode="setprefix">
+        <xsl:analyze-string select="." regex="{'(.*)(\[.*\])'}">
+            <xsl:matching-substring>
+                <xsl:value-of select="concat('~', regex-group(2))"/>
+            </xsl:matching-substring>
+            <xsl:non-matching-substring>
+                <xsl:value-of select="."/>
+            </xsl:non-matching-substring>
+        </xsl:analyze-string>
+    </xsl:template>
+
+    <xsl:template match="*" mode="setprefix" priority="-1">
+        <xsl:call-template name="putXMLp"/>
+    </xsl:template>
+
+    <!-- Parse the full source .ditamap-docs and extract any ezRead link -->
     <xsl:template name="getTextLinks">
         <xsl:param name="mode" select="'createnodes'"/>
         <xsl:param name="relaxed-mode" select="0"/>
@@ -652,10 +683,10 @@
                     </xsl:analyze-string>
 
                 </xsl:variable>
-                <xsl:analyze-string select="." regex="{'(.*?)(\[.*?\])'}">
+                <xsl:analyze-string select="normalize-space(.)" regex="{'(.*?)(\[.*?\])'}">
                     <xsl:matching-substring>
                         <!-- evaluate the eliminated [ezRead] construction -->
-                        <xsl:analyze-string select="regex-group(2)" regex="{'.*?(\[)(.*?):{2}(.*?)#(.*?\])'}">
+                        <xsl:analyze-string select="normalize-space(regex-group(2))" regex="{'.*?(\[)(.*?):{2}(.*?)#(.*?\])'}">
                             <xsl:matching-substring>
                                 <xsl:call-template name="createBaseEntry">
                                     <xsl:with-param name="bibentry" select="concat('[', regex-group(3), ']')"/>
@@ -666,7 +697,7 @@
                                 </xsl:call-template>
                             </xsl:matching-substring>
                             <xsl:non-matching-substring>
-                                <xsl:analyze-string select="." regex="{'.*?(\[.*?)#(.*?\])'}">
+                                <xsl:analyze-string select="normalize-space(.)" regex="{'.*?(\[.*?)#(.*?\])'}">
                                     <xsl:matching-substring>
                                         <xsl:call-template name="createBaseEntry">
                                             <xsl:with-param name="bibentry" select="concat(regex-group(1), ']')"/>
@@ -677,7 +708,7 @@
                                         </xsl:call-template>
                                     </xsl:matching-substring>
                                     <xsl:non-matching-substring>
-                                        <xsl:analyze-string select="." regex="{'.*?\[(.*?):{2}(.*?)\]'}">
+                                        <xsl:analyze-string select="normalize-space(.)" regex="{'.*?\[(.*?):{2}(.*?)\]'}">
                                             <xsl:matching-substring>
                                                 <xsl:call-template name="createBaseEntry">
                                                     <xsl:with-param name="bibentry" select="concat('[', regex-group(2), ']')"/>
@@ -688,7 +719,7 @@
                                                 </xsl:call-template>
                                             </xsl:matching-substring>
                                             <xsl:non-matching-substring>
-                                                <xsl:analyze-string select="." regex="{'.*?(\[.*?\])'}">
+                                                <xsl:analyze-string select="normalize-space(.)" regex="{'.*?(\[.*?\])'}">
                                                     <xsl:matching-substring>
                                                         <xsl:call-template name="createBaseEntry">
                                                             <xsl:with-param name="bibentry" select="regex-group(1)"/>
@@ -771,7 +802,7 @@
             <xsl:when test="string-length($basename) > 0">
                 <xsl:choose>
                     <!-- AMBIGOUS entry in McGlossary identified by spb_term_1 a second underscore show ambiguity -->
-                    <xsl:when test="count(($McSpecification//tbody/row/entry[1])[contains(@id, concat('spb_', $basename, '_'))]) > 0">
+                    <xsl:when test="count(($McSpecification//tbody/row/entry[1])[@id = concat('spb_', $basename, '_')]) > 0">
                         <xsl:value-of select="concat('000-ambigous:', $basename)"/>
                         <xsl:message>
                             <xsl:text>Ambigous link target: </xsl:text>
@@ -922,7 +953,7 @@
                     <xsl:choose>
                         <xsl:when test="$warning = 0">
                             <xsl:message>
-                                <xsl:text>No [..#..] target found: </xsl:text>
+                                <xsl:text>[..#..] target not found: IGNORE.XML? : </xsl:text>
                                 <xsl:value-of select="$bibentry"/>
                                 <!--<xsl:text> W-Level = </xsl:text>
                                 <xsl:value-of select="$warning"/>-->
@@ -930,7 +961,7 @@
                         </xsl:when>
                         <xsl:when test="$warning = 3">
                             <xsl:message>
-                                <xsl:text>No [..] target found: </xsl:text>
+                                <xsl:text>[..] target not found: IGNORE.XML? : </xsl:text>
                                 <xsl:value-of select="$bibentry"/>
                                 <!--<xsl:text> W-Level = </xsl:text>
                                 <xsl:value-of select="$warning"/>-->
@@ -986,12 +1017,42 @@
     </xsl:template>
 
     <!-- transparent throughput of any XML input -->
-    <xsl:template name="putXML">
+    <xsl:template name="putXMLp">
         <xsl:element name="{name()}">
             <xsl:for-each
                 select="
                     @*
-                    [not(contains(name(), 'class'))]
+                    [not(contains(name(), 'ditaarch'))]
+                    [not(contains(name(), 'domains'))]">
+                <xsl:copy inherit-namespaces="no"/>
+            </xsl:for-each>
+            <xsl:apply-templates select="* | text() | comment() | processing-instruction()" mode="setprefix"/>
+        </xsl:element>
+    </xsl:template>
+
+    <xsl:template name="putXML">
+        <!--
+        <xsl:message>
+            <xsl:text>putXML[</xsl:text>
+            <xsl:value-of select="name()"/>
+            <xsl:text>](</xsl:text>
+            <xsl:for-each
+                select="
+                @*
+                [not(contains(name(), 'ditaarch'))]
+                [not(contains(name(), 'domains'))]">
+                <xsl:value-of select="name()"/>
+                <xsl:text>=</xsl:text>
+                <xsl:value-of select="."/>
+                <xsl:text>   </xsl:text>
+            </xsl:for-each>
+            <xsl:text>)</xsl:text>            
+        </xsl:message>
+        -->
+        <xsl:element name="{name()}">
+            <xsl:for-each
+                select="
+                    @*
                     [not(contains(name(), 'ditaarch'))]
                     [not(contains(name(), 'domains'))]">
                 <xsl:copy inherit-namespaces="no"/>

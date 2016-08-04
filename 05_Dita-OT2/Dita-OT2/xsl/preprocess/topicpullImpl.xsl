@@ -54,6 +54,7 @@ mode="topicpull:figure-linktext" and mode="topicpull:table-linktext"
   <xsl:import href="../common/output-message.xsl"/>
   <xsl:import href="../common/dita-textonly.xsl"/>
   <!-- Define the error message prefix identifier -->
+  <!-- Deprecated since 2.3 -->
   <xsl:variable name="msgprefix">DOTX</xsl:variable>
 
   <xsl:param name="DBG" select="'no'"/>
@@ -337,16 +338,14 @@ mode="topicpull:figure-linktext" and mode="topicpull:table-linktext"
         <xsl:choose>
           <xsl:when test="$topicid='' or not(key('topic', $topicid)) or $topicid='#none#' ">
             <xsl:call-template name="output-message">
-              <xsl:with-param name="msgnum">057</xsl:with-param>
-              <xsl:with-param name="msgsev">W</xsl:with-param>
+              <xsl:with-param name="id" select="'DOTX057W'"/>
               <xsl:with-param name="msgparams">%1=<xsl:value-of select="@href"/>
               </xsl:with-param>
             </xsl:call-template>
           </xsl:when>
           <xsl:when test="not($elemid='') and not($elemid='#none#') and not(key('topic', $topicid)//*[@id=$elemid])">
             <xsl:call-template name="output-message">
-              <xsl:with-param name="msgnum">057</xsl:with-param>
-              <xsl:with-param name="msgsev">W</xsl:with-param>
+              <xsl:with-param name="id" select="'DOTX057W'"/>
               <xsl:with-param name="msgparams">%1=<xsl:value-of select="@href"/>
               </xsl:with-param>
             </xsl:call-template>
@@ -357,24 +356,21 @@ mode="topicpull:figure-linktext" and mode="topicpull:table-linktext"
         <xsl:choose>
           <xsl:when test="not($doc) or not($doc/*/*)">
             <xsl:call-template name="output-message">
-              <xsl:with-param name="msgnum">057</xsl:with-param>
-              <xsl:with-param name="msgsev">W</xsl:with-param>
+              <xsl:with-param name="id" select="'DOTX057W'"/>
               <xsl:with-param name="msgparams">%1=<xsl:value-of select="@href"/>
               </xsl:with-param>
             </xsl:call-template>
           </xsl:when>
           <xsl:when test="not($doc//*[contains(@class,' topic/topic ')][@id=$topicid])">
             <xsl:call-template name="output-message">
-              <xsl:with-param name="msgnum">057</xsl:with-param>
-              <xsl:with-param name="msgsev">W</xsl:with-param>
+              <xsl:with-param name="id" select="'DOTX057W'"/>
               <xsl:with-param name="msgparams">%1=<xsl:value-of select="@href"/>
               </xsl:with-param>
             </xsl:call-template>
           </xsl:when>
           <xsl:when test="not($elemid='') and not($elemid='#none#') and not(key('topic', $topicid)//*[@id=$elemid])">
             <xsl:call-template name="output-message">
-              <xsl:with-param name="msgnum">057</xsl:with-param>
-              <xsl:with-param name="msgsev">W</xsl:with-param>
+              <xsl:with-param name="id" select="'DOTX057W'"/>
               <xsl:with-param name="msgparams">%1=<xsl:value-of select="@href"/>
               </xsl:with-param>
             </xsl:call-template>
@@ -384,8 +380,7 @@ mode="topicpull:figure-linktext" and mode="topicpull:table-linktext"
       <xsl:otherwise>
         <xsl:if test="($format='dita' or $format='#none#') and not($scope='external') and not($scope='peer') and not($doc) and not(contains(@href,'://'))">
           <xsl:call-template name="output-message">
-            <xsl:with-param name="msgnum">057</xsl:with-param>
-            <xsl:with-param name="msgsev">W</xsl:with-param>
+            <xsl:with-param name="id" select="'DOTX057W'"/>
             <xsl:with-param name="msgparams">%1=<xsl:value-of select="@href"/>
             </xsl:with-param>
           </xsl:call-template>
@@ -1274,6 +1269,19 @@ mode="topicpull:figure-linktext" and mode="topicpull:table-linktext"
         </xsl:variable>
         <xsl:value-of select="normalize-space($target-text)"/>
       </xsl:when>
+      
+      <xsl:when test="$topicpos='samefile' and key('topic', $topicid)//*[@id = $elemid][1][contains(@class, ' topic/title ')]">
+        <xsl:variable name="target-text">
+          <xsl:apply-templates select="key('topic', $topicid)//*[@id = $elemid][1][contains(@class, ' topic/title ')]" mode="text-only"/>
+        </xsl:variable>
+        <xsl:value-of select="normalize-space($target-text)"/>
+      </xsl:when>
+      <xsl:when test="$topicpos='otherfile' and $doc//*[contains(@class, ' topic/topic ')][@id=$topicid]//*[@id=$elemid][1][contains(@class, ' topic/title ')]">
+        <xsl:variable name="target-text">
+          <xsl:apply-templates select="$doc//*[contains(@class, ' topic/topic ')][@id=$topicid]//*[@id=$elemid][1][contains(@class, ' topic/title ')]" mode="text-only"/>
+        </xsl:variable>
+        <xsl:value-of select="normalize-space($target-text)"/>
+      </xsl:when>
 
       <!-- No title or spectitle; check to see if the element provides generated text -->
       <xsl:when test="$topicpos='samefile' and key('topic', $topicid)/*[contains(@class,' topic/body ') or contains(@class,' topic/abstract ') or contains(@class,' topic/related-links ') ] //*[@id=$elemid][contains(@class, $classval)][1]">
@@ -1945,21 +1953,18 @@ mode="topicpull:figure-linktext" and mode="topicpull:table-linktext"
   <!-- Deprecated -->
   <xsl:template match="*" mode="ditamsg:unknown-extension">
     <xsl:call-template name="output-message">
-      <xsl:with-param name="msgnum">006</xsl:with-param>
-      <xsl:with-param name="msgsev">E</xsl:with-param>
+      <xsl:with-param name="id" select="'DOTX006E'"/>
       <xsl:with-param name="msgparams">%1=<xsl:value-of select="@href"/></xsl:with-param>
     </xsl:call-template>
   </xsl:template>
   <xsl:template match="*" mode="ditamsg:empty-href">
     <xsl:call-template name="output-message">
-      <xsl:with-param name="msgnum">017</xsl:with-param>
-      <xsl:with-param name="msgsev">E</xsl:with-param>
+      <xsl:with-param name="id" select="'DOTX017E'"/>
     </xsl:call-template>
   </xsl:template>
   <xsl:template match="*" mode="ditamsg:missing-href">
     <xsl:call-template name="output-message">
-      <xsl:with-param name="msgnum">028</xsl:with-param>
-      <xsl:with-param name="msgsev">E</xsl:with-param>
+      <xsl:with-param name="id" select="'DOTX028E'"/>
     </xsl:call-template>
   </xsl:template>
   <xsl:template match="*" mode="ditamsg:type-attribute-not-specific">
@@ -1968,8 +1973,7 @@ mode="topicpull:figure-linktext" and mode="topicpull:table-linktext"
     <xsl:param name="type"/>
     <xsl:param name="actual-name"/>
     <xsl:call-template name="output-message">
-      <xsl:with-param name="msgnum">029</xsl:with-param>
-      <xsl:with-param name="msgsev">I</xsl:with-param>
+      <xsl:with-param name="id" select="'DOTX029I'"/>
       <xsl:with-param name="msgparams">%1=<xsl:value-of select="$elem-name"/>;%2=<xsl:value-of select="$targetting"/>;%3=<xsl:value-of select="$type"/>;%4=<xsl:value-of select="$actual-name"/></xsl:with-param>
     </xsl:call-template>
   </xsl:template>
@@ -1979,8 +1983,7 @@ mode="topicpull:figure-linktext" and mode="topicpull:table-linktext"
     <xsl:param name="type"/>
     <xsl:param name="actual-name"/>
     <xsl:call-template name="output-message">
-      <xsl:with-param name="msgnum">030</xsl:with-param>
-      <xsl:with-param name="msgsev">W</xsl:with-param>
+      <xsl:with-param name="id" select="'DOTX030W'"/>
       <xsl:with-param name="msgparams">%1=<xsl:value-of select="$elem-name"/>;%2=<xsl:value-of select="$targetting"/>;%3=<xsl:value-of select="$type"/>;%4=<xsl:value-of select="$actual-name"/></xsl:with-param>
     </xsl:call-template>
   </xsl:template>
@@ -1989,15 +1992,13 @@ mode="topicpull:figure-linktext" and mode="topicpull:table-linktext"
     <xsl:choose>
        <xsl:when test="$ONLYTOPICINMAP='true'">
           <xsl:call-template name="output-message">
-             <xsl:with-param name="msgnum">056</xsl:with-param>
-             <xsl:with-param name="msgsev">W</xsl:with-param>
+             <xsl:with-param name="id" select="'DOTX056W'"/>
              <xsl:with-param name="msgparams">%1=<xsl:value-of select="$file"/></xsl:with-param>
            </xsl:call-template>
       </xsl:when>
       <xsl:otherwise>
          <xsl:call-template name="output-message">
-            <xsl:with-param name="msgnum">031</xsl:with-param>
-            <xsl:with-param name="msgsev">E</xsl:with-param>
+            <xsl:with-param name="id" select="'DOTX031E'"/>
             <xsl:with-param name="msgparams">%1=<xsl:value-of select="$file"/></xsl:with-param>
             </xsl:call-template>
          </xsl:otherwise>
@@ -2005,36 +2006,31 @@ mode="topicpull:figure-linktext" and mode="topicpull:table-linktext"
   </xsl:template>
   <xsl:template match="*" mode="ditamsg:cannot-retrieve-linktext">
     <xsl:call-template name="output-message">
-      <xsl:with-param name="msgnum">032</xsl:with-param>
-      <xsl:with-param name="msgsev">E</xsl:with-param>
+      <xsl:with-param name="id" select="'DOTX032E'"/>
       <xsl:with-param name="msgparams">%1=<xsl:value-of select="@href"/></xsl:with-param>
     </xsl:call-template>
   </xsl:template>
   <xsl:template match="*" mode="ditamsg:cannot-retrieve-list-number">
     <xsl:call-template name="output-message">
-      <xsl:with-param name="msgnum">033</xsl:with-param>
-      <xsl:with-param name="msgsev">E</xsl:with-param>
+      <xsl:with-param name="id" select="'DOTX033E'"/>
       <xsl:with-param name="msgparams">%1=<xsl:value-of select="@href"/></xsl:with-param>
     </xsl:call-template>
   </xsl:template>
   <xsl:template match="*" mode="ditamsg:crossref-unordered-listitem">
     <xsl:call-template name="output-message">
-      <xsl:with-param name="msgnum">034</xsl:with-param>
-      <xsl:with-param name="msgsev">E</xsl:with-param>
+      <xsl:with-param name="id" select="'DOTX034E'"/>
       <xsl:with-param name="msgparams">%1=<xsl:value-of select="@href"/></xsl:with-param>
     </xsl:call-template>
   </xsl:template>
   <xsl:template match="*" mode="ditamsg:cannot-retrieve-footnote-number">
     <xsl:call-template name="output-message">
-      <xsl:with-param name="msgnum">035</xsl:with-param>
-      <xsl:with-param name="msgsev">E</xsl:with-param>
+      <xsl:with-param name="id" select="'DOTX035E'"/>
       <xsl:with-param name="msgparams">%1=<xsl:value-of select="@href"/></xsl:with-param>
     </xsl:call-template>
   </xsl:template>
   <xsl:template match="*" mode="ditamsg:cannot-find-dlentry-target">
     <xsl:call-template name="output-message">
-      <xsl:with-param name="msgnum">036</xsl:with-param>
-      <xsl:with-param name="msgsev">E</xsl:with-param>
+      <xsl:with-param name="id" select="'DOTX036E'"/>
       <xsl:with-param name="msgparams">%1=<xsl:value-of select="@href"/></xsl:with-param>
     </xsl:call-template>
   </xsl:template>

@@ -17,7 +17,17 @@
     font-family: Arial;
     font-size: 10pt;
 }
-  
+ 
+.hr { 
+    display: block;
+    margin-top: 0.5em;
+    margin-bottom: -1em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border-width: 3px;
+}
+
 .base {
   background-color: #ffffff;
 }
@@ -28,14 +38,41 @@
 /* div with class=p is used for paragraphs that contain blocks, to keep the XHTML valid */
 .p {
   margin-top: 1em;
+  font-size: 10pt
 }
+
+/*HSX we need 2px distance from caption to the image */
+.image {
+  margin-top: 2px;
+}
+
+.tablecap {
+  font-style: italic;
+  font-weight: bold;
+  text-align: left;
+}
+
+.tabledesc {
+  font-style: normal;
+  color: #707070;
+}
+
+.caption {
+   text-align: left;
+   padding-bottom: 2pt;
+   padding-left: 0pt;
+}
+
+
 /* Default of italics to set apart figure captions */
 .figcap {
   font-style: italic;
 }
 .figdesc {
   font-style: normal;
+  color: #707070;
 }
+
 /* Use @frame to create frames on figures */
 .figborder {
   border-style: solid;
@@ -340,6 +377,21 @@ div.imageright {
 div.imagejustify {
   text-align: justify;
 }
+
+/* Table layout */
+.table {
+    border-color: darkgray; /* makes border disappear */
+}
+
+.thead {
+    border-color: lightgray;    
+}
+
+.tbody {
+    border-color: lightgray;    
+}
+
+
 /* The cell border can be turned on with
    {border-right:solid}
    This value creates a very thick border in Firefox (does not match other tables)
@@ -370,6 +422,13 @@ div.imagejustify {
   border-right: hidden;
   border-bottom: hidden;
 }
+
+.sup {
+    font-size: 80%;
+    position: relative; 
+    top: 1px;  
+}
+
 pre.screen {
   padding: 5px 5px 5px 5px;
   border: outset;

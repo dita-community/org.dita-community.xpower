@@ -51,8 +51,13 @@
         <xsl:apply-templates select="." mode="add-xref-highlight-at-start"/>
         <a>
           <xsl:call-template name="commonattributes"/>
+          <!--HSC
+              HTML_ID_SEPARATOR = __ is used to build the id.
+          -->
           <xsl:apply-templates select="." mode="add-linking-attributes"/>
           <xsl:apply-templates select="." mode="add-desc-as-hoverhelp"/>
+          
+          <!--HSC ============= CREATE LINK TEXT =================== -->
           <!-- if there is text or sub element other than desc, apply templates to them
           otherwise, use the href as the value of link text. -->
           <xsl:choose>
@@ -69,12 +74,24 @@
                 </xsl:choose>
               </sup>
             </xsl:when>
+            <!--HSX Here we create a link -->
             <xsl:otherwise>
               <xsl:choose>
+                <!--HSC The target has useable text, we can use that-->
                 <xsl:when test="*[not(contains(@class, ' topic/desc '))] | text()">
+                        <!--HSC here we receive (in a glossary entry)
+                        
+                        class:: <?attribute name="class"  value="- topic/xref "?>
+                        href::  <?attribute name="href"   value="Glossary.dita#glsgrp/gls_DCI"?>
+                        keyref::<?attribute name="keyref" value="gls/gls_DCI"?>
+                        xtrc::  <?attribute name="xtrc"   value="xref:1;11:68"?>
+                        xtrf::  <?attribute name="xtrf"   value="file:/F:/book/src/book/contest.dita"?>                        
+                        
+                        -->
                   <xsl:apply-templates select="*[not(contains(@class, ' topic/desc '))] | text()"/>
                   <!--use xref content-->
                 </xsl:when>
+                <!--HSC The target has no useable text, we create the link info -->
                 <xsl:otherwise>
                   <xsl:call-template name="href"/><!--use href text-->
                 </xsl:otherwise>
@@ -286,7 +303,7 @@ Each child is indented, the linktext is bold, and the shortdesc appears in norma
 
   <!-- Override no-name group wrapper template for HTML: output "Related Information" in a <linklist>. -->
   <xsl:template match="*[contains(@class, ' topic/link ')]" mode="related-links:result-group" name="related-links:group-result."
-                as="element(linklist)">
+                as="element()">
     <xsl:param name="links" as="node()*"/>
     <xsl:if test="exists($links)">
       <linklist class="- topic/linklist " outputclass="relinfo">
@@ -323,6 +340,8 @@ Each child is indented, the linktext is bold, and the shortdesc appears in norma
   <xsl:template name="href">
     <xsl:apply-templates select="." mode="determine-final-href"/>
   </xsl:template>
+  
+  <!--HSC ============== create href as part of topic/xref ========= -->
   <xsl:template match="*" mode="determine-final-href">
     <xsl:choose>
       <xsl:when test="not(normalize-space(@href)) or empty(@href)"/>
@@ -338,15 +357,35 @@ Each child is indented, the linktext is bold, and the shortdesc appears in norma
       <!-- It's to a DITA file - process the file name (adding the html extension)
     and process the rest of the href -->
       <xsl:when test="(empty(@scope) or @scope = ('local', 'peer')) and (empty(@format) or @format = 'dita')">
+        <!--HSC create the file-part of the link -->
         <xsl:call-template name="replace-extension">
           <xsl:with-param name="filename" select="@href"/>
           <xsl:with-param name="extension" select="$OUTEXT"/>
           <xsl:with-param name="ignore-fragment" select="true()"/>
         </xsl:call-template>
-        <xsl:if test="contains(@href, '#')">
-          <xsl:text>#</xsl:text>
-          <xsl:value-of select="dita-ot:generate-id(dita-ot:get-topic-id(@href), dita-ot:get-element-id(@href))"/>
-        </xsl:if>
+        <xsl:choose>
+          <!--HSX 
+             Solution 1 for the glossary avoids the generation of an id
+             from the @href entry.
+             
+             The possible solution 2 would be to generate the glossary entry's id
+             just like the default case below (using dita-ot:generate-id)
+             This, however, does not really heal because the idea of
+                <xsl:apply-templates select="." mode="return-aria-label-id"/>
+             cannot be changed easily to support glossary entries in a glossgroup
+             
+             Therefore we use the very economic solution here - a special case
+             for glossgroup, to correct the links                         
+          -->
+          <xsl:when test="contains(@href, '#glsgrp/')">
+            <xsl:value-of select="concat('#', substring-after(@href, '#glsgrp/'))"/>
+          </xsl:when>
+          <xsl:when test="contains(@href, '#')">
+            <!--HSC create the subtopic part of the link -->
+            <xsl:text>#</xsl:text>
+            <xsl:value-of select="dita-ot:generate-id(dita-ot:get-topic-id(@href), dita-ot:get-element-id(@href))"/>
+          </xsl:when>
+        </xsl:choose>
       </xsl:when>
       <xsl:otherwise>
         <xsl:apply-templates select="." mode="ditamsg:unknown-extension"/>
@@ -747,6 +786,7 @@ Each child is indented, the linktext is bold, and the shortdesc appears in norma
      allows the common linking set to be used when commonattributes
      already exists for an ancestor. -->
   <xsl:template match="*" mode="add-linking-attributes">
+    <!--HSC ============ CREATE THE ACTUAL LINK ================ -->
     <xsl:apply-templates select="." mode="add-href-attribute"/>
     <xsl:apply-templates select="." mode="add-link-target-attribute"/>
     <xsl:apply-templates select="." mode="add-custom-link-attributes"/>
@@ -776,8 +816,7 @@ Each child is indented, the linktext is bold, and the shortdesc appears in norma
       </xsl:call-template>
     </xsl:param>
     <xsl:call-template name="output-message">
-      <xsl:with-param name="msgnum">043</xsl:with-param>
-      <xsl:with-param name="msgsev">I</xsl:with-param>
+      <xsl:with-param name="id" select="'DOTX043I'"/>
       <xsl:with-param name="msgparams">%1=<xsl:value-of select="$href"/>;%2=<xsl:value-of select="$outfile"/></xsl:with-param>
     </xsl:call-template>
   </xsl:template>

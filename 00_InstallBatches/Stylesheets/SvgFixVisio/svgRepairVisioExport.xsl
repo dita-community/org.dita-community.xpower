@@ -9,8 +9,10 @@
     <xsl:strip-space elements="text"/>
     
     <xsl:character-map name="sample">
-        <xsl:output-character character="&#x3C;" string="&lt;"/>
-        <xsl:output-character character="&#x3E;" string="&gt;"/>
+        <xsl:output-character character="&#x3C;" string="&amp;lt;"/>
+        <xsl:output-character character="&#x3E;" string="&amp;gt;"/>
+        <xsl:output-character character="&#60;" string="&amp;lt;"/>
+        <xsl:output-character character="&#62;" string="&amp;gt;"/>
         <xsl:output-character character="⊕" string="&amp;#x2295;"/>
         <xsl:output-character character="“" string='"'/>
         <xsl:output-character character="”" string='"'/>

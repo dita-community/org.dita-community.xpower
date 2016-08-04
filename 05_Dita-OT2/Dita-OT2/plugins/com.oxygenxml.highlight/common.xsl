@@ -28,6 +28,8 @@ https://www.oxygenxml.com/doc/versions/17.1/ug-editorEclipse/index.html#topics/s
                    language="java"
                    src="java:net.sf.xslthl.ConnectorSaxonB" />
 
+    <xsl:variable name="unittest" select="' none '"/>
+    
     <xsl:template match="*" name="outputStyling" mode="outputstyling">
         <xsl:param name="myText"/>
         <xsl:variable name="outpclass">

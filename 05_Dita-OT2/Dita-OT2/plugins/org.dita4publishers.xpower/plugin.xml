@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<plugin id="org.dita4publishers.xpower">
-    <require plugin="org.dita.pdf2"/>
-    <feature extension="dita.conductor.transtype.check" value="xpower"/>
-    <feature extension="dita.transtype.print" value="xpower"/>
-    <feature extension="dita.conductor.target.relative" file="build.xml"/>
-</plugin>

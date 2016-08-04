@@ -14,12 +14,13 @@
 
   <xsl:import href="../common/dita-utilities.xsl"/>
   <xsl:import href="../common/output-message.xsl"/>
+  <!-- Deprecated since 2.3 -->
   <xsl:variable name="msgprefix">DOTX</xsl:variable>
 
   <xsl:param name="file-being-processed" as="xs:string"/>
   <xsl:param name="child-topicref-warning" as="xs:string" select="'true'"/>
 
-  <!-- list of attributes that can be overided. -->
+  <!-- list of attributes that can be overidden. -->
   <xsl:variable name="special-atts" select="('href', 'copy-to', 'class', 'linking', 'toc', 'print', 'audience', 'product', 'platform', 'otherprops', 'props')" as="xs:string*"/>
 
   <!-- the xsl:key to get all maprefs in the document in order to get reltable -->
@@ -52,8 +53,7 @@
       <xsl:when test="generate-id(.) = $mapref-id-path">
         <!-- it is mapref but it didn't pass the loop dependency check -->
         <xsl:call-template name="output-message">
-          <xsl:with-param name="msgnum">053</xsl:with-param>
-          <xsl:with-param name="msgsev">E</xsl:with-param>
+          <xsl:with-param name="id" select="'DOTX053E'"/>
           <xsl:with-param name="msgparams">%1=<xsl:value-of select="$href"/></xsl:with-param>
         </xsl:call-template>
       </xsl:when>
@@ -85,7 +85,7 @@
           </xsl:if>
         </xsl:variable>
         <xsl:choose>
-          <xsl:when test="empty($file) or empty($file/*/*)">
+          <xsl:when test="empty($file)">
             <xsl:variable name="filename" as="xs:string?">
               <xsl:choose>
                 <xsl:when test="empty($href)"/>
@@ -106,8 +106,7 @@
               </xsl:choose>
             </xsl:variable>
             <xsl:call-template name="output-message">
-              <xsl:with-param name="msgnum">031</xsl:with-param>
-              <xsl:with-param name="msgsev">E</xsl:with-param>
+              <xsl:with-param name="id" select="'DOTX031E'"/>
               <xsl:with-param name="msgparams">%1=<xsl:value-of select="$filename"/></xsl:with-param>
             </xsl:call-template>
           </xsl:when>
@@ -166,7 +165,7 @@
                   <xsl:value-of select="normalize-space($keyscope)"/>
                 </xsl:attribute>
               </xsl:if>
-              <xsl:apply-templates select="@* except (@class, @href, @dita-ot:orig-href, @format, @dita-ot:orig-format, @keys, @keyscope)"/>
+              <xsl:apply-templates select="@* except (@class, @href, @dita-ot:orig-href, @format, @dita-ot:orig-format, @keys, @keyscope, @type)"/>
               <xsl:apply-templates select="*[contains(@class, ' ditavalref-d/ditavalref ')]"/>
               <xsl:apply-templates select="$contents">
                 <xsl:with-param name="refclass" select="$refclass"/>
@@ -194,8 +193,7 @@
         <xsl:if test="$child-topicref-warning = 'true' and *[contains(@class, ' map/topicref ')]
                                                             [not(contains(@class, ' ditavalref-d/ditavalref '))]">
           <xsl:call-template name="output-message">
-            <xsl:with-param name="msgnum">068</xsl:with-param>
-            <xsl:with-param name="msgsev">W</xsl:with-param>
+            <xsl:with-param name="id" select="'DOTX068W'"/>
           </xsl:call-template>
         </xsl:if>
       </xsl:otherwise>
@@ -346,8 +344,7 @@
     <xsl:choose>
       <xsl:when test="generate-id(.) = $mapref-id-path">
         <xsl:call-template name="output-message">
-          <xsl:with-param name="msgnum">053</xsl:with-param>
-          <xsl:with-param name="msgsev">E</xsl:with-param>
+          <xsl:with-param name="id" select="'DOTX053E'"/>
           <xsl:with-param name="msgparams">%1=<xsl:value-of select="@href"/></xsl:with-param>
         </xsl:call-template>
       </xsl:when>

@@ -35,8 +35,7 @@ needs to add the param project.doc
 in order to allow the propagation of the ProjDocRel variable. This is the
 relative path from the topic.fo directory into the stub directory      
 
--->
-<project xmlns:dita="http://dita-ot.sourceforge.net" name="dita.build" basedir=".">
+--><project xmlns:dita="http://dita-ot.sourceforge.net" name="dita.build" basedir=".">
   
   <target name="dita2pdf2.init">
     <dita-ot-fail id="PDFX012F">
@@ -134,7 +133,7 @@ relative path from the topic.fo directory into the stub directory
     <antcall target="preview.topic.pdf"/>
   </target>
 
-  <target name="preview.topic.pdf" depends="transform.topic2pdf.init, preview.topic.pdf.init, transform.topic2pdf"/>
+  <target name="preview.topic.pdf" depends="transform.topic2pdf.init,                    preview.topic.pdf.init,                    transform.topic2pdf"/>
   <target name="preview.topic.pdf.init">
     <property name="inputFile" location="${dita.temp.dir}/${user.input.file}"/>
     <!--property name="outputFile" location="${dita.map.output.dir}/${dita.topic.filename.root}.pdf"/-->
@@ -157,7 +156,7 @@ relative path from the topic.fo directory into the stub directory
     <timestamp.echo message="HSCT:map2pdf2:out"/>
   </target>
 
-  <target name="publish.map.pdf" depends="transform.topic2pdf.init, publish.map.pdf.init, transform.topic2pdf"/>
+  <target name="publish.map.pdf" depends="transform.topic2pdf.init,                    publish.map.pdf.init,                    transform.topic2pdf"/>
   <target name="publish.map.pdf.init">
     <property name="inputFile" location="${dita.temp.dir}/${merged.file}"/>
     <!--property name="outputFile" location="${dita.map.output.dir}/${dita.map.filename.root}.pdf"/-->
@@ -165,7 +164,7 @@ relative path from the topic.fo directory into the stub directory
     <property name="artworkPrefix" value="${artwork.dir}"/>
   </target>
 
-  <target name="transform.topic2fo" depends="transform.topic2fo.init, transform.topic2fo.index, transform.topic2fo.flagging, transform.topic2fo.main, transform.topic2fo.i18n"/>
+  <target name="transform.topic2fo" depends="transform.topic2fo.init,                    transform.topic2fo.index,                    transform.topic2fo.main,                    transform.topic2fo.i18n"/>
     
   <target name="transform.topic2fo.init" depends="transform.fo2pdf.ah.init,transform.fo2pdf.fop.init,transform.fo2pdf.xep.init,transform.fo2pdf.xep.init,transform.fo2pdf.fop.init">
     <taskdef name="detect-lang" classname="com.suite.sol.ditaot.DetectLang" classpathref="project.class.path"/>
@@ -280,28 +279,7 @@ relative path from the topic.fo directory into the stub directory
 
     <index-preprocess input="${inputFile.url}" output="${dita.temp.dir}/stage1.xml" indexConfig="${index.config.file}" locale="${document.locale}" catalogs="${xml.catalog.files}"/> 
   </target>
-
-  <target name="transform.topic2fo.flagging" depends="transform.topic2fo.flagging.filter,                    transform.topic2fo.flagging.no-filter"/>
-  <target name="transform.topic2fo.flagging.filter" if="dita.input.valfile">
-    <condition property="_org.dita.pdf2.valfile" value="${dita.input.valfile}">
-      <available file="${dita.input.valfile}" type="file"/>
-    </condition>
-    <condition property="_org.dita.pdf2.valfile" value="${dita.plugin.org.dita.pdf2.dir}/${dita.input.valfile}">
-      <not><isset property="_org.dita.pdf2.valfile"/></not>
-    </condition>
-    <makeurl property="_org.dita.pdf2.valfile.url" file="${_org.dita.pdf2.valfile}" validate="no"/>
-    <copy file="${dita.temp.dir}/stage1.xml" tofile="${dita.temp.dir}/stage1a.xml"/>
-    <!--<xslt in="${dita.temp.dir}/stage1.xml" out="${dita.temp.dir}/stage1a.xml" style="${xsl.fo.dir}/flagging-preprocess.xsl">
-      <param name="filterFile" expression="${_org.dita.pdf2.valfile.url}"/>
-      <xmlcatalog>
-        <catalogpath path="${xml.catalog.files}"/>
-      </xmlcatalog>
-    </xslt>-->
-  </target>
-  <target name="transform.topic2fo.flagging.no-filter" unless="dita.input.valfile">
-    <copy file="${dita.temp.dir}/stage1.xml" tofile="${dita.temp.dir}/stage1a.xml"/>
-  </target>  
-
+  
   <target name="transform.topic2fo.main">
     <!--makeurl seems to output file:/C: style instead of file:///C:, but xep, fop, and ah all accept it.-->
     <makeurl property="artworkPrefixUrl" file="${artworkPrefix}"/>
@@ -311,7 +289,7 @@ relative path from the topic.fo directory into the stub directory
     <makeurl property="user.input.dir.url" file="${user.input.dir}"/>    
     <makeurl property="variable.file.url" file="${variable.file}" validate="no"/>
 
-    <xslt style="${temp.transformation.file}" in="${dita.temp.dir}/stage1a.xml" out="${dita.temp.dir}/stage2.fo">
+    <xslt style="${temp.transformation.file}" in="${dita.temp.dir}/stage1.xml" out="${dita.temp.dir}/stage2.fo">
       <param name="project.doc" expression="${ProjDocRel}"/>
       <param name="equation.img.scale" expression="${equation.scale}"/>
       <param name="locale" expression="${document.locale}"/>
@@ -332,6 +310,7 @@ relative path from the topic.fo directory into the stub directory
       <param name="figurelink.style" expression="${args.figurelink.style}"/>
       <param name="tablelink.style" expression="${args.tablelink.style}"/>
       <param name="variableFiles.url" expression="${variable.file.url}" if="variable.file.exists"/>
+      <param name="defaultLanguage" expression="${default.language}"/>
       
       <xmlcatalog>
         <catalogpath path="${xml.catalog.files}"/>
@@ -371,13 +350,11 @@ relative path from the topic.fo directory into the stub directory
       <not><isset property="i18n.config.file"/></not>
     </condition>
 
-    <i18n-preprocess input="${dita.temp.dir}/stage2.fo" output="${dita.temp.dir}/stage3.fo" config="${i18n.config.file}" catalogs="${xml.catalog.files}"/> 
-
-    <xslt in="${dita.temp.dir}/stage3.fo" out="${pdf2.temp.dir}/topic.fo" style="${xsl.fo.dir}/i18n-postprocess.xsl">
+    <i18n-preprocess input="${dita.temp.dir}/stage2.fo" output="${pdf2.temp.dir}/topic.fo" config="${i18n.config.file}" style="${xsl.fo.dir}/i18n-postprocess.xsl">
       <xmlcatalog>
         <catalogpath path="${xml.catalog.files}"/>
       </xmlcatalog>
-    </xslt>
+    </i18n-preprocess>
   </target>
   <target name="transform.topic2fo.i18n.no-filter" if="pdf2.i18n.skip">
     <echo level="info">Skip I18N font processing.</echo>

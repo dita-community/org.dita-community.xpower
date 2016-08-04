@@ -6,7 +6,7 @@
     <property name="html-version" value="xhtml"/>
   </target>
 	
-    <target name="dita2xhtml" depends="dita2xhtml.init,                      build-init,                      preprocess,                       xhtml.topics,                      dita.map.xhtml,                      copy-css">
+    <target name="dita2xhtml" depends="dita2xhtml.init,                      build-init,                      preprocess,                       dita.map.ref,                       xhtml.topics,                      dita.map.xhtml,                      copy-css">
     </target>
 
     <target name="dita.map.xhtml" depends="dita.map.xhtml.init, dita.map.xhtml.toc"/>
@@ -24,25 +24,76 @@
         </condition>
     </target>
     
+    <!--HSX 
+         New target dita.map.ref creates a ditamapref.xml in the temporary directory
+         which keeps the structure of the chapter - topicref of the .ditamap with the
+         associated @href attributes. This file is required to allow the generation of
+         next-prev buttons in the pages. Those need to know the precessor and the successor
+         which we can only learn from the created ditamapref.xml because the topics
+         generation stylesheet are called such that they do not know their neighbours
+         anymore.         
+    -->
+    <target name="dita.map.ref" depends="xhtml.init" unless="noMap">
+        <timestamp.echo message="HSCT:Creating SetTemp.bat"/>
+        <echo message="set tempdir=${dita.temp.dir}" file="SetTemp.bat"/>
+
+        <timestamp.echo message="HSCT:dita.map.ref.start"/>
+        <timestamp.echo message="${dita.temp.dir}${file.separator}${user.input.file.listfile}"/>
+        <timestamp.echo message="${dita.temp.dir}"/>
+
+        <timestamp.echo message="${output.dir}"/>
+        <timestamp.echo message="${_dita.map.output.dir}"/>
+        <timestamp.echo message="${args.xhtml.toc}"/>
+
+        <timestamp.echo message="${dita.temp.dir}${file.separator}${user.input.file.listfile}"/>
+        <timestamp.echo message="${args.xhtml.toc.xsl}"/>
+
+        <timestamp.echo message="${dita.plugin.org.dita.xhtml.dir}"/>
+        <timestamp.echo message="${html-version}"/>
+
+        <timestamp.echo message="${resourceonlyfile}"/>
+        <timestamp.echo message="${out.ext}"/>
+        <timestamp.echo message="${args.xhtml.contenttarget}"/>
+        <timestamp.echo message="${args.css.file}"/>
+        <timestamp.echo message="${user.csspath}"/>
+        <timestamp.echo message="${args.xhtml.toc.class}"/>
+
+        <!--HSX Create the ditamap base structure to allow finding prev-next topic -->
+        <xslt basedir="${dita.temp.dir}" destdir="${dita.temp.dir}" includesfile="${dita.temp.dir}${file.separator}${user.input.file.listfile}" classpathref="dost.class.path" style="${dita.plugin.org.dita.xhtml.dir}/xsl/ditamapref.xsl">
+          <xmlcatalog refid="dita.catalog"/>
+            <mergemapper to="ditamapref.xml"/>
+        </xslt>
+        <timestamp.echo message="HSCT:dita.map.ref.end"/>
+    </target>
+
 
   	
     <target name="dita.map.xhtml.toc" unless="noMap" description="Build HTML TOC file">
-        <local name="xhtml.toc.output.dir"/>
-        <condition property="xhtml.toc.output.dir" value="${output.dir}" else="${_dita.map.output.dir}">
-          <isset property="inner.transform"/>
-        </condition>      
-        <xslt basedir="${dita.temp.dir}" destdir="${xhtml.toc.output.dir}" includesfile="${dita.temp.dir}${file.separator}${user.input.file.listfile}" classpathref="dost.class.path" style="${args.xhtml.toc.xsl}">
-        	<excludesfile name="${dita.temp.dir}${file.separator}${resourceonlyfile}" if="resourceonlyfile"/>
-            <param name="OUTEXT" expression="${out.ext}" if="out.ext"/>
-            <param name="contenttarget" expression="${args.xhtml.contenttarget}" if="args.xhtml.contenttarget"/>
-            <param name="CSS" expression="${args.css.file}" if="args.css.file"/>
-            <param name="CSSPATH" expression="${user.csspath}" if="user.csspath"/>
-            <param name="OUTPUTCLASS" expression="${args.xhtml.toc.class}" if="args.xhtml.toc.class"/>
-            
-            <mergemapper to="${args.xhtml.toc}${out.ext}"/>
-          <xmlcatalog refid="dita.catalog"/>
-        </xslt>
+      <map.html>
+        
+      </map.html>
     </target>
+  
+  <macrodef name="map.html">
+    <element name="params" optional="true" implicit="true"/>
+    <sequential>
+      <local name="xhtml.toc.output.dir"/>
+      <condition property="xhtml.toc.output.dir" value="${output.dir}" else="${_dita.map.output.dir}">
+       <isset property="inner.transform"/>
+      </condition>      
+      <xslt basedir="${dita.temp.dir}" destdir="${xhtml.toc.output.dir}" includesfile="${dita.temp.dir}${file.separator}${user.input.file.listfile}" classpathref="dost.class.path" style="${args.xhtml.toc.xsl}">
+        <excludesfile name="${dita.temp.dir}${file.separator}${resourceonlyfile}" if="resourceonlyfile"/>
+        <param name="OUTEXT" expression="${out.ext}" if="out.ext"/>
+        <param name="contenttarget" expression="${args.xhtml.contenttarget}" if="args.xhtml.contenttarget"/>
+        <param name="CSS" expression="${args.css.file}" if="args.css.file"/>
+        <param name="CSSPATH" expression="${user.csspath}" if="user.csspath"/>
+        <param name="OUTPUTCLASS" expression="${args.xhtml.toc.class}" if="args.xhtml.toc.class"/>
+        <params/>
+        <mergemapper to="${args.xhtml.toc}${out.ext}"/>
+        <xmlcatalog refid="dita.catalog"/>
+      </xslt>
+    </sequential>
+  </macrodef>
     
 
     <!-- Deprecated since 2.1 -->

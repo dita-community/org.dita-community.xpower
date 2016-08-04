@@ -31,9 +31,61 @@
     <!-- INCLUDE THE PROCESSING FILE -->
     <xsl:include href="acsSelectRefmap.xsl"/>
 
+    <xsl:template name="get-file-name">
+        <xsl:param name="file-path"/>
+        <xsl:choose>
+            <xsl:when test="contains($file-path, '\')">
+                <xsl:call-template name="get-file-name">
+                    <xsl:with-param name="file-path" select="substring-after($file-path, '\')"/>
+                </xsl:call-template>
+            </xsl:when>
+            <xsl:when test="contains($file-path, '/')">
+                <xsl:call-template name="get-file-name">
+                    <xsl:with-param name="file-path" select="substring-after($file-path, '/')"/>
+                </xsl:call-template>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:value-of select="$file-path"/>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:template>
+    
+    <xsl:variable name="mapName">
+        <xsl:call-template name="get-file-name">
+            <xsl:with-param name="file-path" select="base-uri()"/>
+        </xsl:call-template>
+    </xsl:variable>
+    
+    <xsl:variable name="DocTag">
+        <xsl:analyze-string select="$mapName" regex="{'_([^_]*)_.*'}">
+            <xsl:matching-substring>
+                <xsl:value-of select="regex-group(1)"/>
+            </xsl:matching-substring>
+        </xsl:analyze-string>
+    </xsl:variable>
+    
+    <xsl:variable name="DocToken">
+        <xsl:choose>
+            <xsl:when test="string-length($DocTag) &gt; 0">
+                <xsl:message>
+                    <xsl:text>DocToken = </xsl:text>
+                    <xsl:value-of select="$DocTag"/>
+                </xsl:message>
+                <xsl:value-of select="$DocTag"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:message>
+                    <xsl:text>DitaToken = </xsl:text>
+                    <xsl:value-of select="$DitaToken"/>
+                </xsl:message>
+                <xsl:value-of select="$DitaToken"/>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:variable>
+    
     <xsl:template match="/">
         <xsl:choose>
-            <xsl:when test="string-length(normalize-space($DitaToken)) = 0">
+            <xsl:when test="string-length(normalize-space($DocToken)) = 0">
                 <xsl:message>
                     <xsl:text>Stopped Process: The environment variable $Dita-Token shall have a non-empty target value !</xsl:text>
                     <xsl:text>&#xA;Find more in [MyDita#DoAcronyms]</xsl:text>
@@ -163,7 +215,7 @@
                 </xsl:variable>
                 
                 <!-- Create the local acronyms -->
-                <xsl:variable name="outFN" select="concat($folderURI, $DitaToken,'/', $acName)"/>
+                <xsl:variable name="outFN" select="concat($folderURI, $DocToken,'/', $acName)"/>
                 <xsl:result-document href="{$outFN}" format="xml">
                     <xsl:apply-templates select="$mergedFiles" mode="acs"/>
                 </xsl:result-document>

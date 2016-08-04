@@ -370,6 +370,7 @@
     <echo level="info">* input = ${args.input}</echo>
     <echo level="info">* transtype = ${transtype}</echo>
     <echo level="info">* tempdir = ${dita.temp.dir}</echo>
+    <echo level="info">* args.filter = ${args.filter}</echo>
     <echo level="info">* outputdir = ${output.dir}</echo>
     <echo level="info">* clean.temp = ${clean.temp}</echo>
     <echo level="info">* DITA-OT version = ${otversion}</echo>
