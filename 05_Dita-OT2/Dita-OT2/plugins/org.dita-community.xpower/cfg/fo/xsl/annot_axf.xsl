@@ -631,7 +631,7 @@ See the accompanying license.txt file for applicable licenses.
                         -->
                         <xsl:analyze-string select="concat('[', regex-group(1), ']')" regex="{'.*?\[(.*?):{2}(.*?)#(.*?)\]'}">
                             <xsl:matching-substring>
-                                <xsl:variable name="igntext" select="regex-group(2)"/>
+                                <xsl:variable name="igntext" select="normalize-space(regex-group(2))"/>
                                 <xsl:variable name="chapnum" select="regex-group(3)"/>
                                 <xsl:variable name="linktext" select="regex-group(1)"/>
                                 <xsl:call-template name="createEzLink">
@@ -651,7 +651,7 @@ See the accompanying license.txt file for applicable licenses.
                             <xsl:non-matching-substring>
                                 <xsl:analyze-string select="." regex="{'.*?\[(.*?)#(.*?)\]'}">
                                     <xsl:matching-substring>
-                                        <xsl:variable name="igntext" select="regex-group(1)"/>
+                                        <xsl:variable name="igntext" select="normalize-space(regex-group(1))"/>
                                         <xsl:variable name="chapnum" select="regex-group(2)"/>
                                         <xsl:variable name="linktext" select="concat(regex-group(1), '#', regex-group(2))"/>
                                         <xsl:call-template name="createEzLink">
@@ -672,7 +672,7 @@ See the accompanying license.txt file for applicable licenses.
                                     <xsl:non-matching-substring>
                                         <xsl:analyze-string select="." regex="{'.*?\[(.*?):{2}(.*?)\]'}">
                                             <xsl:matching-substring>
-                                                <xsl:variable name="igntext" select="regex-group(2)"/>
+                                                <xsl:variable name="igntext" select="normalize-space(regex-group(2))"/>
                                                 <xsl:variable name="chapnum" select="''"/>
                                                 <xsl:variable name="linktext" select="regex-group(1)"/>
                                                 <xsl:call-template name="createEzLink">
@@ -692,7 +692,7 @@ See the accompanying license.txt file for applicable licenses.
                                             <xsl:non-matching-substring>
                                                 <xsl:analyze-string select="." regex="{'.*?\[(.*?)\]'}">
                                                     <xsl:matching-substring>
-                                                        <xsl:variable name="igntext" select="regex-group(1)"/>
+                                                        <xsl:variable name="igntext" select="normalize-space(regex-group(1))"/>
                                                         <xsl:variable name="chapnum" select="''"/>
                                                         <xsl:variable name="linktext" select="regex-group(1)"/>
                                                         <xsl:call-template name="createEzLink">
@@ -824,10 +824,11 @@ See the accompanying license.txt file for applicable licenses.
                             <xsl:value-of select="."/>
                         </xsl:when>
                         <xsl:otherwise>
-                            <xsl:value-of select="normalize-space(translate(., '&#x0A;&#x0D;', '  '))"/>
+                            <xsl:value-of select="translate(., '&#x0A;&#x0D;', '  ')"/>
                         </xsl:otherwise>
                     </xsl:choose>
                 </xsl:variable>
+                
                 <!--HSX isolate <pretext>[entry]... we cannot pick posttext because then
                     we would not get the next [] statement
                 -->
@@ -879,7 +880,7 @@ See the accompanying license.txt file for applicable licenses.
                     <xsl:value-of select="0"/>
                 </xsl:when>
                 <xsl:otherwise>
-                    <xsl:value-of select="count($ignoreTags/ignores/ignore[. = concat('[', $igntext, ']')])"/>
+                    <xsl:value-of select="count($ignoreTags/ignores/ignore[normalize-space(.) = normalize-space(concat('[', $igntext, ']'))])"/>
                 </xsl:otherwise>
             </xsl:choose>
         </xsl:variable>
